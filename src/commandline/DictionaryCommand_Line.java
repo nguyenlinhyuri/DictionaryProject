@@ -1,3 +1,5 @@
+package commandline;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -82,10 +84,9 @@ public class DictionaryCommand_Line {
                     break;
                 case 8: // insert from file
                     dict_cli.getDict_manage().insertFromFile();
-                    break;
+
                 case 9: // export to file
                     dict_cli.getDict_manage().dictionaryExportToFile();
-                    break;
                 default:
                     System.out.println("Action not supported.");
                     break;

@@ -1,3 +1,5 @@
+package commandline;
+
 public class DictionaryCommandline {
     private DictionaryManagement dict_manage = new DictionaryManagement();
 

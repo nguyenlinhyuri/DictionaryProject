@@ -1,3 +1,5 @@
+package commandline;
+
 public class Word {
     /**
      * word_target: english word
@@ -16,7 +18,8 @@ public class Word {
         this.word_explain = word_explain;
     }
 
-    boolean check_start(String s){
+    public boolean check_start(String s){
+        if (s.length() > this.word_target.length()) return false;
         for (int i=0; i<s.length(); i++){
             if (s.charAt(i) != this.word_target.charAt(i)) return false;
         }

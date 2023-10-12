@@ -1,3 +1,5 @@
+package commandline;
+
 import java.io.*;
 
 public class DictionaryManagement {
