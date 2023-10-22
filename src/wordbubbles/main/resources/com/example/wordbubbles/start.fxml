@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="520.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wordbubbles.StartController">
+   <children>
+      <Button fx:id="howToPlayButton" layoutX="155.0" layoutY="348.0" mnemonicParsing="false" onAction="#howToPlayGame" prefHeight="46.0" prefWidth="196.0" text="How To Play">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="playButton" layoutX="450.0" layoutY="348.0" mnemonicParsing="false" onAction="#playGame" prefHeight="46.0" prefWidth="196.0" text="Play">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="278.0" layoutY="102.0" prefHeight="70.0" prefWidth="243.0" text="Word Bubbles">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="258.0" layoutY="190.0" prefHeight="46.0" prefWidth="289.0" text="Challenge your verbal influency to drive">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="258.0" layoutY="227.0" prefHeight="46.0" prefWidth="289.0" text="your submarine deeper into the sea">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
