@@ -14,7 +14,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="scoreLabel" layoutX="689.0" prefHeight="50.0" prefWidth="111.0" text="Score: ">
+      <Label fx:id="wordLabel" layoutX="689.0" prefHeight="50.0" prefWidth="111.0" text="Word:">
          <font>
             <Font size="16.0" />
          </font>
@@ -29,7 +29,12 @@
          </font>
       </Label>
       <TextField fx:id="enterdWordTextField" layoutX="240.0" layoutY="362.0" onAction="#userEnterWord" prefHeight="39.0" prefWidth="406.0" />
-      <Label fx:id="timeLabel" alignment="CENTER" layoutX="351.0" layoutY="61.0" prefHeight="39.0" prefWidth="98.0" text="Start">
+      <Label fx:id="timeLabel" alignment="CENTER" layoutX="351.0" layoutY="61.0" prefHeight="39.0" prefWidth="98.0" text="01:30">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="pointLabel" layoutX="689.0" layoutY="50.0" prefHeight="50.0" prefWidth="111.0" text="Point:">
          <font>
             <Font size="16.0" />
          </font>

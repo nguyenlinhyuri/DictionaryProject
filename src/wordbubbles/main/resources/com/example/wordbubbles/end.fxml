@@ -12,7 +12,7 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Label fx:id="scoreLable" alignment="CENTER" layoutX="340.0" layoutY="166.0" prefHeight="62.0" prefWidth="120.0" text="Your score: ">
+      <Label fx:id="endWordLabel" alignment="CENTER" layoutX="317.0" layoutY="165.0" prefHeight="62.0" prefWidth="166.0" text="Word: ">
          <font>
             <Font size="20.0" />
          </font>
@@ -27,5 +27,10 @@
             <Font size="16.0" />
          </font>
       </Button>
+      <Label fx:id="endPointLabel" alignment="CENTER" layoutX="317.0" layoutY="217.0" prefHeight="62.0" prefWidth="166.0" text="Point: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

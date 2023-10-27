@@ -1,28 +1,17 @@
 package com.example.wordbubbles;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.*;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PlayController extends GameUtils implements Initializable {
     @FXML
@@ -32,7 +21,10 @@ public class PlayController extends GameUtils implements Initializable {
     private Button pauseButton;
 
     @FXML
-    private Label scoreLabel;
+    private Label wordLabel;
+
+    @FXML
+    private Label pointLabel;
 
     @FXML
     private TextArea enteredWordTextArea;
@@ -46,39 +38,53 @@ public class PlayController extends GameUtils implements Initializable {
     @FXML
     private Label timeLabel;
 
-    //    private String prefix = "";
-    private ArrayList<String> data = new ArrayList<>(); //  chứa mọi từ tiếng anh
-    //    private ArrayList<String> enteredWord = new ArrayList<>(); // chứa nhưng từ đã nhập, sẽ hiển thị lên TextArea
-//    private ArrayList<String> result = new ArrayList<>();  // các từ thỏa mãn bắt đầu bằng prefix
-    private final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\WordBubbles\\src\\main\\resources\\com\\example\\wordbubbles\\dictionaries.txt";
+//    private String prefix = "";
+//    private ArrayList<String> data = new ArrayList<>(); //  chứa mọi từ tiếng anh
+//    private ArrayList<String> enteredWord = new ArrayList<>();
+//    private ArrayList<String> result = new ArrayList<>();
+//    private final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\WordBubbles\\src\\main\\resources\\com\\example\\wordbubbles\\dictionaries.txt";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         enteredWord.clear();
-        score = 0;
+        numOfWord = 0;
         try {
             readData();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        timeLeft = time;
+        timeline = new Timeline();
+
         timeline.setCycleCount(Timeline.INDEFINITE); //Timeline sẽ chạy vô thời hạn cho đến khi được dừng lại hoặc bị gián đoạn.
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event -> {
             timeLeft--;
-            if (timeLeft <= 0) {
+            if (timeLeft < 0){
                 stop();
-                timeline.setOnFinished(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        ActionEvent endEvent = (ActionEvent) event;
-                        try {
-                            endGame(endEvent);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
+                showTimeOut();
+                PauseTransition delay = new PauseTransition(Duration.seconds(1));
+                delay.setOnFinished(e -> {
+                    try {
+                        endGame();
+                    } catch (IOException ex){
+                        ex.printStackTrace();
                     }
                 });
-            } else updateTimeLabel();
+                delay.play();
+
+            } else{
+                updateTimeLabel();
+                if (timeLeft == time*2/3){
+                    prefix = prefix.substring(0, 3);
+                    prefixLabel.setText(prefix);
+                    updateResultWord();
+                } else if (timeLeft == time/3){
+                    prefix = prefix.substring(0, 2);
+                    prefixLabel.setText(prefix);
+                    updateResultWord();
+                }
+            }
         }));
 
         timeline.play();
@@ -93,12 +99,14 @@ public class PlayController extends GameUtils implements Initializable {
     /**
      * end game
      */
-    public void endGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("end.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void endGame() throws IOException {
+        try {
+            AnchorPane component = FXMLLoader.load(getClass().getResource("end.fxml"));
+            anchorPane.getChildren().clear();
+            anchorPane.getChildren().add((Node) component);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -121,7 +129,7 @@ public class PlayController extends GameUtils implements Initializable {
     public void randomPrefix() {
         Random random = new Random();
         int randomIdx = random.nextInt(data.size());
-        prefix = data.get(randomIdx).substring(0, 2).toLowerCase();
+        prefix = data.get(randomIdx).substring(0, 4).toLowerCase();
         prefixLabel.setText(prefix);
     }
 
@@ -137,7 +145,7 @@ public class PlayController extends GameUtils implements Initializable {
     }
 
     public boolean check_start(String prefix, String s) {
-        if (s.length() <= 2) return false;
+        if (s.length() <= 4) return false;
         for (int i = 0; i < prefix.length(); i++) {
             if (prefix.charAt(i) != s.charAt(i)) return false;
         }
@@ -152,17 +160,25 @@ public class PlayController extends GameUtils implements Initializable {
         String inputWord = prefix + enterdWordTextField.getText().toLowerCase().trim();
         if (!enteredWord.contains(inputWord) && result.contains(inputWord)) {
             enteredWord.add(inputWord);
-            score++;
-            scoreLabel.setText("Score: " + score);
+            numOfWord++;
+            wordLabel.setText("Word: " + numOfWord);
+            pointLabel.setText("Point: " + point);
+            if (inputWord.length() == 3 || inputWord.length() == 4) point += 100;
+            else if (inputWord.length() == 5) point += 200;
+            else if (inputWord.length() == 6) point += 300;
+            else if (inputWord.length() == 7) point += 400;
+            else if (inputWord.length() == 8) point += 500;
+            else if (inputWord.length() == 9) point += 600;
+            else if (inputWord.length() >= 10) point += 700;
             if (enteredWord.size() == 1) {
                 enteredWordTextArea.setText(inputWord);
             } else {
                 enteredWordTextArea.setText(enteredWordTextArea.getText() + "   " + inputWord);
             }
         } else if (!result.contains(inputWord)) {
-            showInfomation("Not found this word!");
+            showInfomation("Not found this word!", 1);
         } else if (enteredWord.contains(inputWord)) {
-            showInfomation("You entered this word!");
+            showInfomation("You entered this word!", 1);
         }
         enterdWordTextField.clear();
     }
@@ -170,15 +186,14 @@ public class PlayController extends GameUtils implements Initializable {
     /**
      * hiển thị thông báo
      */
-    public void showInfomation(String message) {
+    public void showInfomation(String message, int time) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Oops!");
         alert.setHeaderText(null);
         alert.setContentText(message);
-//        alert.getDialogPane().getStylesheets().add(getClass().getResource("alert.css").toExternalForm());
         alert.show();
 
-        PauseTransition delay = new PauseTransition(Duration.seconds(1));
+        PauseTransition delay = new PauseTransition(Duration.seconds(time));
         delay.setOnFinished(e -> alert.close());
         delay.play();
     }
@@ -187,14 +202,21 @@ public class PlayController extends GameUtils implements Initializable {
      * tạm dừng game
      */
     public void pauseGame(ActionEvent event) throws IOException {
-        timeline.pause();
+//        gameState.setPausePrefix(prefix);
+//        gameState.setPauseScore(score);
+//        gameState.setPauseEnteredWord(enteredWord);
+//        gameState.setPauseData(data);
+//        gameState.setPauseEnteredWordTextArea(enteredWordTextArea.getText());
+//        gameState.setPauseResult(result);
+//        gameState.setPauseTimeLeft(timeLeft);
+
+        stop();
 
         root = FXMLLoader.load(getClass().getResource("pause.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     /**
@@ -216,4 +238,12 @@ public class PlayController extends GameUtils implements Initializable {
         }
     }
 
+    /**
+     * show timeout
+     */
+    public void showTimeOut(){
+        if (timeLeft <= 0){
+            showInfomation("The time has run out!", 1);
+        }
+    }
 }

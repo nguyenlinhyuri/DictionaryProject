@@ -1,11 +1,8 @@
 package com.example.wordbubbles;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,7 +14,10 @@ import java.util.ResourceBundle;
 
 public class EndController extends GameUtils implements Initializable {
     @FXML
-    private Label scoreLable;
+    private Label endWordLabel;
+
+    @FXML
+    private Label endPointLabel;
 
     @FXML
     private Button replayButton;
@@ -42,7 +42,7 @@ public class EndController extends GameUtils implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        scoreLable.setText("Score: " + score);
-        System.out.println("score = " + score);
+        endWordLabel.setText("Word: " + numOfWord);
+        endPointLabel.setText("Point: " + point);
     }
 }

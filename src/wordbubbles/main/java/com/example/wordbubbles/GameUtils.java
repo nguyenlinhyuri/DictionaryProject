@@ -8,17 +8,21 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class GameUtils {
-    public Parent root;
-    public Scene scene;
-    public Stage stage = new Stage();
+    public static Parent root;
+    public static Scene scene;
+    public static Stage stage;
 
-    public int score = 0;
-    public String prefix = "";
+    public static int numOfWord = 0;
+    public static int point = 0;
+    public static String prefix = "";
+    public static ArrayList<String> data = new ArrayList<>(); //  chứa mọi từ tiếng anh
+    public static ArrayList<String> enteredWord = new ArrayList<>();
+    public static ArrayList<String> result = new ArrayList<>();
+    public static final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\WordBubbles\\src\\main\\resources\\com\\example\\wordbubbles\\dictionaries.txt";
 
-    public ArrayList<String> enteredWord = new ArrayList<>();
-    public ArrayList<String> result = new ArrayList<>();
 
-    public int timeLeft = 5;
-    public Timeline timeline = new Timeline();
+    public static int time = 60;
+    public static int timeLeft = time;
+    public static Timeline timeline;
 
 }
