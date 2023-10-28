@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="520.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wordsnatcher.StartController">
+    <children>
+        <Button fx:id="howToPlayButton" layoutX="155.0" layoutY="348.0" mnemonicParsing="false" onAction="#howToPlayGame" prefHeight="46.0" prefWidth="196.0" text="How To Play">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Button fx:id="playButton" layoutX="450.0" layoutY="348.0" mnemonicParsing="false" onAction="#playGame" prefHeight="46.0" prefWidth="196.0" text="Play">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" layoutX="272.0" layoutY="101.0" prefHeight="70.0" prefWidth="256.0" text="Word Snatcher">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="245.0" layoutY="196.0" prefHeight="46.0" prefWidth="316.0" text="Exercise your vocabulary by unscrambling">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="364.0" layoutY="227.0" prefHeight="46.0" prefWidth="78.0" text="the word">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

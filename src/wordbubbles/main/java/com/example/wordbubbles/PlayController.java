@@ -38,12 +38,6 @@ public class PlayController extends GameUtils implements Initializable {
     @FXML
     private Label timeLabel;
 
-//    private String prefix = "";
-//    private ArrayList<String> data = new ArrayList<>(); //  chứa mọi từ tiếng anh
-//    private ArrayList<String> enteredWord = new ArrayList<>();
-//    private ArrayList<String> result = new ArrayList<>();
-//    private final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\WordBubbles\\src\\main\\resources\\com\\example\\wordbubbles\\dictionaries.txt";
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         enteredWord.clear();
@@ -78,10 +72,12 @@ public class PlayController extends GameUtils implements Initializable {
                 if (timeLeft == time*2/3){
                     prefix = prefix.substring(0, 3);
                     prefixLabel.setText(prefix);
+                    showPrefixLabel(prefix, anchorPane, 330, 160, 1);
                     updateResultWord();
                 } else if (timeLeft == time/3){
                     prefix = prefix.substring(0, 2);
                     prefixLabel.setText(prefix);
+                    showPrefixLabel(prefix, anchorPane, 330, 160, 1);
                     updateResultWord();
                 }
             }
@@ -93,7 +89,7 @@ public class PlayController extends GameUtils implements Initializable {
         randomPrefix();
         enteredWordTextArea.setEditable(false);
         enteredWordTextArea.setWrapText(true);
-        updateResultWord();
+        showPrefixLabel(prefix, anchorPane, 330, 160, 1);
     }
 
     /**
@@ -202,14 +198,6 @@ public class PlayController extends GameUtils implements Initializable {
      * tạm dừng game
      */
     public void pauseGame(ActionEvent event) throws IOException {
-//        gameState.setPausePrefix(prefix);
-//        gameState.setPauseScore(score);
-//        gameState.setPauseEnteredWord(enteredWord);
-//        gameState.setPauseData(data);
-//        gameState.setPauseEnteredWordTextArea(enteredWordTextArea.getText());
-//        gameState.setPauseResult(result);
-//        gameState.setPauseTimeLeft(timeLeft);
-
         stop();
 
         root = FXMLLoader.load(getClass().getResource("pause.fxml"));
@@ -245,5 +233,23 @@ public class PlayController extends GameUtils implements Initializable {
         if (timeLeft <= 0){
             showInfomation("The time has run out!", 1);
         }
+    }
+
+    /**
+     * hiển thị thông báo prefix trong 1 giây
+     */
+    public void showPrefixLabel(String prefix, AnchorPane anchorPane, double top, double left, int time){
+        Label label = new Label(prefix);
+        label.setStyle("-fx-font-size: 18px; -fx-background-color: pink;");
+
+        AnchorPane.setTopAnchor(label, top);
+        AnchorPane.setLeftAnchor(label, left);
+        anchorPane.getChildren().add(label);
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(time));
+        delay.setOnFinished(e -> {
+            anchorPane.getChildren().remove(label);
+        });
+        delay.play();
     }
 }
