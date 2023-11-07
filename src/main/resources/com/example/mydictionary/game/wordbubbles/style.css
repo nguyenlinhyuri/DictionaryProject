@@ -1,0 +1,27 @@
+.anchor-pane {
+    -fx-background-color: #3AB4E3;
+}
+
+.label {
+    -fx-font-family: "PT Serif";
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+}
+
+.button {
+    -fx-font-family: "PT Serif";
+    -fx-background-color: #59B6E2;
+    -fx-border-color: black;
+    -fx-font-size: 16px;
+}
+
+.alert .content {
+    -fx-font-family: "PT Serif";
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+}
+
+.text-area {
+    -fx-control-inner-background: #8EBDD7;
+    -fx-text-fill: #0000FF;
+}

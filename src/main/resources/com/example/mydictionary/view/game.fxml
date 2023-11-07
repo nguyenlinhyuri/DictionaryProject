@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-radius: 10; -fx-background-color: #8AD7FD;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.GameController">
+   <children>
+      <Label alignment="CENTER" layoutX="47.0" layoutY="27.0" prefHeight="42.0" prefWidth="118.0" style="-fx-font-family: Cambria; -fx-font-weight: bold;" text="All Games">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="hangMan" layoutX="47.0" layoutY="88.0" mnemonicParsing="false" onAction="#hangManAction" prefHeight="124.0" prefWidth="170.0" style="-fx-font-family: Cambria; -fx-background-radius: 20; -fx-font-size: 20;" text="Hang Man">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="wordBubbles" layoutX="234.0" layoutY="88.0" mnemonicParsing="false" onAction="#wordbubblesAction" prefHeight="124.0" prefWidth="170.0" style="-fx-font-family: Cambria; -fx-background-radius: 20; -fx-font-size: 20;" text="Word Bubbles">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="wordSnatchers" layoutX="423.0" layoutY="88.0" mnemonicParsing="false" onAction="#wordsnatchersAction" prefHeight="124.0" prefWidth="170.0" style="-fx-font-family: Cambria; -fx-background-radius: 20; -fx-font-size: 20;" text="Word Snatchers">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

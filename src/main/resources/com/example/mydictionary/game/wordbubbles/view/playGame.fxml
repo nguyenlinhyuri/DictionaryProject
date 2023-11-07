@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #3B8AAB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.PlayController">
+   <children>
+      <Label fx:id="wordLabel" layoutX="681.0" layoutY="5.0" prefHeight="39.0" prefWidth="120.0" style="-fx-background-color: #B9E3FB; -fx-font-family: cambria; -fx-text-fill: #3382A1; -fx-font-weight: bold;" text=" Word">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="enteredWordTextArea" layoutX="161.0" layoutY="93.0" prefHeight="230.0" prefWidth="509.0" style="-fx-background-color: #87B5CD; -fx-border-color: none; -fx-background-radius: 10; -fx-font-size: 20; -fx-font-family: cambria;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextArea>
+      <Label fx:id="prefixLabel" alignment="CENTER_RIGHT" layoutX="168.0" layoutY="335.0" prefHeight="50.0" prefWidth="72.0" style="-fx-font-family: cambria; -fx-font-weight: bold; -fx-text-fill: #ffffff;" text="prefix">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="enterdWordTextField" layoutX="248.0" layoutY="335.0" onAction="#userEnterWord" prefHeight="50.0" prefWidth="422.0" style="-fx-background-radius: 20;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="timeLabel" alignment="CENTER" layoutX="366.0" layoutY="50.0" prefHeight="39.0" prefWidth="98.0" style="-fx-font-family: cambria; -fx-font-size: 24; -fx-font-weight: bold; -fx-background-color: #AEDEFA; -fx-border-color: #000000; -fx-border-width: 3;" text="01:30">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="pointLabel" layoutX="681.0" layoutY="50.0" prefHeight="39.0" prefWidth="120.0" style="-fx-background-color: #B9E3FB; -fx-font-family: cambria; -fx-text-fill: #3382A1; -fx-font-weight: bold;" text=" Point">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="pauseButton" layoutX="6.0" layoutY="5.0" mnemonicParsing="false" onAction="#pauseGame" prefHeight="50.0" prefWidth="120.0" style="-fx-font-family: cambria; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 20;" text=" Pause">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/pause.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="mutedSoundButton" layoutX="650.0" layoutY="412.0" mnemonicParsing="false" onAction="#mutedSound" prefHeight="39.0" prefWidth="150.0" style="-fx-font-family: cambria; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 18; -fx-background-color: rgba(255, 255, 255, 0.5);" text="Mute Sound">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/speaker.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

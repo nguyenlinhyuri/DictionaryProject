@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #3C88AA;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.StartController">
+   <children>
+      <Button fx:id="backButton" layoutX="38.0" layoutY="30.0" mnemonicParsing="false" onAction="#backGame" prefHeight="46.0" prefWidth="98.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2); -fx-font-size: 20px;" text="Back">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="67.0" layoutY="135.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="This game uses your KEYBOARD. ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="314.0" fitWidth="395.0" layoutX="414.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/keyboard.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="67.0" layoutY="186.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="Complele a word that starts with the letters above and press ENTER.">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="67.0" layoutY="233.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="Longer words are worth more points than shorter words.">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="67.0" layoutY="281.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="As the timer counts down, we'll remove starting letters.">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="67.0" layoutY="328.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="Click BACK and start the game. Have fun!">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="625.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/bb.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #3693C7;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.MainSceneController">
+   <children>
+      <AnchorPane layoutX="63.0" layoutY="8.0" prefHeight="583.0" prefWidth="826.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
+         <children>
+            <ImageView fx:id="avtImageView" fitHeight="46.0" fitWidth="49.0" layoutX="724.0" layoutY="14.0" onMouseClicked="#clickAvt" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/anya.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="724.0" layoutY="14.0" onMouseClicked="#clickAvt" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/frame.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="usernameLabel" alignment="CENTER" layoutX="670.0" layoutY="60.0" prefHeight="34.0" prefWidth="154.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="Username" />
+            <ImageView fitHeight="105.0" fitWidth="389.0" layoutX="219.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/title.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <Button fx:id="searchButton" layoutX="6.0" layoutY="209.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="54.0" prefWidth="54.0" style="-fx-background-radius: 40; -fx-background-color: #3693C7; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/search.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Search" wrapText="true" />
+         </tooltip>
+      </Button>
+      <Button fx:id="exitButton" layoutX="6.0" layoutY="517.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="54.0" prefWidth="54.0" style="-fx-background-radius: 40; -fx-background-color: #3693C7; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);">
+         <graphic>
+            <ImageView fitHeight="44.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Exit" wrapText="true" />
+         </tooltip>
+      </Button>
+      <Button fx:id="gameButton" layoutX="6.0" layoutY="442.0" mnemonicParsing="false" onAction="#gameAction" prefHeight="54.0" prefWidth="54.0" style="-fx-background-radius: 40; -fx-background-color: #3693C7; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/game.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Game" wrapText="true" />
+         </tooltip>
+      </Button>
+      <Button fx:id="practiceButton" layoutX="6.0" layoutY="368.0" mnemonicParsing="false" onAction="#practiceAction" prefHeight="54.0" prefWidth="54.0" style="-fx-background-radius: 40; -fx-background-color: #3693C7; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/learn.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip text="Practice" />
+         </tooltip>
+      </Button>
+      <Button fx:id="translateButton" layoutX="6.0" layoutY="292.0" mnemonicParsing="false" onAction="#translateAction" prefHeight="54.0" prefWidth="54.0" style="-fx-background-radius: 40; -fx-background-color: #3693C7; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/text.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <tooltip>
+            <Tooltip contentDisplay="CENTER" text="Translate text" wrapText="true" />
+         </tooltip>
+      </Button>
+      <ImageView fitHeight="54.0" fitWidth="54.0" layoutX="6.0" layoutY="14.0" onMouseClicked="#clickAvt" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
