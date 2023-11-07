@@ -4,25 +4,18 @@ import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.image.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
+import javafx.scene.media.*;
+import javafx.util.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class PlayController extends GameUtils implements Initializable {
     @FXML
@@ -62,6 +55,7 @@ public class PlayController extends GameUtils implements Initializable {
             e.printStackTrace();
         }
 
+        if (mediaPlayer != null) mediaPlayer.stop();
         playSound("sound/play.wav", 2);
 
         timeLeft = time;
@@ -130,16 +124,10 @@ public class PlayController extends GameUtils implements Initializable {
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
             mediaPlayer.pause();
 
-            Image image = new Image("E:\\Java\\intellijJava\\OOPtemp\\WordBubbles\\src\\main\\resources\\com\\example\\wordbubbles\\image\\unmutedsound.png");
-            ImageView img = new ImageView(image);
-            mutedSoundButton = new Button("Unmuted Sound", img);
         }
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) {
             mediaPlayer.play();
 
-            Image image = new Image("E:\\Java\\intellijJava\\OOPtemp\\WordBubbles\\src\\main\\resources\\com\\example\\wordbubbles\\image\\speaker.png");
-            ImageView img = new ImageView(image);
-            mutedSoundButton = new Button("Muted Sound", img);
         }
     }
 
@@ -163,7 +151,7 @@ public class PlayController extends GameUtils implements Initializable {
      */
     public void randomPrefix() {
         Random random = new Random();
-        int randomIdx = random.nextInt(data.size());
+        int randomIdx = random.nextInt(data.size()+1);
         prefix = data.get(randomIdx).substring(0, 4).toLowerCase();
         prefixLabel.setText(prefix);
     }
@@ -242,10 +230,8 @@ public class PlayController extends GameUtils implements Initializable {
     public void pauseGame(ActionEvent event) throws IOException {
         timeline.pause();
 
-//        showNewScene(rootAnchorPane, "game/wordbubbles/view/pause.fxml", top, left);
-
         try {
-            component = FXMLLoader.load(getClass().getResource("game/wordbubbles/view/pause.fxml"));
+            component = FXMLLoader.load(getClass().getResource("view/pause.fxml"));
             AnchorPane.setTopAnchor(component, top);
             AnchorPane.setLeftAnchor(component, left);
             rootAnchorPane.getChildren().add((Node) component);
@@ -311,22 +297,27 @@ public class PlayController extends GameUtils implements Initializable {
      * play sound
      */
     public void playBubblesSound() {
-        String[] bubblesSound = {"game/wordbubbles/sound/bubbles_sound.wav",
-                "game/wordbubbles/sound/bubbles_sound1.wav",
-                "game/wordbubbles/sound/bubbles_sound2.wav",
-                "game/wordbubbles/sound/bubbles_sound3.wav"};
+        String[] bubblesSound = {"sound/bubbles_sound.wav",
+                "sound/bubbles_sound1.wav",
+                "sound/bubbles_sound2.wav",
+                "sound/bubbles_sound3.wav"};
         int random = (int) (Math.random() * 4);
-        Media sound = new Media(getClass().getResource(bubblesSound[random]).toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        URL resource = getClass().getResource(bubblesSound[random]);
+        if (resource != null){
+            Media sound = new Media(resource.toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(sound);
 
-        // đặt thoi gian phát là 4s
-        mediaPlayer.setOnReady(() -> {
-            Duration duration = sound.getDuration();
-            if (duration.greaterThan(Duration.seconds(4))) {
-                mediaPlayer.setStopTime(Duration.seconds(4));
-            }
-        });
-        mediaPlayer.play();
+            // đặt thoi gian phát là 4s
+            mediaPlayer.setOnReady(() -> {
+                Duration duration = sound.getDuration();
+                if (duration.greaterThan(Duration.seconds(4))) {
+                    mediaPlayer.setStopTime(Duration.seconds(4));
+                }
+            });
+            mediaPlayer.play();
+        }
+
+
     }
 
 }

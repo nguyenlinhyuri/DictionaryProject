@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-radius: 10; -fx-background-color: #8AD7FD;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.PracticeController">
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #8AD7FD;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.Practice">
    <children>
       <Button fx:id="notedWordsButton" layoutX="55.0" layoutY="87.0" mnemonicParsing="false" onAction="#notedWordsAction" prefHeight="80.0" prefWidth="700.0" style="-fx-font-family: Cambria; -fx-background-radius: 20; -fx-font-size: 20;" text="Noted Words">
          <font>

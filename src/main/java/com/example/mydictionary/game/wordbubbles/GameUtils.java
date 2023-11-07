@@ -20,7 +20,7 @@ public class GameUtils extends AppUtils {
     public static ArrayList<String> data = new ArrayList<>(); //  chứa mọi từ tiếng anh
     public static ArrayList<String> enteredWord = new ArrayList<>();
     public static ArrayList<String> result = new ArrayList<>();
-    public static final String DATA_PATH = "game/wordbubbles/dictionaries.txt";
+    public static final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\game\\wordbubbles\\dictionaries.txt";
 
 
     public static int time = 60;
@@ -29,7 +29,6 @@ public class GameUtils extends AppUtils {
 
     public void playSound(String path, int times){
         URL resource = getClass().getResource(path);
-        System.out.println(resource);
         if (resource != null) {
             media = new Media(resource.toString());
             mediaPlayer = new MediaPlayer(media);

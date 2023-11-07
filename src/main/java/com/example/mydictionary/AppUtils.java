@@ -16,8 +16,6 @@ public class AppUtils {
     public static Scene scene;
     public static Parent root;
     public static AnchorPane rootAnchorPane;  //110.0 - 8.0
-    public static AnchorPane gameAnchorPane;
-    public static AnchorPane practiceAnchorPane;
 
     public static String USER_NAME = "";
 
@@ -75,6 +73,5 @@ public class AppUtils {
         mediaPlayer.play();
         mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.stop());
     }
-
 
 }

@@ -1,0 +1,4 @@
+laptop	máy tính xách tay
+mouse	chuột
+notebook	vở
+mousepad	miếng lót chuột
