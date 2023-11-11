@@ -2,7 +2,12 @@ package com.example.mydictionary;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
+import java.net.URL;
 
 public class Game extends AppUtils {
     @FXML
@@ -18,6 +23,17 @@ public class Game extends AppUtils {
      * chơi hangman
      */
     public void hangManAction(ActionEvent event) {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL url = AppUtils.class.getResource("game/hangman/view/start.fxml");
+        fxmlLoader.setLocation(url);
+        try {
+            hangmanAnchorPane = fxmlLoader.load();
+            AnchorPane.setTopAnchor(hangmanAnchorPane, top1);
+            AnchorPane.setLeftAnchor(hangmanAnchorPane, left1);
+            rootAnchorPane.getChildren().add(hangmanAnchorPane);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
 

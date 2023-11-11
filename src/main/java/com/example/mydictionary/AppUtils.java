@@ -4,23 +4,56 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.*;
 
 public class AppUtils {
     public static Stage stage;
     public static Scene scene;
     public static Parent root;
-    public static AnchorPane rootAnchorPane;  //110.0 - 8.0
+    public static AnchorPane rootAnchorPane;
+
+    /**
+     * game
+     */
+    public static AnchorPane bubblesAnchorPane;
+    public static AnchorPane snatchersAnchorPane;
+    public static AnchorPane hangmanAnchorPane;
+
+    /**
+     * practice
+     */
+    public static AnchorPane flashcardAnchorPane;
+    public static AnchorPane notedwordAnchorPane;
+    public static AnchorPane exercisesAnchorPane;
+
+    /**
+     * search
+     */
+    public static AnchorPane searchAnchorPane;
+
+    /**
+     * translate text
+     */
+    public static AnchorPane translateAnchorPane;
+
+    public static Media media;
+    public static MediaPlayer mediaPlayer;
 
     public static String USER_NAME = "";
 
     public static final double top = 118.0;
     public static final double left = 71.0;
+
+    public static final double top1 = 0.0;
+    public static final double left1 = 0.0;
+
+    public Map<String, String> notedWord = new HashMap<>();  // từ đã lưu
+    public final String NOTED_WORD_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\practice\\data.txt";
 
 
 
@@ -73,5 +106,19 @@ public class AppUtils {
         mediaPlayer.play();
         mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.stop());
     }
+
+    /**
+     * load âm thanh cho app
+     */
+    public void playSound(String path, int times){
+        URL resource = getClass().getResource(path);
+        if (resource != null) {
+            media = new Media(resource.toString());
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setCycleCount(times);
+            mediaPlayer.play();
+        }
+    }
+
 
 }

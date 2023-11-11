@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.hangman.HowToPlayGame">
+    <children>
+        <ImageView fitHeight="609.0" fitWidth="911.0" layoutX="-8.0" layoutY="-5.0" onDragDetected="#back" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../image/bg.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="backButon" layoutX="89.0" layoutY="56.0" mnemonicParsing="false" onAction="#back" prefHeight="42.0" prefWidth="94.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-font-size: 20; -fx-background-color: white; -fx-font-weight: bold;" stylesheets="@../../../css/style.css" text="Back" />
+      <Label layoutX="89.0" layoutY="131.0" prefHeight="42.0" prefWidth="250.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="This game use your KEYBOARD." />
+      <Label layoutX="89.0" layoutY="174.0" prefHeight="42.0" prefWidth="705.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="A word is chosen, and the number of letters in that word is displayed with underscores," />
+      <Label layoutX="89.0" layoutY="202.0" prefHeight="42.0" prefWidth="394.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="each underscore representing a letter in the word." />
+      <Label layoutX="89.0" layoutY="252.0" prefHeight="42.0" prefWidth="705.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="If the guessed letter is correct, all positions of that letter in the word will be revealed." />
+      <Label layoutX="89.0" layoutY="294.0" prefHeight="42.0" prefWidth="705.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="Otherwise, you will lose 1 life. You have 7 lives for each round of play." />
+      <Label layoutX="89.0" layoutY="336.0" prefHeight="42.0" prefWidth="480.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="Try to overcome obstacles to reach the next words. Have fun!" />
+      <ImageView fitHeight="126.0" fitWidth="384.0" layoutX="451.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/demo.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>
