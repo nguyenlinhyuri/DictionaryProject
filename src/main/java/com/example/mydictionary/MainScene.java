@@ -6,10 +6,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
+import org.apache.commons.text.StringEscapeUtils;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -35,10 +43,11 @@ public class MainScene extends AppUtils implements Initializable {
     @FXML
     private Label usernameLabel;
 
+
     /**
      * click vào avt
      */
-    public void clickAvt(MouseEvent mouseEvent){
+    public void clickAvt(MouseEvent mouseEvent) {
         ContextMenu option = new ContextMenu();
         MenuItem setAvtMenuItem = new MenuItem("Update avatar");
         setAvtMenuItem.setOnAction(event -> chooseAvatar());
@@ -46,7 +55,7 @@ public class MainScene extends AppUtils implements Initializable {
         deleteAvtMenuItem.setOnAction(event -> deleteAvatar());
 
         option.getItems().addAll(setAvtMenuItem, deleteAvtMenuItem);
-        if (mouseEvent.getClickCount() == 1){
+        if (mouseEvent.getClickCount() == 1) {
             // hiển thị option tại vị trí avt
             option.show(avtImageView, mouseEvent.getSceneX(), mouseEvent.getSceneY());
         }
@@ -55,12 +64,12 @@ public class MainScene extends AppUtils implements Initializable {
     /**
      * chọn ảnh từ file explorer
      */
-    public void chooseAvatar(){
+    public void chooseAvatar() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image", "*.jpg", "*.png", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null){
+        if (selectedFile != null) {
             String img_path = selectedFile.toURI().toString();
             Image selectedImg = new Image(img_path);
             avtImageView.setImage(selectedImg);
@@ -70,7 +79,7 @@ public class MainScene extends AppUtils implements Initializable {
     /**
      * xóa ảnh đại diện
      */
-    public void deleteAvatar(){
+    public void deleteAvatar() {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Delete");
         confirmationAlert.setHeaderText(null);
@@ -87,9 +96,9 @@ public class MainScene extends AppUtils implements Initializable {
      */
     public void setDefaultAvatar() {
         try {
-            Image defaultAvatar = new Image("E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\image\\avtDefault.png");
+            Image defaultAvatar = new Image("image/avtDefault.png");
             avtImageView.setImage(defaultAvatar);
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -98,28 +107,28 @@ public class MainScene extends AppUtils implements Initializable {
     /**
      * click Search
      */
-    public void searchAction(ActionEvent event){
-
+    public void searchAction(ActionEvent event) {
+        showNewScene(rootAnchorPane, "view/TranslateWord.fxml", top, left);
     }
 
     /**
      * click Translate text
      */
-    public void translateAction(ActionEvent event){
-
+    public void translateAction(ActionEvent event) {
+        showNewScene(rootAnchorPane, "view/TranslateText.fxml", top, left);
     }
 
     /**
      * click Practice
      */
-    public void practiceAction(ActionEvent event){
+    public void practiceAction(ActionEvent event) {
         showNewScene(rootAnchorPane, "view/practice.fxml", top, left);
     }
 
     /**
      * click Game
      */
-    public void gameAction(ActionEvent event){
+    public void gameAction(ActionEvent event) {
         showNewScene(rootAnchorPane, "view/game.fxml", top, left);
 
     }
@@ -127,19 +136,20 @@ public class MainScene extends AppUtils implements Initializable {
     /**
      * click Exit
      */
-    public void exitAction(ActionEvent event){
+    public void exitAction(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit");
         alert.setHeaderText(null);
         alert.setContentText("Are you sure you want to exit the application?");
 
-        if (alert.showAndWait().get() == ButtonType.OK){
+        if (alert.showAndWait().get() == ButtonType.OK) {
             System.exit(0);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         usernameLabel.setText(USER_NAME);
     }
 }

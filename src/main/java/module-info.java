@@ -3,6 +3,8 @@ module com.example.mydictionary {
     requires javafx.fxml;
     requires javafx.media;
     requires javafx.web;
+    requires org.apache.commons.text;
+    requires jlayer;
 
     opens com.example.mydictionary to javafx.fxml;
     opens com.example.mydictionary.practice to javafx.fxml;
