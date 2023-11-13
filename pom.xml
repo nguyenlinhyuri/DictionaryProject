@@ -30,11 +30,13 @@
             <artifactId>javafx-web</artifactId>
             <version>20.0.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
             <version>1.9</version> <!-- Phiên bản có thể thay đổi -->
         </dependency>
+
         <dependency>
             <groupId>javazoom</groupId>
             <artifactId>jlayer</artifactId>
