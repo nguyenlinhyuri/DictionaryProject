@@ -34,21 +34,39 @@ public class Game extends AppUtils {
         } catch (IOException e){
             e.printStackTrace();
         }
-
     }
 
     /**
      * chơi word bubbles
      */
     public void wordbubblesAction(ActionEvent event) {
-        showNewScene(rootAnchorPane, "game/wordbubbles/view/start.fxml", top, left);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL url = AppUtils.class.getResource("game/wordbubbles/view/start.fxml");
+        fxmlLoader.setLocation(url);
+        try {
+            bubblesAnchorPane = fxmlLoader.load();
+            AnchorPane.setTopAnchor(bubblesAnchorPane, top1);
+            AnchorPane.setLeftAnchor(bubblesAnchorPane, left1);
+            rootAnchorPane.getChildren().add(bubblesAnchorPane);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     /**
      * chơi word snatchers
      */
     public void wordsnatchersAction(ActionEvent event) {
-        showNewScene(rootAnchorPane, "game/wordsnatchers/view/start.fxml", top, left);
-        System.out.println(rootAnchorPane);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL url = AppUtils.class.getResource("game/wordsnatchers/view/start.fxml");
+        fxmlLoader.setLocation(url);
+        try {
+            snatchersAnchorPane = fxmlLoader.load();
+            AnchorPane.setTopAnchor(snatchersAnchorPane, top1);
+            AnchorPane.setLeftAnchor(snatchersAnchorPane, left1);
+            rootAnchorPane.getChildren().add(snatchersAnchorPane);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

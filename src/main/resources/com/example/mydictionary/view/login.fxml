@@ -25,7 +25,7 @@
             </Label>
             <AnchorPane fx:id="loginAnchorPane" layoutX="333.0" prefHeight="500.0" prefWidth="466.0" style="-fx-background-color: #ffffff;">
                <children>
-                  <Label alignment="CENTER" layoutX="88.0" layoutY="143.0" prefHeight="43.0" prefWidth="289.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7; -fx-font-weight: bold;" text="Log In Your Account">
+                  <Label alignment="CENTER" layoutX="88.0" layoutY="125.0" prefHeight="43.0" prefWidth="289.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7; -fx-font-weight: bold;" text="Log In Your Account">
                      <font>
                         <Font size="30.0" />
                      </font>
@@ -35,32 +35,32 @@
                         <Image url="@../image/username.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="userTextField" layoutX="84.0" layoutY="210.0" prefHeight="43.0" prefWidth="341.0" promptText="Enter your username" style="-fx-background-radius: 20;">
+                  <TextField fx:id="userTextField" layoutX="84.0" layoutY="210.0" prefHeight="43.0" prefWidth="341.0" promptText="Enter your username" style="-fx-background-radius: 20; -fx-cursor: hand;">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="47.0" layoutY="278.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="47.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/password.png" />
                      </image>
                   </ImageView>
-                  <PasswordField fx:id="passField" layoutX="84.0" layoutY="272.0" prefHeight="43.0" prefWidth="342.0" promptText="Enter your password" style="-fx-background-radius: 20;">
+                  <PasswordField fx:id="passField" layoutX="84.0" layoutY="286.0" prefHeight="43.0" prefWidth="342.0" promptText="Enter your password" style="-fx-background-radius: 20; -fx-cursor: hand;">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </PasswordField>
-                  <Label alignment="CENTER" layoutX="118.0" layoutY="387.0" prefHeight="26.0" prefWidth="175.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7;" text="Do not have an account? ">
+                  <Label alignment="CENTER" layoutX="118.0" layoutY="401.0" prefHeight="26.0" prefWidth="175.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7;" text="Do not have an account? ">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="loginButton" layoutX="84.0" layoutY="330.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="42.0" prefWidth="342.0" style="-fx-font-family: Cambria; -fx-text-fill: #ffffff; -fx-background-color: #3693C7; -fx-background-radius: 20; -fx-font-weight: bold; -fx-font-size: 20;" text="Log In">
+                  <Button fx:id="loginButton" layoutX="84.0" layoutY="344.0" mnemonicParsing="false" onAction="#loginAction" prefHeight="42.0" prefWidth="342.0" style="-fx-font-family: Cambria; -fx-text-fill: #ffffff; -fx-background-color: #3693C7; -fx-background-radius: 20; -fx-font-weight: bold; -fx-font-size: 20; -fx-cursor: hand;" stylesheets="@../css/style.css" text="Log In">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Label fx:id="signupLabel" alignment="CENTER" layoutX="290.0" layoutY="387.0" onMouseClicked="#signupClick" prefHeight="26.0" prefWidth="66.0" style="-fx-font-family: Cambria; -fx-text-fill: #000000; -fx-font-weight: bold;" text="Sign Up">
+                  <Label fx:id="signupLabel" alignment="CENTER" layoutX="290.0" layoutY="401.0" onMouseClicked="#signupClick" prefHeight="26.0" prefWidth="66.0" style="-fx-font-family: Cambria; -fx-text-fill: #000000; -fx-font-weight: bold; -fx-cursor: hand;" text="Sign Up">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -70,6 +70,16 @@
                         <Image url="@../image/dict.png" />
                      </image>
                   </ImageView>
+                  <Label layoutX="88.0" layoutY="190.0" style="-fx-font-family: cambria;" text="Username">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="92.0" layoutY="266.0" style="-fx-font-family: cambria;" text="Password">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>

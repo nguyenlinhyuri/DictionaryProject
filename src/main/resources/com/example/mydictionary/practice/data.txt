@@ -1,0 +1,18 @@
+apple	táo
+ball	bóng
+chair	ghế
+duck	con vịt
+egg	trứng
+festival	lễ hội
+ghost	con ma
+high	cao
+lemon	chanh tây
+money	tiền
+water	nước
+hair	tóc
+mobile phone	điện thoại di động
+paper	giấy
+string	dây
+sad	buồn ơi là buồn
+night	ban đêm, khuya
+air-conditional	điều hòa

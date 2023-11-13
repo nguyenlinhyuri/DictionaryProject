@@ -1,8 +1,11 @@
 package com.example.mydictionary.game.wordsnatchers;
 
+import com.example.mydictionary.AppUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,25 +22,38 @@ public class Start extends Utils implements Initializable {
     private Button backButton;
 
     public void howToPlayGame(ActionEvent event) throws IOException {
-//        System.out.println(rootAnchorPane);
         if (mediaPlayer != null){
             mediaPlayer.stop();
         }
-        showNewScene(rootAnchorPane, "game/wordsnatchers/view/howToPlay.fxml", top, left);
+        try {
+            component = FXMLLoader.load(getClass().getResource("view/howToPlay.fxml"));
+            AnchorPane.setTopAnchor(component, top1);
+            AnchorPane.setLeftAnchor(component, left1);
+            snatchersAnchorPane.getChildren().add((Node) component);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void backGame(ActionEvent event) throws IOException {
-        if (mediaPlayer != null){
-            mediaPlayer.stop();
-        }
-        showNewScene(rootAnchorPane, "game/wordsnatchers/view/start.fxml", top, left);
+        snatchersAnchorPane.getChildren().remove(component);
     }
 
     public void playGame(ActionEvent event) throws IOException {
         if (mediaPlayer != null){
             mediaPlayer.stop();
         }
-        showNewScene(rootAnchorPane, "game/wordsnatchers/view/play.fxml", top, left);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL url = AppUtils.class.getResource("game/wordsnatchers/view/play.fxml");
+        fxmlLoader.setLocation(url);
+        try {
+            playAnchorPane = fxmlLoader.load();
+            AnchorPane.setTopAnchor(playAnchorPane, top1);
+            AnchorPane.setLeftAnchor(playAnchorPane, left1);
+            snatchersAnchorPane.getChildren().add(playAnchorPane);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @Override

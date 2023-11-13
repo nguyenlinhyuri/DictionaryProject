@@ -1,4 +1,4 @@
-package com.example.mydictionary.game.Hangman;
+package com.example.mydictionary.game.hangman;
 
 import com.example.mydictionary.AppUtils;
 import javafx.event.ActionEvent;
@@ -66,7 +66,5 @@ public class CongratulationGame extends UtilsGame implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         wordLabel.setText("The word is: " + word);
-
-
     }
 }

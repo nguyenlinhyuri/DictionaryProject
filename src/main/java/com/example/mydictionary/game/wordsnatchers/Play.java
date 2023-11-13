@@ -1,6 +1,6 @@
 package com.example.mydictionary.game.wordsnatchers;
 
-import com.example.mydictionary.Word;
+import com.example.mydictionary.*;
 import javafx.animation.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.*;
 import javafx.util.Duration;
@@ -99,12 +100,13 @@ public class Play extends Utils implements Initializable {
     @FXML
     public void pauseGame(ActionEvent event) throws IOException {
         timeline.pause();
+        if (mediaPlayer != null) mediaPlayer.pause();
 
         try{
             component = FXMLLoader.load(getClass().getResource("view/pause.fxml"));
-            AnchorPane.setTopAnchor(component, top);
-            AnchorPane.setLeftAnchor(component, left);
-            rootAnchorPane.getChildren().add((Node) component);
+            AnchorPane.setTopAnchor(component, top1);
+            AnchorPane.setLeftAnchor(component, left1);
+            playAnchorPane.getChildren().add((Node) component);
         } catch (IOException e){
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
@@ -119,6 +121,20 @@ public class Play extends Utils implements Initializable {
         currentTime = time;
         showWord();
         timeline.play();
+    }
+
+    /**
+     * skip
+     */
+    @FXML
+    public void handleKeyPressed(KeyEvent event) throws IOException {
+        switch (event.getCode()) {
+            case Q:
+                resultScreen();
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -277,7 +293,7 @@ public class Play extends Utils implements Initializable {
                                         "-fx-background-radius: 5;" +
                                         "-fx-background-color: white;");
                                 AnchorPane.setTopAnchor(speed, 100.0);
-                                AnchorPane.setLeftAnchor(speed, 710.0);
+                                AnchorPane.setLeftAnchor(speed, 700.0);
                                 anchorPane.getChildren().add(speed);
                                 PauseTransition delay = new PauseTransition(Duration.seconds(1));
                                 delay.setOnFinished(e -> {
@@ -432,10 +448,9 @@ public class Play extends Utils implements Initializable {
      * chuyển tới giao diện kết quả
      */
     public void resultScreen() throws IOException {
-        AnchorPane component = new AnchorPane();
-        component.setPrefSize(809, 466);
-        component.setStyle("-fx-background-color: #EF75D5;" +
-                "-fx-background-radius: 10;");
+        AnchorPane resultScene = new AnchorPane();
+        resultScene.setPrefSize(900, 600);
+        resultScene.setStyle("-fx-background-color: #EF75D5;");
 
         // thêm gridPane
         GridPane resultPane = new GridPane();
@@ -469,7 +484,7 @@ public class Play extends Utils implements Initializable {
                 GridPane.setConstraints(text, j, i);
             }
         }
-        setLocation(resultPane, component, 120.0, 160.0);
+        setLocation(resultPane, resultScene, 120.0, 160.0);
 
         // thêm label
         Label onTopLabel = new Label("Click a word to review!");
@@ -478,7 +493,7 @@ public class Play extends Utils implements Initializable {
                 "-fx-font-weight: bold;" +
                 "-fx-text-fill: white;" +
                 "-fx-text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);");
-        setLocation(onTopLabel, component, 30.0, 295.0);
+        setLocation(onTopLabel, resultScene, 30.0, 295.0);
 
         // thêm nút
         Button doneButton = new Button("Done");
@@ -488,20 +503,34 @@ public class Play extends Utils implements Initializable {
                 "-fx-background-radius: 20;" +
                 "-fx-font-weight: bold;");
         doneButton.setOnAction(event -> {
-            AnchorPane endAnchorPane;
+//            AnchorPane endAnchorPane;
+//            try {
+//                if (mediaPlayer != null) mediaPlayer.stop();
+//                endAnchorPane = FXMLLoader.load(getClass().getResource("view/end.fxml"));
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//            anchorPane.getChildren().clear();
+//            anchorPane.getChildren().add(endAnchorPane);
+
+            playAnchorPane.getChildren().remove(resultScene);
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            URL url = AppUtils.class.getResource("game/wordsnatchers/view/end.fxml");
+            fxmlLoader.setLocation(url);
             try {
-                if (mediaPlayer != null) mediaPlayer.stop();
-                endAnchorPane = FXMLLoader.load(getClass().getResource("view/end.fxml"));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                endAnchorPane = fxmlLoader.load();
+                AnchorPane.setTopAnchor(endAnchorPane, top1);
+                AnchorPane.setLeftAnchor(endAnchorPane, left1);
+                playAnchorPane.getChildren().add(endAnchorPane);
+            } catch (IOException e){
+                e.printStackTrace();
             }
-            anchorPane.getChildren().clear();
-            anchorPane.getChildren().add(endAnchorPane);
         });
-        setLocation(doneButton, component, 380, 380);
+        setLocation(doneButton, resultScene, 380, 380);
 
         anchorPane.getChildren().clear();
-        anchorPane.getChildren().add(component);
+        anchorPane.getChildren().add(resultScene);
 
     }
 
@@ -548,9 +577,11 @@ public class Play extends Utils implements Initializable {
      */
     public void mutedSound(ActionEvent event){
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING){
+            mutedSoundButton.setText("Unmute Sound");
             mediaPlayer.pause();
         }
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED){
+            mutedSoundButton.setText("Mute Sound");
             mediaPlayer.play();
         }
     }
@@ -560,7 +591,7 @@ public class Play extends Utils implements Initializable {
      */
     public void playStatusSound(boolean state){
         String path = "";
-        if (state == true){
+        if (state){
             path = "sound/win.wav";
         } else path = "sound/fail.wav";
 

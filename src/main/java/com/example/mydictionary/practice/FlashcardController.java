@@ -31,7 +31,6 @@ public class FlashcardController extends AppUtils implements Initializable {
     private Label wordLabel;
 
     private ArrayList<Word> wordList = new ArrayList<>();
-    private final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\practice\\data.txt";
     private boolean statusOfFlashcard = true;  // mặt trước là tiếng Anh
 
 
@@ -39,7 +38,7 @@ public class FlashcardController extends AppUtils implements Initializable {
      * cập nhật dữ liệu cho wordList
      */
     public void readData() throws FileNotFoundException {
-        BufferedReader br = new BufferedReader(new FileReader(DATA_PATH));
+        BufferedReader br = new BufferedReader(new FileReader(NOTED_WORD_PATH));
         String line;
         while (true) {
             try {
@@ -137,7 +136,8 @@ public class FlashcardController extends AppUtils implements Initializable {
 
     @FXML
     public void backAction(ActionEvent event) throws IOException {
-        showNewScene(rootAnchorPane, "view/practice.fxml", top, left);
+//        showNewScene(rootAnchorPane, "view/practice.fxml", top, left);
+        rootAnchorPane.getChildren().remove(flashcardAnchorPane);
     }
 
     @Override

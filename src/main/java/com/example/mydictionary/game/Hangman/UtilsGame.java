@@ -1,4 +1,4 @@
-package com.example.mydictionary.game.Hangman;
+package com.example.mydictionary.game.hangman;
 
 import com.example.mydictionary.AppUtils;
 import javafx.scene.layout.AnchorPane;
@@ -11,6 +11,6 @@ public class UtilsGame extends AppUtils {
 
     public static ArrayList<String> data = new ArrayList<>();
     public static String word;
-    public static final String path = "data/hangman_text.txt";
+    public static final String path = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\game\\hangman\\hangman_text.txt";
 
 }

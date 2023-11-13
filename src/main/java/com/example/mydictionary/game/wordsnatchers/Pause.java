@@ -1,13 +1,15 @@
 package com.example.mydictionary.game.wordsnatchers;
 
+import com.example.mydictionary.AppUtils;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class Pause extends Utils{
     @FXML
@@ -20,20 +22,36 @@ public class Pause extends Utils{
     private Button quitButton;
 
 
+    @FXML
     public void resumeGame(ActionEvent event){
         timeline.play();
-        rootAnchorPane.getChildren().remove(component);
+        if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) mediaPlayer.play();
+        playAnchorPane.getChildren().remove(component);
     }
 
+    @FXML
     public void restartGame(ActionEvent event) throws IOException {
         timeline.stop();
         timeline = new Timeline();
         currentTime = time;
 
-        showNewScene(rootAnchorPane, "game/wordsnatchers/view/play.fxml", top, left);
+        playAnchorPane.getChildren().remove(component);
+        snatchersAnchorPane.getChildren().remove(playAnchorPane);
 
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL url = AppUtils.class.getResource("game/wordsnatchers/view/play.fxml");
+        fxmlLoader.setLocation(url);
+        try {
+            playAnchorPane = fxmlLoader.load();
+            AnchorPane.setTopAnchor(playAnchorPane, top1);
+            AnchorPane.setLeftAnchor(playAnchorPane, left1);
+            snatchersAnchorPane.getChildren().add(playAnchorPane);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
+    @FXML
     public void quitGame(ActionEvent event){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Quit Word Snatcher!");
@@ -47,7 +65,9 @@ public class Pause extends Utils{
             if (timeline != null) {
                 timeline.stop();
             }
-            showNewScene(rootAnchorPane, "view/game.fxml", top, left);
+            playAnchorPane.getChildren().remove(component);
+            snatchersAnchorPane.getChildren().remove(playAnchorPane);
+            rootAnchorPane.getChildren().remove(snatchersAnchorPane);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.mydictionary.game.Hangman;
+package com.example.mydictionary.game.hangman;
 
 import com.example.mydictionary.AppUtils;
 import javafx.animation.Interpolator;

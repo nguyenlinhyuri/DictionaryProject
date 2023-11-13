@@ -3,16 +3,12 @@ package com.example.mydictionary.game.wordbubbles;
 import com.example.mydictionary.AppUtils;
 import javafx.animation.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.*;
-
-import java.net.URL;
 import java.util.*;
 
 public class GameUtils extends AppUtils {
+    public static AnchorPane playAnchorPane;
+    public static AnchorPane endAnchorPane;
     public static AnchorPane component;
-
-    public static Media media;
-    public static MediaPlayer mediaPlayer;
 
     public static int numOfWord = 0;
     public static int point = 0;
@@ -22,18 +18,7 @@ public class GameUtils extends AppUtils {
     public static ArrayList<String> result = new ArrayList<>();
     public static final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\game\\wordbubbles\\dictionaries.txt";
 
-
-    public static int time = 60;
+    public static final int time = 60;
     public static int timeLeft = time;
     public static Timeline timeline;
-
-    public void playSound(String path, int times){
-        URL resource = getClass().getResource(path);
-        if (resource != null) {
-            media = new Media(resource.toString());
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setCycleCount(times);
-            mediaPlayer.play();
-        }
-    }
 }

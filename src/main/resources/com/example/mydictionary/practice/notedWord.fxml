@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #C2E6FA;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.NotedWord">
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #C2E6FA;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.NotedWordList">
    <children>
       <ListView fx:id="notedWordListView" fixedCellSize="40.0" layoutX="45.0" layoutY="132.0" prefHeight="319.0" prefWidth="499.0" style="-fx-background-radius: 10; -fx-padding: 5;" styleClass="listview" stylesheets="@../css/style.css" />
       <Label layoutX="112.0" layoutY="20.0" prefHeight="34.0" prefWidth="120.0" style="-fx-font-weight: bold; -fx-font-family: cambria; -fx-font-size: 20;" text="Noted Word" />
@@ -25,8 +25,8 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextArea layoutX="556.0" layoutY="132.0" prefHeight="319.0" prefWidth="218.0" promptText="Meaning" style="-fx-background-radius: 10; -fx-font-family: cambria; -fx-font-size: 20;" />
-      <Button layoutX="575.0" layoutY="80.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: #C2E6FA;" stylesheets="@../css/style.css">
+      <TextArea fx:id="meaningTextArea" layoutX="556.0" layoutY="132.0" prefHeight="319.0" prefWidth="218.0" promptText="Meaning" style="-fx-background-radius: 10; -fx-font-family: cambria; -fx-font-size: 20;" />
+      <Button fx:id="addButton" layoutX="575.0" layoutY="80.0" mnemonicParsing="false" onAction="#addWord" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: #C2E6FA;" stylesheets="@../css/style.css">
          <font>
             <Font size="16.0" />
          </font>
@@ -41,7 +41,7 @@
             <Tooltip style="-fx-font-family: cambria; -fx-font-size: 12;" text="Add word" />
          </tooltip>
       </Button>
-      <Button layoutX="637.0" layoutY="80.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: #C2E6FA;" stylesheets="@../css/style.css">
+      <Button fx:id="deleteButton" layoutX="637.0" layoutY="80.0" mnemonicParsing="false" onAction="#deleteWord" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: #C2E6FA;" stylesheets="@../css/style.css">
          <font>
             <Font size="16.0" />
          </font>
@@ -56,7 +56,7 @@
             <Tooltip style="-fx-font-family: cambria; -fx-font-size: 12;" text="Delete word" />
          </tooltip>
       </Button>
-      <Button layoutX="699.0" layoutY="80.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: #C2E6FA;" stylesheets="@../css/style.css">
+      <Button fx:id="editButton" layoutX="699.0" layoutY="80.0" mnemonicParsing="false" onAction="#editWord" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: #C2E6FA;" stylesheets="@../css/style.css">
          <font>
             <Font size="16.0" />
          </font>

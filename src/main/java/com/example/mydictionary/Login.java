@@ -10,9 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Login extends AppUtils implements Initializable {
     @FXML
@@ -56,7 +54,7 @@ public class Login extends AppUtils implements Initializable {
 
 
     private Map<String, String> info_user = new HashMap<>();
-    private String user_path = "data/info.txt";
+    private String user_path = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\data\\info.txt";
 
 
     @Override
@@ -69,7 +67,7 @@ public class Login extends AppUtils implements Initializable {
     }
 
     /**
-     * đọc dữ liệu người dùng vtwf file vào mảng
+     * đọc dữ liệu người dùng từ file vào mảng
      */
     public void readData() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(user_path));
@@ -138,7 +136,7 @@ public class Login extends AppUtils implements Initializable {
             // pass quá ngắn
             showAlertInformation("Oops!", "Password must have more than 6 characters");
         } else {
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(user_path))){
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(user_path, true))){
                 bw.write(user + "\t" + pass);
                 bw.newLine();
                 bw.close();

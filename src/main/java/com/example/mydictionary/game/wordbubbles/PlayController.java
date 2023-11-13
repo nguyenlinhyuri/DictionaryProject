@@ -1,5 +1,6 @@
 package com.example.mydictionary.game.wordbubbles;
 
+import com.example.mydictionary.AppUtils;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
@@ -8,7 +9,6 @@ import javafx.fxml.*;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.*;
 import javafx.util.*;
@@ -108,11 +108,15 @@ public class PlayController extends GameUtils implements Initializable {
      */
     public void endGame() throws IOException {
         if (mediaPlayer != null) mediaPlayer.stop();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL url = AppUtils.class.getResource("game/wordbubbles/view/end.fxml");
+        fxmlLoader.setLocation(url);
         try {
-            AnchorPane endScene = FXMLLoader.load(getClass().getResource("view/end.fxml"));
-            anchorPane.getChildren().clear();
-            anchorPane.getChildren().add((Node) endScene);
-        } catch (IOException e) {
+            endAnchorPane = fxmlLoader.load();
+            AnchorPane.setTopAnchor(endAnchorPane, top1);
+            AnchorPane.setLeftAnchor(endAnchorPane, left1);
+            playAnchorPane.getChildren().add(endAnchorPane);
+        } catch (IOException e){
             e.printStackTrace();
         }
     }
@@ -122,10 +126,12 @@ public class PlayController extends GameUtils implements Initializable {
      */
     public void mutedSound(ActionEvent event) {
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+            mutedSoundButton.setText("Unmute Sound");
             mediaPlayer.pause();
 
         }
         if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) {
+            mutedSoundButton.setText("Mute Sound");
             mediaPlayer.play();
 
         }
@@ -229,12 +235,13 @@ public class PlayController extends GameUtils implements Initializable {
      */
     public void pauseGame(ActionEvent event) throws IOException {
         timeline.pause();
+        if (mediaPlayer != null) mediaPlayer.pause();
 
         try {
             component = FXMLLoader.load(getClass().getResource("view/pause.fxml"));
-            AnchorPane.setTopAnchor(component, top);
-            AnchorPane.setLeftAnchor(component, left);
-            rootAnchorPane.getChildren().add((Node) component);
+            AnchorPane.setTopAnchor(component, top1);
+            AnchorPane.setLeftAnchor(component, left1);
+            playAnchorPane.getChildren().add((Node) component);
         } catch (IOException e) {
             e.printStackTrace();
         }

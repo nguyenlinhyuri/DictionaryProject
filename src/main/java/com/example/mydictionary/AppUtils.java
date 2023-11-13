@@ -53,7 +53,7 @@ public class AppUtils {
     public static final double left1 = 0.0;
 
     public Map<String, String> notedWord = new HashMap<>();  // từ đã lưu
-    public final String NOTED_WORD_PATH = "data/data.txt";
+    public final String NOTED_WORD_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\practice\\data.txt";
 
 
 
@@ -81,17 +81,6 @@ public class AppUtils {
             AnchorPane.setLeftAnchor(newScene, left);
             root.getChildren().add(newScene);
         } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * dừng chương trình trong t giây
-     */
-    public void delayProgram(int t) {
-        try {
-            Thread.sleep(t * 1000); // 2000 milliseconds = 2 giây
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
