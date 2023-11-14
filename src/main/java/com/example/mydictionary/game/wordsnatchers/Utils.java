@@ -19,6 +19,6 @@ public class Utils extends AppUtils {
 
     public ArrayList<Word> data = new ArrayList<>();
     public ArrayList <Word> randomWord = new ArrayList<>();  // chứa 12 từ được chọn ngẫu nhiên
-    public static final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\data\\dictionaries.txt";
+    public static final String DATA_PATH = "data/dictionaries.txt";
 
 }
