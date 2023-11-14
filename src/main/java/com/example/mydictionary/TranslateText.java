@@ -1,11 +1,11 @@
 package com.example.mydictionary;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javazoom.jl.player.Player;
 import org.apache.commons.text.StringEscapeUtils;
@@ -24,7 +24,9 @@ import java.util.ResourceBundle;
 public class TranslateText implements Initializable {
 
     @FXML
-    private ChoiceBox<String> choicelanguage;
+    private Label input;
+    @FXML
+    private Label output;
 
     @FXML
     private TextArea textInput;
@@ -33,27 +35,38 @@ public class TranslateText implements Initializable {
     private TextArea view;
 
     public static String text;
-    @FXML
-    private Button translate;
-    @FXML
-    private Button soundInput;
-    @FXML
-    private Button soundOutput;
-    private String language;
+
 
     /**
      * khoi dong
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        language = new String();
         text = new String();
         textInput.setWrapText(true);
         view.setWrapText(true);
-        choicelanguage.getItems().addAll("Vietnamese", "English");
-        textInput.setId("textInput");
+        input.setText("English");
+        output.setText("Vietnamese");
 
-
+    }
+    @FXML
+    public void changeLanguage(ActionEvent e)
+    {
+        String languageInput = input.getText();
+        if ( languageInput.equals("Vietnamese"))
+        {
+            input.setText("English");
+            output.setText("Vietnamese");
+            textInput.clear();
+            view.clear();
+        }
+        else
+        {
+            output.setText("English");
+            input.setText("Vietnamese");
+            textInput.clear();
+            view.clear();
+        }
     }
 
     /**
@@ -62,10 +75,9 @@ public class TranslateText implements Initializable {
     @FXML
     public void Trans(ActionEvent e) {
         text = textInput.getText();
-        language = choicelanguage.getValue();
+        String language = input.getText();
         if (language.equals("Vietnamese")) {
             view.setText(translateToEn(text));
-
 
         } else if (language.equals("English")) {
             view.setText(translateToVi(text));
@@ -80,7 +92,7 @@ public class TranslateText implements Initializable {
 
     @FXML
     public void playSoundInput(ActionEvent e) {
-        language = choicelanguage.getValue();
+        String language = input.getText();
         String input= textInput.getText();
         if (language.equals("Vietnamese")) {
             playsoundVi(input);
@@ -95,7 +107,7 @@ public class TranslateText implements Initializable {
 
     @FXML
     public void playSoundOutput(ActionEvent e) {
-
+        String language = output.getText();
         String output = view.getText();
         if (language.equals("Vietnamese")) {
             playsoundEn(output);
