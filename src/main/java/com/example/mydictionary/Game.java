@@ -19,6 +19,9 @@ public class Game extends AppUtils {
     @FXML
     private Button wordSnatchers;
 
+    @FXML
+    private Button back;
+
     /**
      * chơi hangman
      */
@@ -68,5 +71,15 @@ public class Game extends AppUtils {
         } catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    /**
+     * back
+     */
+    @FXML
+    public void backAction(ActionEvent event){
+        System.out.println("==========================");
+        rootAnchorPane.getChildren().remove(gameAnchorPane);
+        isGameScene = false;
     }
 }

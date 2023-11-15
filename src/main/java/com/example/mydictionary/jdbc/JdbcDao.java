@@ -12,6 +12,9 @@ public class JdbcDao {
     public static final String SELECT_ALL_QUERY = "SELECT vocab FROM NotedWords";
     public static final String SELECT_MEANING_QUERY = "SELECT meaning FROM NotedWords WHERE vocab = ?";
 
+    /**
+     * thêm từ
+     */
     public void addWordToDatabase(String vocab, String meaning) throws SQLException {
         try (Connection connection = DriverManager
                 .getConnection(URL, USERNAME, PASSWORD);
@@ -35,6 +38,9 @@ public class JdbcDao {
         }
     }
 
+    /**
+     * xóa từ
+     */
     public void deleteWordFromDatabase(String word) throws SQLException {
         try (Connection connection = DriverManager
                 .getConnection(URL, USERNAME, PASSWORD);
@@ -51,6 +57,9 @@ public class JdbcDao {
         }
     }
 
+    /**
+     * cập nhật nghĩa cho từ
+     */
     public void updateWordInDatabase(String vocab, String newMeaning) throws SQLException {
         try (Connection connection = DriverManager
                 .getConnection(URL, USERNAME, PASSWORD);
@@ -70,6 +79,9 @@ public class JdbcDao {
 
     }
 
+    /**
+     * lấy ra danh sách tất cả các từ
+     */
     public List<String> getAllWords() throws SQLException{
         List<String> vocabList = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -87,6 +99,9 @@ public class JdbcDao {
         return vocabList;
     }
 
+    /**
+     * lấy ra nghĩa của từ vocab
+     */
     public String getMeaning(String vocab) throws SQLException{
         String meaning = null;
 
@@ -103,10 +118,12 @@ public class JdbcDao {
         } catch (SQLException e) {
             printSQLException(e);
         }
-
         return meaning;
     }
 
+    /**
+     * in ra thông tin của lỗi
+     */
     public static void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {

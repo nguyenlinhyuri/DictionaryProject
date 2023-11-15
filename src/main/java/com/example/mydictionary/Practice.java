@@ -7,7 +7,6 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.*;
 import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Practice extends AppUtils {
     @FXML
@@ -19,6 +18,9 @@ public class Practice extends AppUtils {
     @FXML
     private Button exercisesButton;
 
+    @FXML
+    private Button backButton;
+
 
     /**
      * click xem các từ đã lưu;
@@ -29,9 +31,9 @@ public class Practice extends AppUtils {
         fxmlLoader.setLocation(url);
         try {
             notedwordAnchorPane = fxmlLoader.load();
-            AnchorPane.setTopAnchor(notedwordAnchorPane, top);
-            AnchorPane.setLeftAnchor(notedwordAnchorPane, left);
-            rootAnchorPane.getChildren().add(notedwordAnchorPane);
+            AnchorPane.setTopAnchor(notedwordAnchorPane, top1);
+            AnchorPane.setLeftAnchor(notedwordAnchorPane, left1);
+            practiceAnchorPane.getChildren().add(notedwordAnchorPane);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -46,9 +48,9 @@ public class Practice extends AppUtils {
         fxmlLoader.setLocation(url);
         try {
             flashcardAnchorPane = fxmlLoader.load();
-            AnchorPane.setTopAnchor(flashcardAnchorPane, top);
-            AnchorPane.setLeftAnchor(flashcardAnchorPane, left);
-            rootAnchorPane.getChildren().add(flashcardAnchorPane);
+            AnchorPane.setTopAnchor(flashcardAnchorPane, top1);
+            AnchorPane.setLeftAnchor(flashcardAnchorPane, left1);
+            practiceAnchorPane.getChildren().add(flashcardAnchorPane);
         } catch (IOException e){
             e.printStackTrace();
         }
@@ -58,7 +60,24 @@ public class Practice extends AppUtils {
      * click làm  bài tập
      */
     public void exercisesAction(ActionEvent event){
-        showNewScene(rootAnchorPane, "practice/exercises.fxml", top, left);
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL url = AppUtils.class.getResource("practice/startexercises.fxml");
+        fxmlLoader.setLocation(url);
+        try {
+            startexercisesAnchorPane = fxmlLoader.load();
+            AnchorPane.setTopAnchor(startexercisesAnchorPane, top1);
+            AnchorPane.setLeftAnchor(startexercisesAnchorPane, left1);
+            practiceAnchorPane.getChildren().add(startexercisesAnchorPane);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
+    /**
+     * back
+     */
+    public void backAction(ActionEvent event){
+        rootAnchorPane.getChildren().remove(practiceAnchorPane);
+        isPracticeScene = false;
+    }
 }

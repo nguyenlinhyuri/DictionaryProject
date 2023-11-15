@@ -20,6 +20,8 @@ public class AppUtils {
     /**
      * game
      */
+    public static boolean isGameScene = false;
+    public static AnchorPane gameAnchorPane;
     public static AnchorPane bubblesAnchorPane;
     public static AnchorPane snatchersAnchorPane;
     public static AnchorPane hangmanAnchorPane;
@@ -27,18 +29,23 @@ public class AppUtils {
     /**
      * practice
      */
+    public static boolean isPracticeScene = false;
+    public static AnchorPane practiceAnchorPane;
     public static AnchorPane flashcardAnchorPane;
     public static AnchorPane notedwordAnchorPane;
+    public static AnchorPane startexercisesAnchorPane;
     public static AnchorPane exercisesAnchorPane;
 
     /**
      * search
      */
+    public static boolean isSearchScene = false;
     public static AnchorPane searchAnchorPane;
 
     /**
      * translate text
      */
+    public static boolean isTranslateScene = false;
     public static AnchorPane translateAnchorPane;
 
     public static Media media;
@@ -52,8 +59,8 @@ public class AppUtils {
     public static final double top1 = 0.0;
     public static final double left1 = 0.0;
 
-    public Map<String, String> notedWord = new HashMap<>();  // từ đã lưu
-    public final String NOTED_WORD_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\practice\\data.txt";
+    public static Map<String, String> notedWord = new HashMap<>();  // từ đã lưu
+    public static final String NOTED_WORD_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\practice\\data.txt";
 
 
 
@@ -71,12 +78,12 @@ public class AppUtils {
     /**
      * hiển thị 1 anchorpane mới lên 1 anchorpane gốc (giữ nguyên các nội dung cũ) tại vị trí top, left
      */
-    public void showNewScene(AnchorPane root, String fxml_path, double top, double left) {
+    public void showNewScene(AnchorPane root, AnchorPane newScene, String fxml_path, double top, double left) {
         FXMLLoader fxmlLoader = new FXMLLoader();
         URL url = AppUtils.class.getResource(fxml_path);
         fxmlLoader.setLocation(url);
         try {
-            AnchorPane newScene = fxmlLoader.load();
+            newScene = fxmlLoader.load();
             AnchorPane.setTopAnchor(newScene, top);
             AnchorPane.setLeftAnchor(newScene, left);
             root.getChildren().add(newScene);

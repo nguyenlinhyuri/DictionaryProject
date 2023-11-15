@@ -7,7 +7,6 @@ module com.example.mydictionary {
     requires org.apache.commons.text;
     requires jlayer;
 
-
     opens com.example.mydictionary to javafx.fxml;
     opens com.example.mydictionary.practice to javafx.fxml;
     opens com.example.mydictionary.search to javafx.fxml;
@@ -17,6 +16,7 @@ module com.example.mydictionary {
     opens com.example.mydictionary.game.wordsnatchers.view to javafx.fxml;
     opens com.example.mydictionary.game.hangman to javafx.fxml;
     opens com.example.mydictionary.game.hangman.view to javafx.fxml;
+    opens com.example.mydictionary.translatetext to javafx.fxml;
 
     exports com.example.mydictionary;
     exports com.example.mydictionary.practice;
@@ -24,4 +24,5 @@ module com.example.mydictionary {
     exports com.example.mydictionary.game.wordbubbles;
     exports com.example.mydictionary.game.wordsnatchers;
     exports com.example.mydictionary.game.hangman;
+    exports com.example.mydictionary.translatetext;
 }

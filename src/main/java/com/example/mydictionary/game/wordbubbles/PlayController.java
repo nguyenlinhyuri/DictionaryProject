@@ -45,6 +45,9 @@ public class PlayController extends GameUtils implements Initializable {
     @FXML
     private Label timeLabel;
 
+    private final int fromTop = 390;
+    private final int fromLeft = 220;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         enteredWord.clear();
@@ -82,12 +85,12 @@ public class PlayController extends GameUtils implements Initializable {
                 if (timeLeft == time * 2 / 3) {
                     prefix = prefix.substring(0, 3);
                     prefixLabel.setText(prefix);
-                    showPrefixLabel(prefix, anchorPane, 300, 180, 2);
+                    showPrefixLabel(prefix, anchorPane, fromTop, fromLeft, 2);
                     updateResultWord();
                 } else if (timeLeft == time / 3) {
                     prefix = prefix.substring(0, 2);
                     prefixLabel.setText(prefix);
-                    showPrefixLabel(prefix, anchorPane, 300, 180, 2);
+                    showPrefixLabel(prefix, anchorPane, fromTop, fromLeft, 2);
                     updateResultWord();
                 }
             }
@@ -100,7 +103,7 @@ public class PlayController extends GameUtils implements Initializable {
         updateResultWord();
         enteredWordTextArea.setEditable(false);
         enteredWordTextArea.setWrapText(true);
-        showPrefixLabel(prefix, anchorPane, 300, 180, 2);
+        showPrefixLabel(prefix, anchorPane, fromTop, fromLeft, 2);
     }
 
     /**

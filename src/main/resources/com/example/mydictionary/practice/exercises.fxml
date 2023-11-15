@@ -2,25 +2,83 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #CDC6E7;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.Exercises">
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #CEF7F1;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.Exercises">
    <children>
-      <Label alignment="CENTER" layoutX="106.0" layoutY="33.0" prefHeight="42.0" prefWidth="111.0" style="-fx-font-family: Cambria; -fx-font-weight: bold;" text="Exercises">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Button fx:id="backButton" layoutX="63.0" layoutY="35.0" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2); -fx-font-weight: bold; -fx-background-color: white;" stylesheets="@../css/style.css" text="←">
-         <font>
-            <Font size="16.0" />
-         </font>
+      <ImageView fitHeight="97.0" fitWidth="60.0" layoutX="280.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/decor6.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="97.0" fitWidth="60.0" layoutX="538.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/decor1.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="329.0" layoutY="14.0" prefHeight="32.0" prefWidth="151.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-text-fill: #438595; -fx-font-weight: bold;" text="Question  /10" />
+      <Label alignment="CENTER" layoutX="197.0" layoutY="57.0" prefHeight="32.0" prefWidth="414.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-font-weight: bold;" text="CHOOSE THE CORRECT ANSWER TO" />
+      <Label alignment="CENTER" layoutX="197.0" layoutY="89.0" prefHeight="32.0" prefWidth="414.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-font-weight: bold;" text="THE EXPLANATION GIVEN BELOW" />
+      <Label layoutX="664.0" layoutY="9.0" prefHeight="42.0" prefWidth="137.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #05C5CA;" text="  Your score" />
+      <TextArea layoutX="257.0" layoutY="127.0" prefHeight="106.0" prefWidth="294.0" style="-fx-font-family: cambria; -fx-font-size: 20;" />
+      <Button layoutX="138.0" layoutY="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white;" stylesheets="@../css/style.css" text="Play">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/A_answer.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
-      <Label alignment="CENTER" layoutX="299.0" layoutY="97.0" prefHeight="42.0" prefWidth="210.0" style="-fx-font-family: Cambria; -fx-font-weight: bold;" text="Choose your answer">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
+      <Button layoutX="432.0" layoutY="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white;" stylesheets="@../css/style.css" text="Play">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/B_answer.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="138.0" layoutY="341.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white;" stylesheets="@../css/style.css" text="Play">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/C_answer.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="432.0" layoutY="342.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white;" stylesheets="@../css/style.css" text="Play">
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/D_answer.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="81.0" fitWidth="74.0" layoutX="706.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-z: 90;">
+         <image>
+            <Image url="@image/decor2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="106.0" fitWidth="92.0" layoutX="65.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/decor4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="106.0" fitWidth="92.0" layoutX="25.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/decor3%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="74.0" layoutX="696.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/decor5.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

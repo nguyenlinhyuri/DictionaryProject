@@ -53,6 +53,7 @@ public class Login extends AppUtils implements Initializable {
     private Label loginLabel;
 
 
+
     private Map<String, String> info_user = new HashMap<>();
     private String user_path = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\data\\info.txt";
 
@@ -118,7 +119,8 @@ public class Login extends AppUtils implements Initializable {
      */
     @FXML
     public void signupClick(MouseEvent mouseEvent) {
-        showNewScene(rootLogin, "view/signup.fxml", 50.0, 383.0);
+        showNewScene(rootLogin, signupAnchorPane, "view/signup.fxml", 50.0, 383.0);
+        System.out.println(signupAnchorPane);
     }
 
     /**
@@ -144,13 +146,14 @@ public class Login extends AppUtils implements Initializable {
                 e.printStackTrace();
             }
             showAlertInformation("Congratulation!", "You have successfully registered your account!");
+
+            root = FXMLLoader.load(getClass().getResource("view/login.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
 
-        root = FXMLLoader.load(getClass().getResource("view/login.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 
     /**

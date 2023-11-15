@@ -14,17 +14,17 @@
             <Image url="@../image/clap.gif" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="176.0" layoutY="69.0" prefHeight="62.0" prefWidth="547.0" style="-fx-font-family: cambria; -fx-font-weight: bold; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Congratulations on completing the game!">
+      <Label alignment="CENTER" layoutX="107.0" layoutY="70.0" prefHeight="62.0" prefWidth="686.0" style="-fx-font-family: cambria; -fx-font-weight: bold; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2); -fx-shape: M0 50 C40 0, 240 0, 300 50 S560 100, 600 50;" text="Congratulations on completing the game!">
          <font>
-            <Font size="28.0" />
+            <Font size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="221.0" layoutY="246.0" prefHeight="42.0" prefWidth="108.0" style="-fx-font-family: Cambria; -fx-font-size: 20; -fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Your result">
+      <Label alignment="CENTER" layoutX="203.0" layoutY="246.0" prefHeight="42.0" prefWidth="189.0" style="-fx-font-family: Cambria; -fx-font-size: 30; -fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Your result">
          <font>
-            <Font size="20.0" />
+            <Font size="4.0" />
          </font>
       </Label>
-      <Label fx:id="endScoreLabel" layoutX="221.0" layoutY="289.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-size: 20; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Points: ">
+      <Label fx:id="endScoreLabel" layoutX="221.0" layoutY="289.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-size: 24; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Points: ">
          <font>
             <Font size="20.0" />
          </font>

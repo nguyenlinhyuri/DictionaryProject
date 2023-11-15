@@ -1,30 +1,26 @@
-package com.example.mydictionary;
+package com.example.mydictionary.translatetext;
 
 
+import com.example.mydictionary.AppUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javazoom.jl.player.Player;
 import org.apache.commons.text.StringEscapeUtils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.io.*;
+import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
 
-public class TranslateText implements Initializable {
+public class TranslateText extends AppUtils implements Initializable {
 
     @FXML
-    private ChoiceBox<String> choicelanguage;
+    private Label input;
+    @FXML
+    private Label output;
 
     @FXML
     private TextArea textInput;
@@ -32,28 +28,51 @@ public class TranslateText implements Initializable {
     @FXML
     private TextArea view;
 
+    @FXML
+    private Button backButton;
+
     public static String text;
-    @FXML
-    private Button translate;
-    @FXML
-    private Button soundInput;
-    @FXML
-    private Button soundOutput;
-    private String language;
+
+
+    /**
+     * back
+     */
+    public void backAction(ActionEvent event){
+        rootAnchorPane.getChildren().remove(translateAnchorPane);
+        isTranslateScene = false;
+    }
 
     /**
      * khoi dong
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        language = new String();
         text = new String();
         textInput.setWrapText(true);
         view.setWrapText(true);
-        choicelanguage.getItems().addAll("Vietnamese", "English");
-        textInput.setId("textInput");
+        view.setEditable(false);
+        input.setText("English");
+        output.setText("Vietnamese");
 
-
+    }
+    @FXML
+    public void changeLanguage(ActionEvent e)
+    {
+        String languageInput = input.getText();
+        if ( languageInput.equals("Vietnamese"))
+        {
+            input.setText("English");
+            output.setText("Vietnamese");
+            textInput.clear();
+            view.clear();
+        }
+        else
+        {
+            output.setText("English");
+            input.setText("Vietnamese");
+            textInput.clear();
+            view.clear();
+        }
     }
 
     /**
@@ -62,16 +81,13 @@ public class TranslateText implements Initializable {
     @FXML
     public void Trans(ActionEvent e) {
         text = textInput.getText();
-        language = choicelanguage.getValue();
+        String language = input.getText();
         if (language.equals("Vietnamese")) {
             view.setText(translateToEn(text));
 
-
         } else if (language.equals("English")) {
             view.setText(translateToVi(text));
-
         }
-
     }
 
     /**
@@ -80,7 +96,7 @@ public class TranslateText implements Initializable {
 
     @FXML
     public void playSoundInput(ActionEvent e) {
-        language = choicelanguage.getValue();
+        String language = input.getText();
         String input= textInput.getText();
         if (language.equals("Vietnamese")) {
             playsoundVi(input);
@@ -92,10 +108,9 @@ public class TranslateText implements Initializable {
     /**
      * đọc output.
      */
-
     @FXML
     public void playSoundOutput(ActionEvent e) {
-
+        String language = output.getText();
         String output = view.getText();
         if (language.equals("Vietnamese")) {
             playsoundEn(output);

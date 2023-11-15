@@ -1,4 +1,4 @@
-package com.example.mydictionary;
+package com.example.mydictionary.search;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,6 +45,7 @@ public class TranslateWord implements Initializable {
     @FXML
     private ChoiceBox<String> choiceLanguage;
     private String[] language = {"Vietnamese", "English"};
+    private String input = "";
 
 
     @Override
@@ -55,7 +56,7 @@ public class TranslateWord implements Initializable {
 
     @FXML
     public void Trans(ActionEvent e) {
-        String input = inputWord.getText();
+        input = inputWord.getText();
         String lan = choiceLanguage.getValue();
         if (lan.equals(language[0])) {
             viewTaget.setText(translateToEn(input));
@@ -102,6 +103,4 @@ public class TranslateWord implements Initializable {
         inputStream.close();
         return StringEscapeUtils.unescapeHtml4(response.toString());
     }
-
-
 }

@@ -3,6 +3,7 @@ package com.example.mydictionary.practice;
 import com.example.mydictionary.AppUtils;
 import com.example.mydictionary.jdbc.JdbcDao;
 import javafx.beans.value.*;
+import javafx.collections.ObservableList;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -63,7 +64,8 @@ public class NotedWordList extends AppUtils implements Initializable {
 
         try {
             jdbcDao.deleteWordFromDatabase(wordToDelete);
-            updateListView();
+            ObservableList<String> item = notedWordListView.getItems();
+            item.remove(wordToDelete);
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error", "Database Error", "An error occurred while accessing the database.");
@@ -127,7 +129,7 @@ public class NotedWordList extends AppUtils implements Initializable {
      * ấn quay lại
      */
     public void backAction(ActionEvent e) {
-        rootAnchorPane.getChildren().remove(notedwordAnchorPane);
+        practiceAnchorPane.getChildren().remove(notedwordAnchorPane);
     }
 
     @Override
@@ -144,6 +146,5 @@ public class NotedWordList extends AppUtils implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

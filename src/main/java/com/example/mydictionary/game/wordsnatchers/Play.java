@@ -131,6 +131,7 @@ public class Play extends Utils implements Initializable {
         switch (event.getCode()) {
             case Q:
                 resultScreen();
+                timeline.stop();
                 break;
             default:
                 break;
@@ -196,6 +197,7 @@ public class Play extends Utils implements Initializable {
                 // tạm dừng 1 giây -> chuyển tới giao diện kết quả
                 try {
                     mediaPlayer.stop();  // dừng nhạc
+                    timeline.stop(); // dừng thời gian
                     resultScreen();
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -466,12 +468,12 @@ public class Play extends Utils implements Initializable {
                 text.setStyle("-fx-background-color: #863FA8;" +
                         "-fx-font-family: cambria;" +
                         "-fx-text-fill: white;" +
-                        "-fx-font-size: 20;" +
+                        "-fx-font-size: 28;" +
                         "-fx-font-weight: bold;");
 
                 text.setAlignment(Pos.CENTER);
                 text.setWrapText(true);
-                text.setPrefSize(100, 50);
+                text.setPrefSize(150, 94);
 
                 int finalCnt = cnt;
                 text.setOnMouseClicked(event -> {
@@ -484,35 +486,25 @@ public class Play extends Utils implements Initializable {
                 GridPane.setConstraints(text, j, i);
             }
         }
-        setLocation(resultPane, resultScene, 120.0, 160.0);
+        setLocation(resultPane, resultScene, 140.0, 90.0);
 
         // thêm label
         Label onTopLabel = new Label("Click a word to review!");
-        onTopLabel.setStyle("-fx-font-size: 24px;" +
+        onTopLabel.setStyle("-fx-font-size: 36px;" +
                 "-fx-font-family: cambria;" +
                 "-fx-font-weight: bold;" +
                 "-fx-text-fill: white;" +
                 "-fx-text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);");
-        setLocation(onTopLabel, resultScene, 30.0, 295.0);
+        setLocation(onTopLabel, resultScene, 50.0, 268.0);
 
         // thêm nút
         Button doneButton = new Button("Done");
-        doneButton.setPrefSize(80, 50);
-        doneButton.setStyle("-fx-font-size: 20px;" +
+        doneButton.setPrefSize(90, 50);
+        doneButton.setStyle("-fx-font-size: 24px;" +
                 "-fx-font-family: cambria;" +
                 "-fx-background-radius: 20;" +
                 "-fx-font-weight: bold;");
         doneButton.setOnAction(event -> {
-//            AnchorPane endAnchorPane;
-//            try {
-//                if (mediaPlayer != null) mediaPlayer.stop();
-//                endAnchorPane = FXMLLoader.load(getClass().getResource("view/end.fxml"));
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//            anchorPane.getChildren().clear();
-//            anchorPane.getChildren().add(endAnchorPane);
-
             playAnchorPane.getChildren().remove(resultScene);
 
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -527,7 +519,7 @@ public class Play extends Utils implements Initializable {
                 e.printStackTrace();
             }
         });
-        setLocation(doneButton, resultScene, 380, 380);
+        setLocation(doneButton, resultScene, 500, 405);
 
         anchorPane.getChildren().clear();
         anchorPane.getChildren().add(resultScene);
@@ -554,7 +546,7 @@ public class Play extends Utils implements Initializable {
         icon.setFitHeight(40);
         icon.setFitWidth(40);
 
-        setLocation(icon, anchorPane, 320.0, 380.0);
+        setLocation(icon, anchorPane, 350.0, 430.0);
 
         PauseTransition delay = new PauseTransition(Duration.seconds(1));
         delay.setOnFinished(e -> {
@@ -628,7 +620,7 @@ public class Play extends Utils implements Initializable {
         gridPaneButton.setVgap(3);
 
         randomWord();
-        setLocation(gridPaneButton, anchorPane, 330.0, 280.0);
+        setLocation(gridPaneButton, anchorPane, 430.0, 310.0);
         runGame();
     }
 }

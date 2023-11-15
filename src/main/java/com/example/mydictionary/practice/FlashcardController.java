@@ -137,7 +137,7 @@ public class FlashcardController extends AppUtils implements Initializable {
     @FXML
     public void backAction(ActionEvent event) throws IOException {
 //        showNewScene(rootAnchorPane, "view/practice.fxml", top, left);
-        rootAnchorPane.getChildren().remove(flashcardAnchorPane);
+        practiceAnchorPane.getChildren().remove(flashcardAnchorPane);
     }
 
     @Override
