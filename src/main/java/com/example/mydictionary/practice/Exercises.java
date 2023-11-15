@@ -1,46 +1,173 @@
 package com.example.mydictionary.practice;
 
 import com.example.mydictionary.AppUtils;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
+import com.example.mydictionary.jdbc.JdbcDao;
+import javafx.animation.PauseTransition;
+import javafx.fxml.*;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.*;
 
-public class Exercises extends AppUtils {
+public class Exercises extends AppUtils implements Initializable {
     @FXML
-    private Button backButton;
+    private Button button_A;
 
     @FXML
-    private Button letpracticeButton;
+    private Button button_B;
+
+    @FXML
+    private Button button_C;
+
+    @FXML
+    private Button button_D;
+
+    @FXML
+    private Label quizIndexLabel;
+
+    @FXML
+    private TextArea explainTextArea;
+
+    @FXML
+    private Label scoreLabel;
 
     private int score = 0;
 
-    public void backAction(ActionEvent event){
-        practiceAnchorPane.getChildren().remove(startexercisesAnchorPane);
-    }
+    private List<String> vocabList = new ArrayList<>();
+    private int currentIndex;
+    private List<Button> ansButtonList = new ArrayList<>();
+    private JdbcDao jdbcDao = new JdbcDao();
 
 
-    /**
-     * ấn practice
-     */
-    public void letPracticeAction(ActionEvent event){
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        URL url = AppUtils.class.getResource("practice/exercises.fxml");
-        fxmlLoader.setLocation(url);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        quizIndexLabel.setText("Question " + currentIndex);
         try {
-            exercisesAnchorPane = fxmlLoader.load();
-            AnchorPane.setTopAnchor(exercisesAnchorPane, top1);
-            AnchorPane.setLeftAnchor(exercisesAnchorPane, left1);
-            startexercisesAnchorPane.getChildren().add(exercisesAnchorPane);
-        } catch (IOException e){
-            e.printStackTrace();
+            loadVocabList();
+            startPractice();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
+    /**
+     * bắt đầu luyện tập
+     */
+    public void startPractice() throws SQLException {
+        Collections.shuffle(vocabList);
+        currentIndex = 0;
+        ansButtonList.add(button_A);
+        ansButtonList.add(button_B);
+        ansButtonList.add(button_C);
+        ansButtonList.add(button_D);
+        askQuestion();
+    }
 
+    /**
+     * cập nhật List từ vựng
+     */
+    public void loadVocabList() throws SQLException {
+        vocabList = jdbcDao.getAllWords();
+    }
+
+    /**
+     * xử lý trong mỗi câu hỏi
+     */
+    public void askQuestion() throws SQLException {
+        ansButtonList.forEach(button -> {
+            button.setDisable(false);
+            button.setStyle("-fx-background-color: white");
+        });
+
+        if (currentIndex < vocabList.size()) {
+            String currentWord = vocabList.get(currentIndex);
+
+            // lấy ra 3 đáp án sai
+            List<String> answerOptions = createAnswerOptions(currentWord);
+
+            // đưa nghĩa lên text area
+            explainTextArea.setText(jdbcDao.getMeaning(currentWord));
+
+            // random 1 nút làm đáp án đúng và set từ cho nút đó
+            int correctAnswerIndex = new Random().nextInt(4);
+            ansButtonList.get(correctAnswerIndex).setText(currentWord);
+
+            // đặt 3 dáp án sai
+            int optionIndex = 0;
+            for (int i = 0; i < 4; i++) {
+                if (i != correctAnswerIndex) {
+                    ansButtonList.get(i).setText(answerOptions.get(optionIndex));
+                    optionIndex++;
+                }
+            }
+
+            button_A.setOnAction(event -> handleAnswer(0));
+            button_B.setOnAction(event -> handleAnswer(1));
+            button_C.setOnAction(event -> handleAnswer(2));
+            button_D.setOnAction(event -> handleAnswer(3));
+
+        } else {
+            //  hiển thị giao diện chúc mừng
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            URL url = AppUtils.class.getResource("practice/congratulation.fxml");
+            fxmlLoader.setLocation(url);
+            try {
+                endexercisesAnchorPane = fxmlLoader.load();
+                AnchorPane.setTopAnchor(exercisesAnchorPane, top1);
+                AnchorPane.setLeftAnchor(endexercisesAnchorPane, left1);
+                startexercisesAnchorPane.getChildren().add(endexercisesAnchorPane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            ansButtonList.forEach(button -> button.setDisable(true));
+        }
+    }
+
+    /**
+     * tạo đáp án
+     */
+    public List<String> createAnswerOptions(String currentWord) {
+        List<String> answerOptions = new ArrayList<>(vocabList);
+        answerOptions.remove(currentWord);
+        Collections.shuffle(answerOptions);
+
+        // trả về 3 từ bất kỳ
+        return answerOptions.subList(0, 3);
+    }
+
+    /**
+     * xử lý khi chọn đáp án
+     */
+    public void handleAnswer(int selectedButtonIndex) {
+        Button selectedButton = ansButtonList.get(selectedButtonIndex);
+        for (Button button : ansButtonList) {
+            button.setDisable(true);
+        }
+
+        String selectedAnswer = selectedButton.getText();
+        String correctAnswer = vocabList.get(currentIndex);
+
+        if (selectedAnswer.equals(correctAnswer)) {
+            selectedButton.setStyle("-fx-background-color: green");
+            score++;
+            scoreLabel.setText("  Your scores  " + score);
+        } else selectedButton.setStyle("-fx-background-color: red");
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(1));
+        delay.setOnFinished(e -> {
+            currentIndex++;
+            quizIndexLabel.setText("Question " + currentIndex);
+            try {
+                askQuestion();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        delay.play();
+    }
 }

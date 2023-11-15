@@ -34,6 +34,7 @@ public class AppUtils {
     public static AnchorPane flashcardAnchorPane;
     public static AnchorPane notedwordAnchorPane;
     public static AnchorPane startexercisesAnchorPane;
+    public static AnchorPane endexercisesAnchorPane;
     public static AnchorPane exercisesAnchorPane;
 
     /**
@@ -55,7 +56,6 @@ public class AppUtils {
 
     public static final double top = 118.0;
     public static final double left = 71.0;
-
     public static final double top1 = 0.0;
     public static final double left1 = 0.0;
 

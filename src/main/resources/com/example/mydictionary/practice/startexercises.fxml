@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #F9CBE7;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.Exercises">
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #D2F9F4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.StartExercises">
    <children>
       <Button fx:id="backButton" layoutX="73.0" layoutY="45.0" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: white;" stylesheets="@../css/style.css" text="←">
          <font>
@@ -19,5 +19,10 @@
          </image>
       </ImageView>
       <Button fx:id="letpracticeButton" layoutX="335.0" layoutY="333.0" mnemonicParsing="false" onAction="#letPracticeAction" prefHeight="50.0" prefWidth="138.0" style="-fx-background-radius: 20; -fx-font-size: 18; -fx-font-family: cambria; -fx-background-color: white;" stylesheets="@../css/style.css" text="Let's practice" />
+      <ImageView fitHeight="68.0" fitWidth="94.0" layoutX="124.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/back.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

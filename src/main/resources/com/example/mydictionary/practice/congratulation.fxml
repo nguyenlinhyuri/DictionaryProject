@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.CongratulationExercises">
+   <children>
+      <Label alignment="CENTER" layoutX="185.0" layoutY="119.0" prefHeight="50.0" prefWidth="440.0" text="Congratulations on practicing all words">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="529.0" layoutY="271.0" mnemonicParsing="false" onAction="#backAction" text="Back">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="practiceAgainButton" layoutX="247.0" layoutY="271.0" mnemonicParsing="false" onAction="#practiceAgainAction" text="Practice Again">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
