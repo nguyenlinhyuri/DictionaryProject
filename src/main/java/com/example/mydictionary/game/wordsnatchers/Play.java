@@ -1,6 +1,7 @@
 package com.example.mydictionary.game.wordsnatchers;
 
 import com.example.mydictionary.*;
+import com.example.mydictionary.jdbc.JdbcDao;
 import javafx.animation.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.*;
 
 public class Play extends Utils implements Initializable {
@@ -52,6 +54,7 @@ public class Play extends Utils implements Initializable {
     private int currentWordIndex;  // chỉ số của từ hiện tại
     private Word currentWord;      // từ hiện tại
     private boolean isHinted = false;
+    private JdbcDao jdbcDao = new JdbcDao();
 
 
     /**
@@ -130,8 +133,8 @@ public class Play extends Utils implements Initializable {
     public void handleKeyPressed(KeyEvent event) throws IOException {
         switch (event.getCode()) {
             case Q:
-                resultScreen();
                 timeline.stop();
+                resultScreen();
                 break;
             default:
                 break;
@@ -197,7 +200,7 @@ public class Play extends Utils implements Initializable {
                 // tạm dừng 1 giây -> chuyển tới giao diện kết quả
                 try {
                     mediaPlayer.stop();  // dừng nhạc
-                    timeline.stop(); // dừng thời gian
+                    timeline.stop(); // dừng thời gian cũ
                     resultScreen();
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -289,13 +292,15 @@ public class Play extends Utils implements Initializable {
                             point += 400;
                             if (!isHinted) {
                                 Label speed = new Label("EXPEDITIOUS");
+                                speed.setPrefSize(142, 27);
+                                speed.setAlignment(Pos.CENTER);
                                 speed.setStyle("-fx-text-fill: black;" +
                                         "-fx-font-size: 18px;" +
                                         "-fx-font-family: cambria;" +
                                         "-fx-background-radius: 5;" +
                                         "-fx-background-color: white;");
                                 AnchorPane.setTopAnchor(speed, 100.0);
-                                AnchorPane.setLeftAnchor(speed, 700.0);
+                                AnchorPane.setLeftAnchor(speed, 743.0);
                                 anchorPane.getChildren().add(speed);
                                 PauseTransition delay = new PauseTransition(Duration.seconds(1));
                                 delay.setOnFinished(e -> {
@@ -307,13 +312,15 @@ public class Play extends Utils implements Initializable {
                             point += 300;
                             if (!isHinted) {
                                 Label speed = new Label("SPEEDY");
+                                speed.setPrefSize(142, 27);
+                                speed.setAlignment(Pos.CENTER);
                                 speed.setStyle("-fx-text-fill: black;" +
                                         "-fx-font-size: 18px;" +
                                         "-fx-font-family: cambria;" +
                                         "-fx-background-radius: 5;" +
                                         "-fx-background-color: white;");
                                 AnchorPane.setTopAnchor(speed, 100.0);
-                                AnchorPane.setLeftAnchor(speed, 710.0);
+                                AnchorPane.setLeftAnchor(speed, 743.0);
                                 anchorPane.getChildren().add(speed);
                                 PauseTransition delay = new PauseTransition(Duration.seconds(1));
                                 delay.setOnFinished(e -> {
@@ -325,13 +332,15 @@ public class Play extends Utils implements Initializable {
                             point += 200;
                             if (!isHinted) {
                                 Label speed = new Label("FAST");
+                                speed.setPrefSize(142, 27);
+                                speed.setAlignment(Pos.CENTER);
                                 speed.setStyle("-fx-text-fill: black;" +
                                         "-fx-font-size: 18px;" +
                                         "-fx-font-family: cambria;" +
                                         "-fx-background-radius: 5;" +
                                         "-fx-background-color: white;");
                                 AnchorPane.setTopAnchor(speed, 100.0);
-                                AnchorPane.setLeftAnchor(speed, 710.0);
+                                AnchorPane.setLeftAnchor(speed, 743.0);
                                 anchorPane.getChildren().add(speed);
                                 PauseTransition delay = new PauseTransition(Duration.seconds(1));
                                 delay.setOnFinished(e -> {
@@ -530,11 +539,35 @@ public class Play extends Utils implements Initializable {
      * show word's information
      */
     public void showWordInformation(int index) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Information");
         alert.setHeaderText(randomWord.get(index).getTarget());
         alert.setContentText(randomWord.get(index).getExplain());
-        alert.show();
+
+        ButtonType addToListButton = new ButtonType("Add this word to Noted Words");
+        ButtonType okButton = new ButtonType("OK");
+
+        alert.getButtonTypes().setAll(addToListButton, okButton);
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == addToListButton){
+                try {
+                    if (!jdbcDao.isWordExists(randomWord.get(index).getTarget())){
+                        jdbcDao.addWordToDatabase(randomWord.get(index).getTarget(), randomWord.get(index).getExplain());
+                    } else {
+                        Alert alert_ = new Alert(Alert.AlertType.INFORMATION);
+                        alert_.setTitle("Oops!");
+                        alert_.setHeaderText(null);
+                        alert_.setContentText("This word has been existed.");
+                        alert_.showAndWait();
+                    }
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (response == okButton){
+                alert.close();
+            }
+        });
     }
 
     /**

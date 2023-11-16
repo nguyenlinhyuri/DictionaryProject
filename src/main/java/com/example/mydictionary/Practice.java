@@ -21,6 +21,13 @@ public class Practice extends AppUtils {
     @FXML
     private Button backButton;
 
+//    public static AnchorPane practiceAnchorPane;
+    public static AnchorPane flashcardAnchorPane;
+    public static AnchorPane notedwordAnchorPane;
+    public static AnchorPane startexercisesAnchorPane;
+    public static AnchorPane endexercisesAnchorPane;
+    public static AnchorPane exercisesAnchorPane;
+
 
     /**
      * click xem các từ đã lưu;

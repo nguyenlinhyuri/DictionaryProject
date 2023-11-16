@@ -1,8 +1,10 @@
 package com.example.mydictionary.practice;
 
 import com.example.mydictionary.AppUtils;
+import com.example.mydictionary.Practice;
 import com.example.mydictionary.jdbc.JdbcDao;
 import javafx.animation.PauseTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -13,7 +15,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
 
-public class Exercises extends AppUtils implements Initializable {
+public class Exercises extends Practice implements Initializable {
     @FXML
     private Button button_A;
 
@@ -27,6 +29,9 @@ public class Exercises extends AppUtils implements Initializable {
     private Button button_D;
 
     @FXML
+    private Button stopPracticeButton;
+
+    @FXML
     private Label quizIndexLabel;
 
     @FXML
@@ -35,10 +40,10 @@ public class Exercises extends AppUtils implements Initializable {
     @FXML
     private Label scoreLabel;
 
-    private int score = 0;
-
     private List<String> vocabList = new ArrayList<>();
+    private List<String> wrongWords = new ArrayList<>();
     private int currentIndex;
+    private int correctAnswerIndex;
     private List<Button> ansButtonList = new ArrayList<>();
     private JdbcDao jdbcDao = new JdbcDao();
 
@@ -46,6 +51,7 @@ public class Exercises extends AppUtils implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         quizIndexLabel.setText("Question " + currentIndex);
+        explainTextArea.setWrapText(true);
         try {
             loadVocabList();
             startPractice();
@@ -93,7 +99,7 @@ public class Exercises extends AppUtils implements Initializable {
             explainTextArea.setText(jdbcDao.getMeaning(currentWord));
 
             // random 1 nút làm đáp án đúng và set từ cho nút đó
-            int correctAnswerIndex = new Random().nextInt(4);
+            correctAnswerIndex = new Random().nextInt(4);
             ansButtonList.get(correctAnswerIndex).setText(currentWord);
 
             // đặt 3 dáp án sai
@@ -119,7 +125,7 @@ public class Exercises extends AppUtils implements Initializable {
                 endexercisesAnchorPane = fxmlLoader.load();
                 AnchorPane.setTopAnchor(exercisesAnchorPane, top1);
                 AnchorPane.setLeftAnchor(endexercisesAnchorPane, left1);
-                startexercisesAnchorPane.getChildren().add(endexercisesAnchorPane);
+                exercisesAnchorPane.getChildren().add(endexercisesAnchorPane);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -153,15 +159,20 @@ public class Exercises extends AppUtils implements Initializable {
         String correctAnswer = vocabList.get(currentIndex);
 
         if (selectedAnswer.equals(correctAnswer)) {
-            selectedButton.setStyle("-fx-background-color: green");
-            score++;
-            scoreLabel.setText("  Your scores  " + score);
-        } else selectedButton.setStyle("-fx-background-color: red");
+            selectedButton.setStyle("-fx-background-color: #05C5CA");
+            numOfWordsPracticed++;
+            if (numOfWordsPracticed == 1) scoreLabel.setText("  Your word  " + numOfWordsPracticed);
+            scoreLabel.setText("  Your words  " + numOfWordsPracticed);
+        } else {
+            wrongWords.add(correctAnswer);
+            ansButtonList.get(correctAnswerIndex).setStyle("-fx-background-color: #05C5CA");
+            selectedButton.setStyle("-fx-background-color: red");
+        }
 
         PauseTransition delay = new PauseTransition(Duration.seconds(1));
         delay.setOnFinished(e -> {
             currentIndex++;
-            quizIndexLabel.setText("Question " + currentIndex);
+            quizIndexLabel.setText("Quiz " + currentIndex);
             try {
                 askQuestion();
             } catch (SQLException ex) {
@@ -169,5 +180,29 @@ public class Exercises extends AppUtils implements Initializable {
             }
         });
         delay.play();
+    }
+
+    /**
+     * dừng luyện tập
+     */
+    public void stopPracticeAction(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("You are sure to stop practicing?");
+
+        if (alert.showAndWait().get() == ButtonType.OK){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            URL url = AppUtils.class.getResource("practice/congratulation.fxml");
+            fxmlLoader.setLocation(url);
+            try {
+                endexercisesAnchorPane = fxmlLoader.load();
+                AnchorPane.setTopAnchor(exercisesAnchorPane, top1);
+                AnchorPane.setLeftAnchor(endexercisesAnchorPane, left1);
+                exercisesAnchorPane.getChildren().add(endexercisesAnchorPane);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

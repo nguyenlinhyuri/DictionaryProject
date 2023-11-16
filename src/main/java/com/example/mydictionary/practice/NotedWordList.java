@@ -1,18 +1,20 @@
 package com.example.mydictionary.practice;
 
 import com.example.mydictionary.AppUtils;
+import com.example.mydictionary.Practice;
 import com.example.mydictionary.jdbc.JdbcDao;
 import javafx.beans.value.*;
 import javafx.collections.ObservableList;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.sql.*;
 import java.util.*;
 
-public class NotedWordList extends AppUtils implements Initializable {
+public class NotedWordList extends Practice implements Initializable {
     @FXML
     private Button backButton;
 
@@ -47,8 +49,30 @@ public class NotedWordList extends AppUtils implements Initializable {
      * chỉnh sửa từ
      */
     public void editWord(ActionEvent event) {
+        String wordToEdit = searchTextField.getText();
 
+        if (wordToEdit.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Warning", "Empty Input", "Please enter a word to edit.");
+            return;
+        }
 
+        meaningTextArea.setEditable(true);
+        Button okButton = new Button("OK");
+
+        AnchorPane.setTopAnchor(okButton, 425.0);
+        AnchorPane.setLeftAnchor(okButton, 741.0);
+        notedwordAnchorPane.getChildren().add(okButton);
+
+        okButton.setOnAction(e -> {
+            try {
+                jdbcDao.updateWordInDatabase(searchTextField.getText(), meaningTextArea.getText());
+                showAlert(Alert.AlertType.INFORMATION, "Information", null, "Edit successfully!");
+                meaningTextArea.setEditable(false);
+                notedwordAnchorPane.getChildren().remove(okButton);
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
     }
 
     /**
@@ -72,7 +96,7 @@ public class NotedWordList extends AppUtils implements Initializable {
         }
     }
 
-    private void showAlert(Alert.AlertType alertType, String title, String headerText, String contentText) {
+    public void showAlert(Alert.AlertType alertType, String title, String headerText, String contentText) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(headerText);

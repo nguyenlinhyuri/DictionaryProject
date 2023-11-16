@@ -90,7 +90,7 @@ public class MainScene extends AppUtils implements Initializable {
      */
     public void setDefaultAvatar() {
         try {
-            Image defaultAvatar = new Image("E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\image\\avtDefault.png");
+            Image defaultAvatar = new Image("image/avtDefault.png");
             avtImageView.setImage(defaultAvatar);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -102,8 +102,6 @@ public class MainScene extends AppUtils implements Initializable {
      * click Search
      */
     public void searchAction(ActionEvent event) {
-//        showNewScene(rootAnchorPane, searchAnchorPane, "view/TranslateWord.fxml", top, left);
-
         if (mediaPlayer != null) mediaPlayer.stop();
 
         if (isGameScene) {
@@ -119,7 +117,6 @@ public class MainScene extends AppUtils implements Initializable {
 
         if (!isSearchScene) {
             FXMLLoader fxmlLoader = new FXMLLoader();
-//            URL url = AppUtils.class.getResource("view/TranslateWord.fxml");
             URL url = AppUtils.class.getResource("view/insert.fxml");
             fxmlLoader.setLocation(url);
             try {
@@ -138,8 +135,6 @@ public class MainScene extends AppUtils implements Initializable {
      * click Translate text
      */
     public void translateAction(ActionEvent event) {
-//        showNewScene(rootAnchorPane, translateAnchorPane, "view/TranslateText.fxml", top, left);
-
         if (isGameScene) {
             rootAnchorPane.getChildren().remove(gameAnchorPane);
             isGameScene = false;

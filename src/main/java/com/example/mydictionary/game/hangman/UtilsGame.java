@@ -1,11 +1,11 @@
 package com.example.mydictionary.game.hangman;
 
-import com.example.mydictionary.AppUtils;
+import com.example.mydictionary.Game;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 
-public class UtilsGame extends AppUtils {
+public class UtilsGame extends Game {
     public static AnchorPane playAnchorPane;
     public static AnchorPane component;
 

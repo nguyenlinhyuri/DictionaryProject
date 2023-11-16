@@ -11,6 +11,9 @@ public class JdbcDao {
     public static final String UPDATE_QUERY = "UPDATE NotedWords SET meaning = ? WHERE vocab = ?";
     public static final String SELECT_ALL_QUERY = "SELECT vocab FROM NotedWords";
     public static final String SELECT_MEANING_QUERY = "SELECT meaning FROM NotedWords WHERE vocab = ?";
+    public static final String CHECK_WORD_EXIST = "SELECT * FROM NotedWords WHERE vocab = ?";
+
+
 
     /**
      * thêm từ
@@ -119,6 +122,21 @@ public class JdbcDao {
             printSQLException(e);
         }
         return meaning;
+    }
+
+    /**
+     * kiểm tra 1 từ có trong cơ sở dữ liệu hay không
+     */
+    public static boolean isWordExists(String vocab) throws SQLException {
+        try (Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        PreparedStatement pst = connection.prepareStatement(CHECK_WORD_EXIST)) {
+            pst.setString(1, vocab);
+            ResultSet rs = pst.executeQuery();
+            return rs.next();
+        } catch (SQLException e){
+            printSQLException(e);
+            return false;
+        }
     }
 
     /**

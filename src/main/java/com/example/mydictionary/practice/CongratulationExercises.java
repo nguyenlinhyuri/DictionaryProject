@@ -1,11 +1,17 @@
 package com.example.mydictionary.practice;
 
-import com.example.mydictionary.AppUtils;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import com.example.mydictionary.Practice;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.control.*;
 
-public class CongratulationExercises extends AppUtils {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class CongratulationExercises extends Practice implements Initializable{
+    @FXML
+    private Label congratulationLabel;
+
     @FXML
     private Button backButton;
 
@@ -27,5 +33,12 @@ public class CongratulationExercises extends AppUtils {
     public void practiceAgainAction(ActionEvent event){
         exercisesAnchorPane.getChildren().remove(endexercisesAnchorPane);
         startexercisesAnchorPane.getChildren().remove(exercisesAnchorPane);
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (numOfWordsPracticed == 1) congratulationLabel.setText(numOfWordsPracticed + "word");
+        congratulationLabel.setText(numOfWordsPracticed + " words");
     }
 }
