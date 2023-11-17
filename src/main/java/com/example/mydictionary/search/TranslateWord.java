@@ -1,23 +1,28 @@
 package com.example.mydictionary.search;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import org.apache.commons.text.StringEscapeUtils;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.web.WebView;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import static com.example.mydictionary.api.SpeechToTextAPI.SoundEn;
+
+
 public class TranslateWord implements Initializable {
-    @FXML
-    private Button X;
 
     @FXML
     private Button add;
@@ -41,66 +46,112 @@ public class TranslateWord implements Initializable {
     private Button pronounceBT;
 
     @FXML
-    private TextArea viewTaget;
-    @FXML
-    private ChoiceBox<String> choiceLanguage;
-    private String[] language = {"Vietnamese", "English"};
-    private String input = "";
+    private WebView viewTaget;
+
+    private static final String DATA_FILE_PATH = "data/E_V.txt";
+
+    private Dictionary diction = new Dictionary();
+    private dictionaryFunction dictionaryFunction = new dictionaryFunction();
+    // list dùng cho listView
+    ObservableList<String> list = FXCollections.observableArrayList();
+    private int indexOfSelectedWord; // thứ tự của từ được chọn
+
+    private int firstIndexOfListFound = 0;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        choiceLanguage.getItems().addAll(language);
+        // đọc dữ liệu từ file txt
+        dictionaryFunction.readFromFile(diction , DATA_FILE_PATH);
+//        System.out.println(diction.size());
+        // dẩy dữ liệu vào trie
+        dictionaryFunction.setTrie(diction);
+        setListDefault(0);
+        inputWord.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (inputWord.getText().isEmpty()) {
+                    setListDefault(0);
+                }
+                else
+                {
+                    handleInputText();
+                }
+            }
+        });
+
+
     }
-
-
+    /**
+     * khi gõ tìm kiếm từ trong textFied
+     */
     @FXML
-    public void Trans(ActionEvent e) {
-        input = inputWord.getText();
-        String lan = choiceLanguage.getValue();
-        if (lan.equals(language[0])) {
-            viewTaget.setText(translateToEn(input));
-        } else if (lan.equals(language[1])) {
-            viewTaget.setText(translateToVi(input));
+    private void handleInputText()
+    {
+        list.clear();
+        String input = inputWord.getText().trim();
+        list = dictionaryFunction.lookUp(diction , input);
+        if (list.isEmpty())
+        {
+            setListDefault(firstIndexOfListFound);
         }
+        else {
+            listWord.setItems(list);
+            firstIndexOfListFound = dictionaryFunction.searchWord(diction , list.get(0));
+        }
+    }
+    /**
+     * khi click chonj 1 tu trong list view
+     */
+    @FXML
+    private void handleMouseClickaWord( MouseEvent arg0 ) {
+
+        String selectedWord = listWord.getSelectionModel().getSelectedItem();  //  từ đã click
+        if (selectedWord != null) {
+            indexOfSelectedWord = dictionaryFunction.searchWord(diction , selectedWord);// lấy chỉ số của từ đó trong từ điển
+            inputWord.setText(selectedWord);
+            if (indexOfSelectedWord == -1) { // nếu không thấy
+//                System.out.println("fail");
+                return;
+            }
+
+
+            viewTaget.getEngine().loadContent((diction.get(indexOfSelectedWord).getExplain()),"text/html");
+
+        }
+    }
+    @FXML
+    public void sumit(ActionEvent e)
+    {
+        String input = inputWord.getText();
+        int index = dictionaryFunction.searchWord(diction,input);
+        viewTaget.getEngine().loadContent(diction.get(index).getExplain(),"text/html");
+    }
+    @FXML
+    public void pronounce(ActionEvent e)
+    {
+        String text = inputWord.getText();
+        SoundEn(text);
+    }
+
+    /**
+     * tạo 1 danh sách cho list view
+     * @param ind (index) vị trí.
+     */
+    private void setListDefault(int ind)
+    {
+        list.clear();
+        for (int i = ind ; i < ind + 15 ; i++)
+        {
+            list.add(diction.get(i).getWord());
+        }
+        listWord.setItems(list);
+        viewTaget.getEngine().loadContent(diction.get(ind).getExplain(), "text/html");
 
     }
 
-    public static String translateToEn(String text) {
-        try {
-            return translate("vi", "en", text);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return " ";
-    }
 
-    public static String translateToVi(String text) {
-        try {
-            return translate("en", "vi", text);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return " ";
-    }
 
-    private static String translate(String langFrom, String langTo, String text) throws IOException {
-        String APIKEY = "AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg";
-        URL url = new URL("https://script.google.com/macros/s/" + APIKEY + "/exec?q="
-                + URLEncoder.encode(text, StandardCharsets.UTF_8)
-                + "&target=" + langTo + "&source=" + langFrom);
-        HttpURLConnection request = (HttpURLConnection) url.openConnection();
 
-        request.setRequestProperty("User-Agent", "Mozilla/5.0");
 
-        BufferedReader inputStream = new BufferedReader(new InputStreamReader(request.getInputStream(), StandardCharsets.UTF_8));
-
-        StringBuilder response = new StringBuilder();
-        String inputLine;
-        while ((inputLine = inputStream.readLine()) != null) {
-            response.append(inputLine);
-        }
-        inputStream.close();
-        return StringEscapeUtils.unescapeHtml4(response.toString());
-    }
 }

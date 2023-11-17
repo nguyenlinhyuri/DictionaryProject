@@ -42,7 +42,7 @@ public class TranslateText extends AppUtils implements Initializable {
     /**
      * back
      */
-    public void backAction(ActionEvent event){
+    public void backAction(ActionEvent event) {
         rootAnchorPane.getChildren().remove(translateAnchorPane);
         isTranslateScene = false;
     }
@@ -60,24 +60,24 @@ public class TranslateText extends AppUtils implements Initializable {
         output.setText("Vietnamese");
 
     }
+
+    /**
+     * khi clck vào nút chuyển đổi ngôn ngữ
+     */
+
     @FXML
-    public void changeLanguage(ActionEvent e)
-    {
-        String languageInput = input.getText();
-        if ( languageInput.equals("Vietnamese"))
-        {
-            input.setText("English");
-            output.setText("Vietnamese");
-            textInput.clear();
-            view.clear();
-        }
-        else
-        {
+    public void changeLanguage(ActionEvent event) {
+        String language = input.getText();
+        if (language.equals("English")) {
             output.setText("English");
             input.setText("Vietnamese");
-            textInput.clear();
-            view.clear();
+
+        } else {
+            input.setText("English");
+            output.setText("Vietnamese");
         }
+        textInput.clear();
+        view.clear();
     }
 
     /**
@@ -102,10 +102,10 @@ public class TranslateText extends AppUtils implements Initializable {
     @FXML
     public void playSoundInput(ActionEvent e) {
         String language = input.getText();
-        String input= textInput.getText();
+        String input = textInput.getText();
         if (language.equals("Vietnamese")) {
             playsoundVi(input);
-        } else{
+        } else {
             SoundEn(input);
         }
     }
@@ -123,8 +123,6 @@ public class TranslateText extends AppUtils implements Initializable {
             playsoundVi(output);
         }
     }
-
-
 
 
 }

@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,15 +14,20 @@
       <TextArea fx:id="textInput" layoutX="36.0" layoutY="103.0" prefHeight="298.0" prefWidth="314.0" promptText="Type ..." style="-fx-font-family: cambria; -fx-font-size: 18;" />
       <TextArea fx:id="view" layoutX="458.0" layoutY="103.0" prefHeight="298.0" prefWidth="314.0" style="-fx-font-family: cambria; -fx-font-size: 18;" />
       <Button fx:id="translate" layoutX="360.0" layoutY="184.0" mnemonicParsing="false" onAction="#Trans" prefHeight="43.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-background-color: #0E47A1; -fx-text-fill: white; -fx-font-size: 14; -fx-font-weight: bold;" stylesheets="@../css/style.css" text="translate" />
-      <Button fx:id="soundInput" alignment="CENTER" layoutX="66.0" layoutY="401.0" mnemonicParsing="false" onAction="#playSoundInput" prefHeight="35.0" prefWidth="38.0" style="-fx-background-color: rgba(255, 255, 255, 0.0); -fx-font-weight: bold; -fx-font-size: 16;" stylesheets="@../css/style.css" text="☊">
+      <Button fx:id="soundInput" alignment="CENTER" layoutX="36.0" layoutY="401.0" mnemonicParsing="false" onAction="#playSoundInput" prefHeight="35.0" prefWidth="38.0" style="-fx-background-color: rgba(255, 255, 255, 0.0); -fx-font-weight: bold; -fx-font-size: 16;" stylesheets="@../css/style.css">
          <font>
             <Font name="Book Antiqua Bold Italic" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="soundOutput" alignment="CENTER" layoutX="701.0" layoutY="401.0" mnemonicParsing="false" onAction="#playSoundOutput" prefHeight="35.0" prefWidth="38.0" style="-fx-font-weight: bold; -fx-background-color: rgba(255, 255, 255, 0.0); -fx-font-size: 16;" stylesheets="@../css/style.css" text="☊">
-         <font>
-            <Font name="Book Antiqua Bold Italic" size="16.0" />
-         </font>
+         <tooltip>
+            <Tooltip text="Empty Tooltip" />
+         </tooltip>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/loa.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
       <Label fx:id="input" alignment="CENTER" layoutX="79.0" layoutY="69.0" prefHeight="30.0" prefWidth="228.0" style="-fx-font-family: cambria; -fx-font-size: 22; -fx-text-fill: #0E47A1; -fx-font-weight: bold;" text="Label" />
       <Label fx:id="output" alignment="CENTER" layoutX="501.0" layoutY="69.0" prefHeight="30.0" prefWidth="228.0" style="-fx-font-family: cambria; -fx-font-size: 22; -fx-text-fill: #0E47A1; -fx-font-weight: bold;" text="Label" />
@@ -40,5 +46,20 @@
             <Image url="@../image/translator.png" />
          </image>
       </ImageView>
+      <Button fx:id="soundInput1" alignment="CENTER" layoutX="712.0" layoutY="401.0" mnemonicParsing="false" onAction="#playSoundOutput" prefHeight="35.0" prefWidth="38.0" style="-fx-background-color: rgba(255, 255, 255, 0.0); -fx-font-weight: bold; -fx-font-size: 16;" stylesheets="@../css/style.css">
+         <font>
+            <Font name="Book Antiqua Bold Italic" size="16.0" />
+         </font>
+         <tooltip>
+            <Tooltip text="Empty Tooltip" />
+         </tooltip>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/loa.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

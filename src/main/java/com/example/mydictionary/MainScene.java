@@ -117,7 +117,7 @@ public class MainScene extends AppUtils implements Initializable {
 
         if (!isSearchScene) {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            URL url = AppUtils.class.getResource("view/insert.fxml");
+            URL url = AppUtils.class.getResource("search/TranslateWord.fxml");
             fxmlLoader.setLocation(url);
             try {
                 searchAnchorPane = fxmlLoader.load();
