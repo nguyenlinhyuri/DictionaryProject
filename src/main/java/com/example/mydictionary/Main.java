@@ -15,7 +15,7 @@ public class Main extends Application {
         stage.getIcons().add(icon);
         Parent root = FXMLLoader.load(Main.class.getResource("view/login.fxml"));
         Scene scene = new Scene(root, 900, 600);
-        stage.setTitle("My Dictionary");
+        stage.setTitle("EnglishPro");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
