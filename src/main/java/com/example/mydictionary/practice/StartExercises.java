@@ -1,16 +1,16 @@
 package com.example.mydictionary.practice;
 
 import com.example.mydictionary.AppUtils;
+import com.example.mydictionary.Practice;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.*;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
 
-public class StartExercises extends AppUtils {
+public class StartExercises extends Practice {
     @FXML
     private Button backButton;
 
@@ -24,7 +24,6 @@ public class StartExercises extends AppUtils {
     public void backAction(ActionEvent event) {
         practiceAnchorPane.getChildren().remove(startexercisesAnchorPane);
     }
-
 
     /**
      * ấn practice

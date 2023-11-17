@@ -22,6 +22,11 @@ public class Game extends AppUtils {
     @FXML
     private Button back;
 
+
+    public static AnchorPane bubblesAnchorPane;
+    public static AnchorPane snatchersAnchorPane;
+    public static AnchorPane hangmanAnchorPane;
+
     /**
      * chơi hangman
      */

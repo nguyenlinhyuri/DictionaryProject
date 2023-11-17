@@ -22,20 +22,12 @@ public class AppUtils {
      */
     public static boolean isGameScene = false;
     public static AnchorPane gameAnchorPane;
-    public static AnchorPane bubblesAnchorPane;
-    public static AnchorPane snatchersAnchorPane;
-    public static AnchorPane hangmanAnchorPane;
 
     /**
      * practice
      */
     public static boolean isPracticeScene = false;
     public static AnchorPane practiceAnchorPane;
-    public static AnchorPane flashcardAnchorPane;
-    public static AnchorPane notedwordAnchorPane;
-    public static AnchorPane startexercisesAnchorPane;
-    public static AnchorPane endexercisesAnchorPane;
-    public static AnchorPane exercisesAnchorPane;
 
     /**
      * search
@@ -53,6 +45,7 @@ public class AppUtils {
     public static MediaPlayer mediaPlayer;
 
     public static String USER_NAME = "";
+    public static int numOfWordsPracticed = 0;  // số từ đã luyện ập
 
     public static final double top = 118.0;
     public static final double left = 71.0;
@@ -115,6 +108,4 @@ public class AppUtils {
             mediaPlayer.play();
         }
     }
-
-
 }

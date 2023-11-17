@@ -2,25 +2,38 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.CongratulationExercises">
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #CEF7F1;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.CongratulationExercises">
    <children>
-      <Label alignment="CENTER" layoutX="185.0" layoutY="119.0" prefHeight="50.0" prefWidth="440.0" text="Congratulations on practicing all words">
+      <Label fx:id="congratulationLabel" layoutX="125.0" layoutY="216.0" prefHeight="38.0" prefWidth="95.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #004C68;" text="x words">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="529.0" layoutY="271.0" mnemonicParsing="false" onAction="#backAction" text="Back">
+      <Button fx:id="backButton" layoutX="126.0" layoutY="318.0" mnemonicParsing="false" onAction="#backAction" prefHeight="44.0" prefWidth="134.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-font-family: cambria; -fx-font-size: 18;" stylesheets="@../css/style.css" text="Back">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="practiceAgainButton" layoutX="247.0" layoutY="271.0" mnemonicParsing="false" onAction="#practiceAgainAction" text="Practice Again">
+      <Button fx:id="practiceAgainButton" layoutX="327.0" layoutY="318.0" mnemonicParsing="false" onAction="#practiceAgainAction" prefHeight="44.0" prefWidth="134.0" style="-fx-background-color: white; -fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 20;" stylesheets="@../css/style.css" text="Practice Again">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
+      <ImageView fitHeight="226.0" fitWidth="215.0" layoutX="513.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/congr.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="121.0" fitWidth="466.0" layoutX="172.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/congra.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="125.0" layoutY="175.0" prefHeight="38.0" prefWidth="350.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #004C68;" text="Number of words you have reviewed:" />
    </children>
 </AnchorPane>

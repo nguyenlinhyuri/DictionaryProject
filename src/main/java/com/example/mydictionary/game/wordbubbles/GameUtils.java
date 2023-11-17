@@ -1,11 +1,11 @@
 package com.example.mydictionary.game.wordbubbles;
 
-import com.example.mydictionary.AppUtils;
+import com.example.mydictionary.Game;
 import javafx.animation.*;
 import javafx.scene.layout.AnchorPane;
 import java.util.*;
 
-public class GameUtils extends AppUtils {
+public class GameUtils extends Game {
     public static AnchorPane playAnchorPane;
     public static AnchorPane endAnchorPane;
     public static AnchorPane component;

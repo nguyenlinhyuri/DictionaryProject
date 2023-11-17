@@ -5,7 +5,7 @@ import javafx.animation.Timeline;
 import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;
 
-public class Utils extends AppUtils {
+public class Utils extends Game {
     public static AnchorPane playAnchorPane;
     public static AnchorPane endAnchorPane;
     public static AnchorPane component;

@@ -13,7 +13,7 @@ import java.net.*;
 import java.sql.SQLException;
 import java.util.*;
 
-public class FlashcardController extends AppUtils implements Initializable {
+public class FlashcardController extends Practice implements Initializable {
     @FXML
     private AnchorPane anchorPane;
 
@@ -132,7 +132,7 @@ public class FlashcardController extends AppUtils implements Initializable {
     }
 
     @FXML
-    public void backAction(ActionEvent event) throws IOException {
+    public void backAction(ActionEvent event) {
         practiceAnchorPane.getChildren().remove(flashcardAnchorPane);
     }
 
