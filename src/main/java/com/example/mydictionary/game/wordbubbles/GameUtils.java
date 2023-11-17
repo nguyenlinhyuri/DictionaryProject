@@ -16,7 +16,7 @@ public class GameUtils extends AppUtils {
     public static ArrayList<String> data = new ArrayList<>(); //  chứa mọi từ tiếng anh
     public static ArrayList<String> enteredWord = new ArrayList<>();
     public static ArrayList<String> result = new ArrayList<>();
-    public static final String DATA_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\game\\wordbubbles\\dictionaries.txt";
+    public static final String DATA_PATH = "data/dictionaries.txt";
 
     public static final int time = 60;
     public static int timeLeft = time;

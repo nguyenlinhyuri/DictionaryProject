@@ -55,7 +55,7 @@ public class Login extends AppUtils implements Initializable {
 
 
     private Map<String, String> info_user = new HashMap<>();
-    private String user_path = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\data\\info.txt";
+    private String user_path = "data/info.txt";
 
 
     @Override

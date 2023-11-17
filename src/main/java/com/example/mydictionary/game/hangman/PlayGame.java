@@ -44,7 +44,6 @@ public class PlayGame extends UtilsGame implements Initializable {
     public void randomWord() {
         Random random = new Random();
         word = data.get(random.nextInt(data.size()));
-        System.out.println(word);
 
         commentLB.setText("enter your letter here!");
     }
