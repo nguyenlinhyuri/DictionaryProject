@@ -33,8 +33,7 @@ public class TranslateText extends AppUtils implements Initializable {
     @FXML
     private TextArea view;
 
-    @FXML
-    private Button backButton;
+
 
     public static String text;
 

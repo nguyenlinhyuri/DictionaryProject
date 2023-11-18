@@ -26,9 +26,6 @@ public class Play extends Utils implements Initializable {
     private AnchorPane anchorPane;
 
     @FXML
-    private Button pauseButton;
-
-    @FXML
     private ProgressBar timeProgressBar;
 
     @FXML
@@ -39,9 +36,6 @@ public class Play extends Utils implements Initializable {
 
     @FXML
     private Label wordLabel;
-
-    @FXML
-    private Button hintButton;
 
     @FXML
     private Button mutedSoundButton;

@@ -21,11 +21,6 @@ import java.util.ResourceBundle;
 
 public class LoseGame extends UtilsGame implements Initializable {
 
-    @FXML
-    private Button QuitButton;
-
-    @FXML
-    private Button rePlayButton;
 
     @FXML
     private Label tagetLB;

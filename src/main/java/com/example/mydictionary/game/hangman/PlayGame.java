@@ -22,8 +22,7 @@ public class PlayGame extends UtilsGame implements Initializable {
     @FXML
     private TextField myTextField;
 
-    @FXML
-    private Button quitButon;
+
 
     @FXML
     private Label resultLB;

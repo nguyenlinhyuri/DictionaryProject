@@ -12,14 +12,6 @@ import java.io.IOException;
 import java.net.URL;
 
 public class StartGame extends UtilsGame{
-    @FXML
-    private Button playButton;
-
-    @FXML
-    private AnchorPane anchorPane;
-
-    @FXML
-    private Button howToPlayButon;
 
     @FXML
     public void playGame(ActionEvent event) throws IOException {

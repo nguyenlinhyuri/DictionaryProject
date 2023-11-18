@@ -60,7 +60,7 @@
             </HBox>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <WebView fx:id="viewTaget" layoutX="7.0" prefHeight="332.0" prefWidth="526.0" styleClass="webview" stylesheets="@../css/style.css" />
+                  <WebView fx:id="viewTaget" layoutX="7.0" prefHeight="332.0" prefWidth="526.0" styleClass="ObservableList&lt;String&gt;" stylesheets="@../css/style.css" />
                </children>
             </Pane>
          </children>

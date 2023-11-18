@@ -12,14 +12,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Start extends Utils implements Initializable {
-    @FXML
-    private Button playButton;
-
-    @FXML
-    private Button howToPlayButton;
-
-    @FXML
-    private Button backButton;
 
     public void howToPlayGame(ActionEvent event) throws IOException {
         if (mediaPlayer != null){

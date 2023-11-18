@@ -17,11 +17,7 @@ public class EndController extends GameUtils implements Initializable {
     @FXML
     private Label endPointLabel;
 
-    @FXML
-    private Button replayButton;
 
-    @FXML
-    private Button playMoreGameButton;
 
 
     @FXML

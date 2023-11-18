@@ -14,18 +14,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CongratulationGame extends UtilsGame implements Initializable {
-    @FXML
-    private Button nextButon;
-
-    @FXML
-    private Button quitButton;
 
     @FXML
     private Label wordLabel;
-
-    @FXML
-    private ImageView myImage;
-
 
     @FXML
     public void next(ActionEvent event) throws Exception {

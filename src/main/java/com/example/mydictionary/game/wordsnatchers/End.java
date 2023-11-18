@@ -13,14 +13,6 @@ import java.util.ResourceBundle;
 public class End extends Utils implements Initializable {
     @FXML
     private Label endScoreLabel;
-
-    @FXML
-    private Button replayButton;
-
-    @FXML
-    private Button playMoreGameButton;
-
-
     @FXML
     public void replayGame(ActionEvent event) throws IOException {
 //        showNewScene(rootAnchorPane, "game/wordsnatchers/view/start.fxml", top, left);

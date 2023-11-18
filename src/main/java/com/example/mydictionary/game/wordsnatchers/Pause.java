@@ -12,15 +12,6 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Pause extends Utils{
-    @FXML
-    private Button resumeButton;
-
-    @FXML
-    private Button restartButton;
-
-    @FXML
-    private Button quitButton;
-
 
     @FXML
     public void resumeGame(ActionEvent event){

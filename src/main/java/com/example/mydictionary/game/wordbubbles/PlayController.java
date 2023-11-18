@@ -22,9 +22,6 @@ public class PlayController extends GameUtils implements Initializable {
     private AnchorPane anchorPane;
 
     @FXML
-    private Button pauseButton;
-
-    @FXML
     private Button mutedSoundButton;
 
     @FXML

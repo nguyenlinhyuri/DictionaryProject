@@ -8,9 +8,16 @@ public class Word {
     private String target;
     private String explain;
 
+
+    public Word() {
+        this.explain = "";
+        this.target = "";
+    }
+
     /**
      * constructor
-     * @param word_target is english
+     *
+     * @param word_target  is english
      * @param word_explain is vietnamese
      */
     public Word(String word_target, String word_explain) {
@@ -18,9 +25,9 @@ public class Word {
         this.explain = word_explain;
     }
 
-    public boolean check_start(String s){
+    public boolean check_start(String s) {
         if (s.length() > this.target.length()) return false;
-        for (int i=0; i<s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) != this.target.charAt(i)) return false;
         }
         return true;
