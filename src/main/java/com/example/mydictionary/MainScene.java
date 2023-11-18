@@ -90,7 +90,7 @@ public class MainScene extends AppUtils implements Initializable {
      */
     public void setDefaultAvatar() {
         try {
-            Image defaultAvatar = new Image("image/avtDefault.png");
+            Image defaultAvatar = new Image("E:\\Java\\BaiTapLonOOP\\DictionaryProject\\data\\avtDefault.png");
             avtImageView.setImage(defaultAvatar);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
@@ -234,7 +234,7 @@ public class MainScene extends AppUtils implements Initializable {
     /**
      * click Exit
      */
-    public void exitAction(ActionEvent event) {
+    public void exitAction(ActionEvent event) throws IOException {
         if (mediaPlayer != null) mediaPlayer.stop();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit");
@@ -242,6 +242,7 @@ public class MainScene extends AppUtils implements Initializable {
         alert.setContentText("Are you sure you want to exit the application?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
+            writeNotedWordData();
             System.exit(0);
         }
     }

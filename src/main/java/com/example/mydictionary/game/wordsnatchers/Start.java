@@ -4,7 +4,6 @@ import com.example.mydictionary.AppUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;

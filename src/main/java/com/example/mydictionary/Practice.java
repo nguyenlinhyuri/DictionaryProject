@@ -50,16 +50,20 @@ public class Practice extends AppUtils {
      * click flashcards
      */
     public void flashcardsAction(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        URL url = AppUtils.class.getResource("practice/flashcard.fxml");
-        fxmlLoader.setLocation(url);
-        try {
-            flashcardAnchorPane = fxmlLoader.load();
-            AnchorPane.setTopAnchor(flashcardAnchorPane, top1);
-            AnchorPane.setLeftAnchor(flashcardAnchorPane, left1);
-            practiceAnchorPane.getChildren().add(flashcardAnchorPane);
-        } catch (IOException e){
-            e.printStackTrace();
+        if (notedWord.isEmpty()){
+            showAlertInformation("Information", "You have not had the word noted.");
+        } else {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            URL url = AppUtils.class.getResource("practice/flashcard.fxml");
+            fxmlLoader.setLocation(url);
+            try {
+                flashcardAnchorPane = fxmlLoader.load();
+                AnchorPane.setTopAnchor(flashcardAnchorPane, top1);
+                AnchorPane.setLeftAnchor(flashcardAnchorPane, left1);
+                practiceAnchorPane.getChildren().add(flashcardAnchorPane);
+            } catch (IOException e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -67,17 +71,22 @@ public class Practice extends AppUtils {
      * click làm  bài tập
      */
     public void exercisesAction(ActionEvent event){
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        URL url = AppUtils.class.getResource("practice/startexercises.fxml");
-        fxmlLoader.setLocation(url);
-        try {
-            startexercisesAnchorPane = fxmlLoader.load();
-            AnchorPane.setTopAnchor(startexercisesAnchorPane, top1);
-            AnchorPane.setLeftAnchor(startexercisesAnchorPane, left1);
-            practiceAnchorPane.getChildren().add(startexercisesAnchorPane);
-        } catch (IOException e){
-            e.printStackTrace();
+        if (notedWord.isEmpty()){
+            showAlertInformation("Information", "You have not had the word noted.");
+        } else {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            URL url = AppUtils.class.getResource("practice/startexercises.fxml");
+            fxmlLoader.setLocation(url);
+            try {
+                startexercisesAnchorPane = fxmlLoader.load();
+                AnchorPane.setTopAnchor(startexercisesAnchorPane, top1);
+                AnchorPane.setLeftAnchor(startexercisesAnchorPane, left1);
+                practiceAnchorPane.getChildren().add(startexercisesAnchorPane);
+            } catch (IOException e){
+                e.printStackTrace();
+            }
         }
+
     }
 
     /**

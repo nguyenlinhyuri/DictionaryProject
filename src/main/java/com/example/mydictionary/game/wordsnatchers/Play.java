@@ -2,7 +2,6 @@ package com.example.mydictionary.game.wordsnatchers;
 
 import com.example.mydictionary.*;
 import com.example.mydictionary.basic.Word;
-import com.example.mydictionary.jdbc.JdbcDao;
 import javafx.animation.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +17,6 @@ import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.*;
 
 public class Play extends Utils implements Initializable {
@@ -49,7 +47,6 @@ public class Play extends Utils implements Initializable {
     private int currentWordIndex;  // chỉ số của từ hiện tại
     private Word currentWord;      // từ hiện tại
     private boolean isHinted = false;
-    private JdbcDao jdbcDao = new JdbcDao();
 
 
     /**
@@ -100,12 +97,12 @@ public class Play extends Utils implements Initializable {
         timeline.pause();
         if (mediaPlayer != null) mediaPlayer.pause();
 
-        try{
+        try {
             component = FXMLLoader.load(getClass().getResource("view/pause.fxml"));
             AnchorPane.setTopAnchor(component, top1);
             AnchorPane.setLeftAnchor(component, left1);
             playAnchorPane.getChildren().add((Node) component);
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error: " + e.getMessage());
         }
@@ -348,7 +345,7 @@ public class Play extends Utils implements Initializable {
                         pointLabel.setText(" Points  " + point);
 
                         if (timeline.getStatus() == Animation.Status.RUNNING && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-                            setIcon("E:\\Java\\intellijJava\\OOPtemp\\WordSnatcher\\src\\main\\resources\\com\\example\\wordsnatcher\\image\\tick_icon.png");
+                            setIcon("game/wordsnatchers/image/tick_icon.png");
                             playStatusSound(true);
                         }
 
@@ -378,8 +375,8 @@ public class Play extends Utils implements Initializable {
         if (!checkWord()) {
             showAnswer();
 
-            if (timeline.getStatus() == Animation.Status.RUNNING  && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-                setIcon("E:\\Java\\intellijJava\\OOPtemp\\WordSnatcher\\src\\main\\resources\\com\\example\\wordsnatcher\\image\\x_icon.png");
+            if (timeline.getStatus() == Animation.Status.RUNNING && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                setIcon("game/wordsnatchers/image/x_icon.png");
                 playStatusSound(false);
             }
 
@@ -477,7 +474,8 @@ public class Play extends Utils implements Initializable {
                         "-fx-font-family: cambria;" +
                         "-fx-text-fill: white;" +
                         "-fx-font-size: 28;" +
-                        "-fx-font-weight: bold;");
+                        "-fx-font-weight: bold;" +
+                        "-fx-cursor: hand");
 
                 text.setAlignment(Pos.CENTER);
                 text.setWrapText(true);
@@ -523,7 +521,7 @@ public class Play extends Utils implements Initializable {
                 AnchorPane.setTopAnchor(endAnchorPane, top1);
                 AnchorPane.setLeftAnchor(endAnchorPane, left1);
                 playAnchorPane.getChildren().add(endAnchorPane);
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
@@ -549,21 +547,19 @@ public class Play extends Utils implements Initializable {
         alert.getButtonTypes().setAll(addToListButton, okButton);
 
         alert.showAndWait().ifPresent(response -> {
-            if (response == addToListButton){
-                try {
-                    if (!jdbcDao.isWordExists(randomWord.get(index).getTarget())){
-                        jdbcDao.addWordToDatabase(randomWord.get(index).getTarget(), randomWord.get(index).getExplain());
-                    } else {
-                        Alert alert_ = new Alert(Alert.AlertType.INFORMATION);
-                        alert_.setTitle("Oops!");
-                        alert_.setHeaderText(null);
-                        alert_.setContentText("This word has been existed.");
-                        alert_.showAndWait();
-                    }
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+            if (response == addToListButton) {
+
+                if (!notedWord.containsKey(randomWord.get(index).getTarget())) {
+                    notedWord.put(randomWord.get(index).getTarget(), randomWord.get(index).getExplain());
+                } else {
+                    Alert alert_ = new Alert(Alert.AlertType.INFORMATION);
+                    alert_.setTitle("Oops!");
+                    alert_.setHeaderText(null);
+                    alert_.setContentText("This word has been existed.");
+                    alert_.showAndWait();
                 }
-            } else if (response == okButton){
+
+            } else if (response == okButton) {
                 alert.close();
             }
         });
@@ -599,12 +595,12 @@ public class Play extends Utils implements Initializable {
     /**
      * bật / tắt sound
      */
-    public void mutedSound(ActionEvent event){
-        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING){
+    public void mutedSound(ActionEvent event) {
+        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
             mutedSoundButton.setText("Unmute Sound");
             mediaPlayer.pause();
         }
-        if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED){
+        if (mediaPlayer.getStatus() == MediaPlayer.Status.PAUSED) {
             mutedSoundButton.setText("Mute Sound");
             mediaPlayer.play();
         }
@@ -613,9 +609,9 @@ public class Play extends Utils implements Initializable {
     /**
      * x_ tick_
      */
-    public void playStatusSound(boolean state){
+    public void playStatusSound(boolean state) {
         String path = "";
-        if (state){
+        if (state) {
             path = "sound/win.wav";
         } else path = "sound/fail.wav";
 

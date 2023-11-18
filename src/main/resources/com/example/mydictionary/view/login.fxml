@@ -45,7 +45,7 @@
                         <Font size="20.0" />
                      </font>
                   </PasswordField>
-                  <Label alignment="CENTER" layoutX="126.0" layoutY="412.0" prefHeight="26.0" prefWidth="175.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7;" text="Do not have an account? ">
+                  <Label alignment="CENTER" layoutX="126.0" layoutY="395.0" prefHeight="26.0" prefWidth="175.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7;" text="Do not have an account? ">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -55,7 +55,7 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Label fx:id="signupLabel" alignment="CENTER" layoutX="298.0" layoutY="412.0" onMouseClicked="#signupClick" prefHeight="26.0" prefWidth="66.0" style="-fx-font-family: Cambria; -fx-text-fill: #000000; -fx-font-weight: bold; -fx-cursor: hand;" text="Sign Up">
+                  <Label fx:id="signupLabel" alignment="CENTER" layoutX="298.0" layoutY="395.0" onMouseClicked="#signupClick" prefHeight="26.0" prefWidth="66.0" style="-fx-font-family: Cambria; -fx-text-fill: #000000; -fx-font-weight: bold; -fx-cursor: hand;" text="Sign Up">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -71,11 +71,6 @@
                      </font>
                   </Label>
                   <Label layoutX="92.0" layoutY="266.0" style="-fx-font-family: cambria;" text="Password">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="forgotPassLabel" alignment="CENTER" layoutX="167.0" layoutY="386.0" onMouseClicked="#forgotPasswordAction" prefHeight="26.0" prefWidth="175.0" style="-fx-font-family: Cambria; -fx-font-size: 14; -fx-cursor: hand;" text="Forgot password?">
                      <font>
                         <Font size="16.0" />
                      </font>

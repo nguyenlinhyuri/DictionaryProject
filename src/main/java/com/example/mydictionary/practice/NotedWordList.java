@@ -1,14 +1,15 @@
 package com.example.mydictionary.practice;
 
-import com.example.mydictionary.AppUtils;
 import com.example.mydictionary.Practice;
-import com.example.mydictionary.jdbc.JdbcDao;
+import com.example.mydictionary.basic.Word;
 import javafx.beans.value.*;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 import java.net.URL;
 import java.sql.*;
@@ -36,13 +37,69 @@ public class NotedWordList extends Practice implements Initializable {
     @FXML
     private TextArea meaningTextArea;
 
-    private JdbcDao jdbcDao = new JdbcDao();
+    private ObservableList<String> list = FXCollections.observableArrayList();
+
+    /**
+     * tìm từ đã lưu
+     */
+    public void searchNotedWord(){
+        String searchKey = searchTextField.getText().toLowerCase().trim();
+        if (!searchKey.isEmpty()){
+            list.clear();
+
+            for (Map.Entry entry : notedWord.entrySet()){
+                Word w = new Word((String) entry.getKey(), (String) entry.getValue());
+                if (w.check_start(searchKey)){
+                    list.add(w.getTarget());
+                }
+            }
+
+            if (!list.isEmpty()) {
+                notedWordListView.setItems(list);
+            } else {
+                list.addAll(notedWord.keySet());
+                notedWordListView.setItems(list);
+            }
+        } else {
+            list.addAll(notedWord.keySet());
+            notedWordListView.setItems(list);
+        }
+
+    }
 
     /**
      * thêm từ
      */
     public void addWord(ActionEvent event) {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Add a word");
+        dialog.setHeaderText(null);
+        dialog.setContentText("Meaning");
+        dialog.getEditor().setPromptText("Enter your meaning");
 
+        HBox box = new HBox();
+        Label target = new Label(" Vocabulary  ");
+        TextField targetTextField = new TextField();
+        targetTextField.setPromptText("Enter your vocabulary");
+
+        box.getChildren().addAll(target, targetTextField);
+        dialog.setGraphic(box);
+
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(item -> {
+            notedWord.put(targetTextField.getText(), dialog.getEditor().getText());
+            addItemToListView(targetTextField.getText());
+        });
+        if (!targetTextField.getText().isEmpty() && !dialog.getEditor().getText().isEmpty()) {
+            showAlert(Alert.AlertType.INFORMATION, "Add a word", null, "Add successful!");
+        }
+    }
+
+    /**
+     * thêm từ
+     */
+    public void addItemToListView(String item){
+        list.add(item);
     }
 
     /**
@@ -64,14 +121,11 @@ public class NotedWordList extends Practice implements Initializable {
         notedwordAnchorPane.getChildren().add(okButton);
 
         okButton.setOnAction(e -> {
-            try {
-                jdbcDao.updateWordInDatabase(searchTextField.getText(), meaningTextArea.getText());
-                showAlert(Alert.AlertType.INFORMATION, "Information", null, "Edit successfully!");
-                meaningTextArea.setEditable(false);
-                notedwordAnchorPane.getChildren().remove(okButton);
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+            notedWord.remove(wordToEdit);
+            notedWord.put(wordToEdit, meaningTextArea.getText());
+            showAlert(Alert.AlertType.INFORMATION, "Information", null, "Edit successfully!");
+            meaningTextArea.setEditable(false);
+            notedwordAnchorPane.getChildren().remove(okButton);
         });
     }
 
@@ -85,15 +139,14 @@ public class NotedWordList extends Practice implements Initializable {
             showAlert(Alert.AlertType.WARNING, "Warning", "Empty Input", "Please enter a word to delete.");
             return;
         }
-
-        try {
-            jdbcDao.deleteWordFromDatabase(wordToDelete);
-            ObservableList<String> item = notedWordListView.getItems();
-            item.remove(wordToDelete);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Database Error", "An error occurred while accessing the database.");
+        if (!notedWord.containsKey(wordToDelete)){
+            showAlert(Alert.AlertType.WARNING, "Not Found", null, "Not found this word");
+            return;
         }
+        notedWord.remove(searchTextField.getText(), meaningTextArea.getText());
+        ObservableList<String> item = notedWordListView.getItems();
+        item.remove(wordToDelete);
+
     }
 
     public void showAlert(Alert.AlertType alertType, String title, String headerText, String contentText) {
@@ -107,47 +160,24 @@ public class NotedWordList extends Practice implements Initializable {
     /**
      * cập nhât danh sách
      */
-    public void updateListView() throws SQLException {
-        List<String> vocabList = jdbcDao.getAllWords();
-        notedWordListView.getItems().addAll(vocabList);
+    public void updateListView() {
+//        List<String> vocabList = new ArrayList<>();
+//        vocabList.addAll(notedWord.keySet());
+        list.addAll(notedWord.keySet());
+        notedWordListView.setItems(list);
 
         notedWordListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 String item = notedWordListView.getSelectionModel().getSelectedItem();
                 searchTextField.setText(item);
-                String meaning = null;
-
-                try {
-                    meaning = jdbcDao.getMeaning(item);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-                if (meaning != null) meaningTextArea.setText(meaning);
+                meaningTextArea.setText(notedWord.get(item));
             }
         });
-
+        for (Map.Entry entry : notedWord.entrySet()) {
+            System.out.println(entry.getKey() + " | " + entry.getValue());
+        }
     }
-
-    /**
-     * đọc dữ liệu các từ đang học
-     */
-//    public void readDataNotedWord() throws FileNotFoundException {
-//        BufferedReader br = new BufferedReader(new FileReader(NOTED_WORD_PATH));
-//        String line;
-//        while (true) {
-//            try {
-//                if ((line = br.readLine()) == null) break;
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//            String[] parts = line.split("\t");
-//            if (parts.length >= 2) {
-//                notedWord.put(parts[0], parts[1]);
-//            }
-//        }
-//    }
 
     /**
      * ấn quay lại
@@ -158,17 +188,16 @@ public class NotedWordList extends Practice implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        try {
-//            readDataNotedWord();
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
         meaningTextArea.setWrapText(true);
         meaningTextArea.setEditable(false);
-        try {
-            updateListView();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        updateListView();
+
+        searchTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                searchNotedWord();
+            }
+        });
+
     }
 }

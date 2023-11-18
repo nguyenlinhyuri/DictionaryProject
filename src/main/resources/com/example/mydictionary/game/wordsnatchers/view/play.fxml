@@ -61,14 +61,14 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="276.0" fitWidth="253.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="276.0" fitWidth="253.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/decor2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="180.0" fitWidth="184.0" layoutX="690.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="180.0" fitWidth="184.0" layoutX="700.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../image/decor1.png" />
+            <Image url="@../image/decor3.png" />
          </image>
       </ImageView>
    </children>

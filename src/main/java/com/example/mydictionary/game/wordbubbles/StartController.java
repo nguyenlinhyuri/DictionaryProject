@@ -1,10 +1,10 @@
 package com.example.mydictionary.game.wordbubbles;
 
 import com.example.mydictionary.AppUtils;
+import com.example.mydictionary.basic.Word;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -51,6 +51,8 @@ public class StartController extends GameUtils implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         playSound("sound/start.wav", 1);
+        dictionaryFunction.readFromFile(diction, "data/E_V.txt");
+        for (Word x : diction) data.add(x.getTarget());
     }
 
 }

@@ -1,14 +1,16 @@
 package com.example.mydictionary.practice;
 
 import com.example.mydictionary.*;
-import com.example.mydictionary.jdbc.JdbcDao;
+import com.example.mydictionary.basic.Word;
+import javafx.animation.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
+import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 
-import java.io.*;
 import java.net.*;
 import java.sql.SQLException;
 import java.util.*;
@@ -33,22 +35,24 @@ public class FlashcardController extends Practice implements Initializable {
     private Label wordLabel;
 
 
-    private List<String> wordList = new ArrayList<>();
+    private List<Word> wordList = new ArrayList<>();
     private boolean statusOfFlashcard = true;  // mặt trước là tiếng Anh
-    private JdbcDao jdbcDao = new JdbcDao();
+//    private JdbcDao jdbcDao = new JdbcDao();
 
 
     /**
      * cập nhật dữ liệu cho wordList
      */
     public void readData() throws SQLException {
-        wordList = jdbcDao.getAllWords();
+        for (Map.Entry entry : notedWord.entrySet()) {
+            wordList.add(new Word((String) entry.getKey(), (String) entry.getValue()));
+        }
     }
 
     /**
      * lấy từ tiếp theo chỉ số i
      */
-    public String nextWord(int i) {
+    public Word nextWord(int i) {
         int n = wordList.size();
         if (i == n - 1) {
             return wordList.get(0);
@@ -59,7 +63,7 @@ public class FlashcardController extends Practice implements Initializable {
     /**
      * lấy từ ở trước chỉ số i
      */
-    public String prevWord(int i) {
+    public Word prevWord(int i) {
         int n = wordList.size();
         if (i == 0) return wordList.get(n - 1);
         return wordList.get(i - 1);
@@ -68,19 +72,19 @@ public class FlashcardController extends Practice implements Initializable {
     /**
      * chi so cua tu hien tai
      */
-    public int getCurrentIndex() throws SQLException {
+    public int getCurrentIndex() {
         String cur;
         if (statusOfFlashcard) { // mặt tiếng anh
             cur = wordLabel.getText();
             for (int i = 0; i < wordList.size(); i++) {
-                if (cur.equals(wordList.get(i))) {
+                if (cur.equals(wordList.get(i).getTarget())) {
                     return i;
                 }
             }
         } else { // mặt tiếng việt
             cur = wordLabel.getText();
             for (int i = 0; i < wordList.size(); i++) {
-                if (cur.equals(jdbcDao.getMeaning(wordList.get(i)))) {
+                if (cur.equals(wordList.get(i).getExplain())) {
                     return i;
                 }
             }
@@ -88,42 +92,63 @@ public class FlashcardController extends Practice implements Initializable {
         return -1;
     }
 
-    public void turnFlashcardOver() throws SQLException {
-        int currentIndex = getCurrentIndex();
+    /**
+     * lật label
+     */
+    public void LabelFlip(){
+        wordLabel.setMinSize(50, 326);
+        RotateTransition flip = new RotateTransition(Duration.seconds(0.5), wordLabel);
+        flip.setByAngle(180);
+        flip.setAxis(Rotate.Y_AXIS);
+        flip.setOnFinished(event -> {
+            wordLabel.setRotate(0); // Đặt góc xoay của chữ trong Label về 0
+        });
+        flip.play();
+    }
 
-        String currentWord = wordList.get(currentIndex);
+    public void turnFlashcardOver() {
+        int currentIndex = getCurrentIndex();
+        Word currentWord = wordList.get(currentIndex);
 
         if (statusOfFlashcard) { // en
-            wordLabel.setText(jdbcDao.getMeaning(currentWord));
-            statusOfFlashcard = false;
+            LabelFlip();
+            PauseTransition delay = new PauseTransition(Duration.seconds(0.25));
+            delay.setOnFinished(e -> {
+                wordLabel.setText(currentWord.getExplain());
+                statusOfFlashcard = false;
+            });
+            delay.play();
         } else { // vi
-            wordLabel.setText(currentWord);
-            statusOfFlashcard = true;
+            LabelFlip();
+            PauseTransition delay = new PauseTransition(Duration.seconds(0.25));
+            delay.setOnFinished(e -> {
+                wordLabel.setText(currentWord.getTarget());
+                statusOfFlashcard = true;
+            });
+            delay.play();
         }
     }
 
-    public void prevFlashcard() throws SQLException {
+    public void prevFlashcard() {
         int currentIndex = getCurrentIndex();
-
-        String prevWord = prevWord(currentIndex);
+        Word prevWord = prevWord(currentIndex);
         if (prevWord != null) {
-            wordLabel.setText(prevWord);
+            wordLabel.setText(prevWord.getTarget());
             statusOfFlashcard = true;
         }
     }
 
-    public void nextFlashcard() throws SQLException {
+    public void nextFlashcard() {
         int currentIndex = getCurrentIndex();
-
-        String nextWord = nextWord(currentIndex);
+        Word nextWord = nextWord(currentIndex);
         if (nextWord != null) {
-            wordLabel.setText(nextWord);
+            wordLabel.setText(nextWord.getTarget());
             statusOfFlashcard = true;
         }
     }
 
     @FXML
-    public void handleKeyPressed(KeyEvent event) throws SQLException {
+    public void handleKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
             case F -> nextFlashcard();
             case A -> prevFlashcard();
@@ -144,9 +169,10 @@ public class FlashcardController extends Practice implements Initializable {
             throw new RuntimeException(e);
         }
 
-        if (!wordList.isEmpty()){
-            String firstWord = wordList.get(0);
-            wordLabel.setText(firstWord);
+
+        if (!wordList.isEmpty()) {
+            Word firstWord = wordList.get(0);
+            wordLabel.setText(firstWord.getTarget());
         }
     }
 }

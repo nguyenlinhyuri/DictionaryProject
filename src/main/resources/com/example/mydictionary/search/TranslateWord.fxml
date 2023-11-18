@@ -29,10 +29,10 @@
          <children>
             <TextField fx:id="inputWord" onAction="#sumit" prefHeight="48.0" prefWidth="182.0" promptText="Search" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 8;" />
             <ListView fx:id="listWord" onMouseClicked="#handleMouseClickaWord" prefHeight="357.0" prefWidth="201.0" style="-fx-background-radius: 8;" styleClass="listview" stylesheets="@../css/style.css" GridPane.rowIndex="1" />
-            <HBox prefHeight="39.0" prefWidth="503.0" GridPane.columnIndex="1">
+            <HBox prefHeight="39.0" prefWidth="503.0" spacing="5.0" GridPane.columnIndex="1">
                <children>
-                  <Label prefHeight="42.0" prefWidth="395.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 8; -fx-background-color: #79A0CB; -fx-text-fill: white; -fx-font-weight: bold;" text="    Definition" />
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#addWord" prefHeight="37.0" prefWidth="53.0">
+                  <Label prefHeight="42.0" prefWidth="432.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 8; -fx-background-color: #79A0CB; -fx-text-fill: white; -fx-font-weight: bold;" text="    Definition" />
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#addWord" prefHeight="37.0" prefWidth="53.0" style="-fx-background-color: #79A0CB; -fx-background-radius: 8;">
                      <tooltip>
                         <Tooltip text="add" />
                      </tooltip>
@@ -44,7 +44,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#pronounce" prefHeight="38.0" prefWidth="46.0" styleClass="volume-button">
+                  <Button mnemonicParsing="false" onAction="#pronounce" prefHeight="38.0" prefWidth="46.0" style="-fx-background-radius: 8; -fx-background-color: #79A0CB;" styleClass="volume-button">
                      <tooltip>
                         <Tooltip text="phát âm" />
                      </tooltip>

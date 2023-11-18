@@ -1,6 +1,9 @@
 package com.example.mydictionary.game.wordbubbles;
 
 import com.example.mydictionary.Game;
+import com.example.mydictionary.basic.DictionaryManagement;
+import com.example.mydictionary.search.Dictionary;
+import com.example.mydictionary.search.TranslateWord;
 import javafx.animation.*;
 import javafx.scene.layout.AnchorPane;
 import java.util.*;
@@ -17,7 +20,8 @@ public class GameUtils extends Game {
     public static ArrayList<String> enteredWord = new ArrayList<>();
     public static ArrayList<String> result = new ArrayList<>();
     public static final String DATA_PATH = "data/dictionaries.txt";
-
+    public static DictionaryManagement dictionaryFunction = new DictionaryManagement();
+    public static Dictionary diction = new Dictionary();
     public static final int time = 60;
     public static int timeLeft = time;
     public static Timeline timeline;

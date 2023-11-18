@@ -1,5 +1,6 @@
 package com.example.mydictionary.search;
 
+import com.example.mydictionary.AppUtils;
 import com.example.mydictionary.basic.DictionaryManagement;
 import com.example.mydictionary.basic.Word;
 import javafx.collections.FXCollections;
@@ -14,15 +15,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
-import static com.example.mydictionary.AppUtils.notedWord;
 import static com.example.mydictionary.api.SpeechToTextAPI.SoundEn;
 
 
-public class TranslateWord implements Initializable {
+public class TranslateWord extends AppUtils implements Initializable {
 
 
     @FXML
@@ -44,6 +44,10 @@ public class TranslateWord implements Initializable {
     private int indexOfSelectedWord; // thứ tự của từ được chọn
 
     private int firstIndexOfListFound = 0;
+
+    public Dictionary getDiction() {
+        return diction;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -125,13 +129,30 @@ public class TranslateWord implements Initializable {
     @FXML
     public void addWord(ActionEvent e)
     {
+        if (inputWord.getText().isEmpty()){
+            showAlertInformation("Oops!", "Please choose a word");
+            return;
+        }
         String word = inputWord.getText();
-        String def = viewTaget.toString();
+        AtomicReference<String> def = new AtomicReference<>("");
         Word w = new Word();
+
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Noted Word");
+        dialog.setHeaderText(word);
+        dialog.setContentText("Your meaning: ");
+
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(meaning -> {
+            def.set(meaning);
+        });
+
         w.setTarget(word);
-        w.setExplain(def);
-        notedWord.add(w);
-        System.out.println(w.getTarget());
+        w.setExplain(def.get());
+        notedWord.put(w.getTarget(), w.getExplain());
+//        System.out.println(w.getTarget());
+//        System.out.println(w.getExplain());
+
     }
 
 
@@ -149,6 +170,4 @@ public class TranslateWord implements Initializable {
         viewTaget.getEngine().loadContent(diction.get(ind).getExplain(), "text/html");
 
     }
-
-
 }

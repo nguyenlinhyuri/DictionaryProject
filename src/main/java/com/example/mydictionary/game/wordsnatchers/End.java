@@ -15,7 +15,6 @@ public class End extends Utils implements Initializable {
     private Label endScoreLabel;
     @FXML
     public void replayGame(ActionEvent event) throws IOException {
-//        showNewScene(rootAnchorPane, "game/wordsnatchers/view/start.fxml", top, left);
         playAnchorPane.getChildren().remove(endAnchorPane);
         snatchersAnchorPane.getChildren().remove(playAnchorPane);
         rootAnchorPane.getChildren().remove(snatchersAnchorPane);
@@ -35,7 +34,6 @@ public class End extends Utils implements Initializable {
 
     @FXML
     public void playMoreGame(ActionEvent event){
-//        showNewScene(rootAnchorPane, "view/game.fxml", top, left);
         if (mediaPlayer != null) mediaPlayer.stop();
 
         playAnchorPane.getChildren().remove(endAnchorPane);

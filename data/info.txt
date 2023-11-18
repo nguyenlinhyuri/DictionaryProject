@@ -1,4 +1,2 @@
-q
-111111
-What color do you like?
-blue
+a	aaaaaa
+q	qqqqqq

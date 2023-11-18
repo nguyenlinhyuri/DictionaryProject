@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 
@@ -53,10 +53,8 @@ public class AppUtils {
     public static final double top1 = 0.0;
     public static final double left1 = 0.0;
 
-    public static ArrayList<Word> notedWord = new ArrayList<>();  // từ đã lưu
-    public static final String NOTED_WORD_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\practice\\data.txt";
-
-
+    public static Map<String, String> notedWord = new HashMap<>();  // từ đã lưu
+    public static final String NOTED_WORD_PATH = "data/notedwords.txt";
 
     /**
      * show Alert information
@@ -72,29 +70,18 @@ public class AppUtils {
     /**
      * hiển thị 1 anchorpane mới lên 1 anchorpane gốc (giữ nguyên các nội dung cũ) tại vị trí top, left
      */
-    public void showNewScene(AnchorPane root, AnchorPane newScene, String fxml_path, double top, double left) {
+    public void showNewScene(AnchorPane root, String fxml_path, double top, double left) {
         FXMLLoader fxmlLoader = new FXMLLoader();
         URL url = AppUtils.class.getResource(fxml_path);
         fxmlLoader.setLocation(url);
         try {
-            newScene = fxmlLoader.load();
+            AnchorPane newScene = fxmlLoader.load();
             AnchorPane.setTopAnchor(newScene, top);
             AnchorPane.setLeftAnchor(newScene, left);
             root.getChildren().add(newScene);
         } catch (IOException e){
             e.printStackTrace();
         }
-    }
-
-    /**
-     * mouse click
-     */
-    public void mouseClick() {
-        Media media = new Media(getClass().getResource("sound/mouse_click.wav").toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setCycleCount(1);
-        mediaPlayer.play();
-        mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.stop());
     }
 
     /**
@@ -108,5 +95,33 @@ public class AppUtils {
             mediaPlayer.setCycleCount(times);
             mediaPlayer.play();
         }
+    }
+
+    /**
+     * đọc dữ liệu các từ đã đánh dấu
+     */
+    public void readNotedWordData() throws IOException{
+        BufferedReader br = new BufferedReader(new FileReader(NOTED_WORD_PATH));
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] parts = line.split("\t");
+            if (parts.length >= 2){
+                notedWord.put(parts[0], parts[1]);
+            }
+        }
+        System.out.println("read notedwords successful!");
+    }
+
+    /**
+     * ghi dữ liệu ra file khi thoát chương trình
+     */
+    public void writeNotedWordData() throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(NOTED_WORD_PATH));
+        for (Map.Entry entry : notedWord.entrySet()){
+            String line = entry.getKey() + "\t" + entry.getValue();
+            bw.write(line);
+            bw.newLine();
+        }
+        System.out.println("write notedwords successful!");
     }
 }

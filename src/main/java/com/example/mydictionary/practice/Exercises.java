@@ -2,7 +2,7 @@ package com.example.mydictionary.practice;
 
 import com.example.mydictionary.AppUtils;
 import com.example.mydictionary.Practice;
-import com.example.mydictionary.jdbc.JdbcDao;
+import com.example.mydictionary.basic.Word;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
@@ -40,12 +40,12 @@ public class Exercises extends Practice implements Initializable {
     @FXML
     private Label scoreLabel;
 
-    private List<String> vocabList = new ArrayList<>();
-    private List<String> wrongWords = new ArrayList<>();
+    private List<Word> vocabList = new ArrayList<>();
+//    private List<String> wrongWords = new ArrayList<>();
     private int currentIndex;
     private int correctAnswerIndex;
     private List<Button> ansButtonList = new ArrayList<>();
-    private JdbcDao jdbcDao = new JdbcDao();
+//    private JdbcDao jdbcDao = new JdbcDao();
 
 
     @Override
@@ -77,7 +77,9 @@ public class Exercises extends Practice implements Initializable {
      * cập nhật List từ vựng
      */
     public void loadVocabList() throws SQLException {
-        vocabList = jdbcDao.getAllWords();
+        for (Map.Entry entry : notedWord.entrySet()){
+            vocabList.add(new Word((String) entry.getKey(), (String) entry.getValue()));
+        }
     }
 
     /**
@@ -90,13 +92,13 @@ public class Exercises extends Practice implements Initializable {
         });
 
         if (currentIndex < vocabList.size()) {
-            String currentWord = vocabList.get(currentIndex);
+            String currentWord = vocabList.get(currentIndex).getTarget();
 
             // lấy ra 3 đáp án sai
             List<String> answerOptions = createAnswerOptions(currentWord);
 
             // đưa nghĩa lên text area
-            explainTextArea.setText(jdbcDao.getMeaning(currentWord));
+            explainTextArea.setText(notedWord.get(currentWord));
 
             // random 1 nút làm đáp án đúng và set từ cho nút đó
             correctAnswerIndex = new Random().nextInt(4);
@@ -138,7 +140,7 @@ public class Exercises extends Practice implements Initializable {
      * tạo đáp án
      */
     public List<String> createAnswerOptions(String currentWord) {
-        List<String> answerOptions = new ArrayList<>(vocabList);
+        List<String> answerOptions = new ArrayList<>(notedWord.keySet());
         answerOptions.remove(currentWord);
         Collections.shuffle(answerOptions);
 
@@ -156,7 +158,7 @@ public class Exercises extends Practice implements Initializable {
         }
 
         String selectedAnswer = selectedButton.getText();
-        String correctAnswer = vocabList.get(currentIndex);
+        String correctAnswer = vocabList.get(currentIndex).getTarget();
 
         if (selectedAnswer.equals(correctAnswer)) {
             selectedButton.setStyle("-fx-background-color: #05C5CA");
@@ -164,7 +166,7 @@ public class Exercises extends Practice implements Initializable {
             if (numOfWordsPracticed == 1) scoreLabel.setText("  Your word  " + numOfWordsPracticed);
             scoreLabel.setText("  Your words  " + numOfWordsPracticed);
         } else {
-            wrongWords.add(correctAnswer);
+//            wrongWords.add(correctAnswer);
             ansButtonList.get(correctAnswerIndex).setStyle("-fx-background-color: #05C5CA");
             selectedButton.setStyle("-fx-background-color: red");
         }

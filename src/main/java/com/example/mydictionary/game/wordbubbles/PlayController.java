@@ -1,9 +1,7 @@
 package com.example.mydictionary.game.wordbubbles;
 
 import com.example.mydictionary.AppUtils;
-import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.geometry.Pos;
@@ -45,15 +43,11 @@ public class PlayController extends GameUtils implements Initializable {
     private final int fromTop = 390;
     private final int fromLeft = 220;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         enteredWord.clear();
         numOfWord = 0;
-        try {
-            readData();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         if (mediaPlayer != null) mediaPlayer.stop();
         playSound("sound/play.wav", 2);
@@ -61,7 +55,7 @@ public class PlayController extends GameUtils implements Initializable {
         timeLeft = time;
         timeline = new Timeline();
 
-        timeline.setCycleCount(Timeline.INDEFINITE); //Timeline sẽ chạy vô thời hạn cho đến khi được dừng lại hoặc bị gián đoạn.
+        timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), event -> {
             timeLeft--;
             if (timeLeft < 0) {
@@ -96,7 +90,11 @@ public class PlayController extends GameUtils implements Initializable {
         timeline.play();
 
         enteredWord.clear();
-        randomPrefix();
+        try {
+            randomPrefix();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         updateResultWord();
         enteredWordTextArea.setEditable(false);
         enteredWordTextArea.setWrapText(true);
@@ -138,27 +136,18 @@ public class PlayController extends GameUtils implements Initializable {
     }
 
     /**
-     * đọc dữ liệu vào mảng data
-     */
-    public void readData() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(DATA_PATH));
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] parts = line.split("\t");
-            if (parts.length >= 2) {
-                data.add(parts[0]);
-            }
-        }
-        System.out.println("read successfully!");
-    }
-
-    /**
      * random prefix
      */
-    public void randomPrefix() {
-        Random random = new Random();
-        int randomIdx = random.nextInt(data.size()+1);
-        prefix = data.get(randomIdx).substring(0, 4).toLowerCase();
+    public void randomPrefix() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("data/bubbles_text.txt"));
+        String line;
+        List<String> preList = new ArrayList<>();
+        while ((line = br.readLine()) != null) {
+            preList.add(line);
+        }
+
+        Collections.shuffle(preList);
+        prefix = preList.get(0);
         prefixLabel.setText(prefix);
     }
 
@@ -323,8 +312,6 @@ public class PlayController extends GameUtils implements Initializable {
             });
             mediaPlayer.play();
         }
-
-
     }
 
 }
