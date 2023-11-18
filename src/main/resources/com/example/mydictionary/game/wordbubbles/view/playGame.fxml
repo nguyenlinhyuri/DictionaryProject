@@ -9,14 +9,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #3B8AAB;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.PlayController">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.PlayController">
    <children>
+      <ImageView fitHeight="660.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/seabubbles.gif" />
+         </image>
+      </ImageView>
       <Label fx:id="wordLabel" layoutX="745.0" layoutY="10.0" prefHeight="39.0" prefWidth="140.0" style="-fx-background-color: #B9E3FB; -fx-font-family: cambria; -fx-text-fill: #3382A1; -fx-font-weight: bold;" text=" Word">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextArea fx:id="enteredWordTextArea" layoutX="195.0" layoutY="174.0" prefHeight="230.0" prefWidth="509.0" style="-fx-background-color: #87B5CD; -fx-border-color: none; -fx-background-radius: 10; -fx-font-size: 20; -fx-font-family: cambria;">
+      <TextArea fx:id="enteredWordTextArea" layoutX="195.0" layoutY="174.0" prefHeight="230.0" prefWidth="509.0" style="-fx-background-color: #87B5CD; -fx-border-color: none; -fx-background-radius: 10; -fx-font-size: 20; -fx-font-family: cambria; -fx-opacity: 0.7; -fx-font-size: 22;">
          <font>
             <Font size="16.0" />
          </font>
@@ -26,7 +31,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="enterdWordTextField" layoutX="287.0" layoutY="427.0" onAction="#userEnterWord" prefHeight="50.0" prefWidth="417.0" style="-fx-background-radius: 20;">
+      <TextField fx:id="enterdWordTextField" layoutX="287.0" layoutY="427.0" onAction="#userEnterWord" prefHeight="50.0" prefWidth="417.0" style="-fx-background-radius: 20; -fx-opacity: 0.8; -fx-font-size: 22;">
          <font>
             <Font size="20.0" />
          </font>

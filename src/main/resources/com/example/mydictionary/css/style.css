@@ -10,6 +10,20 @@
 .listview {
     -fx-text-fill: black;
     -fx-font-family: cambria;
+    -fx-font-size: 16;
+    -fx-background-radius: 8;
+    -fx-control-inner-background-alt: #D1ECFC;
+    -fx-padding: 5;
+    -fx-cell-size: 30px;
+}
+
+.listview:filled:hover,
+.listview:filled:selected {
+    -fx-background-color:  #79A0CB;
+}
+
+.webview {
+    -fx-font-family: cambria;
     -fx-font-size: 18;
-    -fx-control-inner-background-alt: #87CDF7;
+     -fx-background-radius: 8;
 }

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #3C88AA;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.PauseController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #6FB6F9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.PauseController">
    <children>
       <Label alignment="CENTER" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #B9E3FB; -fx-font-family: cambria; -fx-text-fill: #3382A1; -fx-font-weight: bold;" text="PAUSE">
          <font>

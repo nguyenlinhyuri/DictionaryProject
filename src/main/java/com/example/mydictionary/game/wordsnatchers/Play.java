@@ -1,6 +1,7 @@
 package com.example.mydictionary.game.wordsnatchers;
 
 import com.example.mydictionary.*;
+import com.example.mydictionary.basic.Word;
 import com.example.mydictionary.jdbc.JdbcDao;
 import javafx.animation.*;
 import javafx.collections.ObservableList;
@@ -133,7 +134,7 @@ public class Play extends Utils implements Initializable {
     public void handleKeyPressed(KeyEvent event) throws IOException {
         switch (event.getCode()) {
             case Q:
-                timeline.stop();
+//                timeline.stop();
                 resultScreen();
                 break;
             default:
@@ -199,8 +200,8 @@ public class Play extends Utils implements Initializable {
             delay.setOnFinished(e -> {
                 // tạm dừng 1 giây -> chuyển tới giao diện kết quả
                 try {
-                    mediaPlayer.stop();  // dừng nhạc
-                    timeline.stop(); // dừng thời gian cũ
+//                    mediaPlayer.stop();  // dừng nhạc
+//                    timeline.stop(); // dừng thời gian cũ
                     resultScreen();
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -222,7 +223,7 @@ public class Play extends Utils implements Initializable {
             Button btn = new Button(String.valueOf(x));
             btn.setPrefSize(55, 55);
             btn.setStyle("-fx-text-fill: black;" +
-                    "-fx-font-size: 20px;" +
+                    "-fx-font-size: 22px;" +
                     "-fx-font-family: cambria;" +
                     "-fx-background-radius: 20;" +
                     "-fx-background-color: white;");
@@ -272,7 +273,7 @@ public class Play extends Utils implements Initializable {
         for (char x : c) {
             Button btn = new Button(String.valueOf(x));
             btn.setStyle("-fx-text-fill: black;" +
-                    "-fx-font-size: 20px;" +
+                    "-fx-font-size: 22px;" +
                     "-fx-font-family: cambria;" +
                     "-fx-background-radius: 20;" +
                     "-fx-background-color: white;");
@@ -352,8 +353,8 @@ public class Play extends Utils implements Initializable {
 
                         pointLabel.setText(" Points  " + point);
 
-                        setIcon("E:\\Java\\intellijJava\\OOPtemp\\WordSnatcher\\src\\main\\resources\\com\\example\\wordsnatcher\\image\\tick_icon.png");
-                        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                        if (timeline.getStatus() == Animation.Status.RUNNING && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                            setIcon("E:\\Java\\intellijJava\\OOPtemp\\WordSnatcher\\src\\main\\resources\\com\\example\\wordsnatcher\\image\\tick_icon.png");
                             playStatusSound(true);
                         }
 
@@ -382,8 +383,9 @@ public class Play extends Utils implements Initializable {
     public void handleTimeout() {
         if (!checkWord()) {
             showAnswer();
-            setIcon("E:\\Java\\intellijJava\\OOPtemp\\WordSnatcher\\src\\main\\resources\\com\\example\\wordsnatcher\\image\\x_icon.png");
-            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+
+            if (timeline.getStatus() == Animation.Status.RUNNING  && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                setIcon("E:\\Java\\intellijJava\\OOPtemp\\WordSnatcher\\src\\main\\resources\\com\\example\\wordsnatcher\\image\\x_icon.png");
                 playStatusSound(false);
             }
 
@@ -459,9 +461,12 @@ public class Play extends Utils implements Initializable {
      * chuyển tới giao diện kết quả
      */
     public void resultScreen() throws IOException {
+        if (timeline != null) timeline.stop();
+        if (mediaPlayer != null) mediaPlayer.stop();
+
         AnchorPane resultScene = new AnchorPane();
         resultScene.setPrefSize(900, 600);
-        resultScene.setStyle("-fx-background-color: #EF75D5;");
+        resultScene.setStyle("-fx-background-color:  #D0B3E3;");
 
         // thêm gridPane
         GridPane resultPane = new GridPane();
@@ -502,7 +507,6 @@ public class Play extends Utils implements Initializable {
         onTopLabel.setStyle("-fx-font-size: 36px;" +
                 "-fx-font-family: cambria;" +
                 "-fx-font-weight: bold;" +
-                "-fx-text-fill: white;" +
                 "-fx-text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);");
         setLocation(onTopLabel, resultScene, 50.0, 268.0);
 
@@ -512,6 +516,7 @@ public class Play extends Utils implements Initializable {
         doneButton.setStyle("-fx-font-size: 24px;" +
                 "-fx-font-family: cambria;" +
                 "-fx-background-radius: 20;" +
+                "-fx-background-color: white" +
                 "-fx-font-weight: bold;");
         doneButton.setOnAction(event -> {
             playAnchorPane.getChildren().remove(resultScene);
@@ -639,13 +644,13 @@ public class Play extends Utils implements Initializable {
         }
         explainTextArea.setEditable(false);
         explainTextArea.setWrapText(true);
-        explainTextArea.setStyle("-fx-font-size: 20px;" +
+        explainTextArea.setStyle("-fx-font-size: 22px;" +
                 "-fx-font-family: 'Cambria';" +
                 "-fx-border-color: none;" +
                 "-fx-border-color: transparent;" +
                 "-fx-border-width: 0;");
 
-        timeProgressBar.setStyle("-fx-accent: #EF75D5;");
+        timeProgressBar.setStyle("-fx-accent: #863FA8;");
 
         playSound("sound/play.wav", 2);
 

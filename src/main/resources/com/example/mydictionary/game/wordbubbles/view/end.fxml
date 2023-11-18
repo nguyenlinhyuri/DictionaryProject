@@ -7,14 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #87B5CD;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.EndController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #6FB6F9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.EndController">
    <children>
-      <Label alignment="CENTER" layoutX="176.0" layoutY="74.0" prefHeight="62.0" prefWidth="547.0" style="-fx-font-family: cambria; -fx-font-weight: bold; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Congratulations on completing the game!">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
-      <Label fx:id="endWordLabel" layoutX="209.0" layoutY="263.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-family: Cambria; -fx-font-size: 20; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Words: ">
+      <Label fx:id="endWordLabel" layoutX="188.0" layoutY="272.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-family: Cambria; -fx-font-size: 24; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Words: ">
          <font>
             <Font size="20.0" />
          </font>
@@ -29,20 +24,25 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="endPointLabel" layoutX="209.0" layoutY="302.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-size: 20; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Points: ">
+      <Label fx:id="endPointLabel" layoutX="188.0" layoutY="311.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-size: 24; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Points: ">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fitHeight="254.0" fitWidth="232.0" layoutX="525.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="254.0" fitWidth="232.0" layoutX="527.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/congr.gif" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="222.0" layoutY="220.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-family: Cambria; -fx-font-size: 20; -fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Your result">
+      <Label alignment="CENTER" layoutX="188.0" layoutY="229.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-family: Cambria; -fx-font-size: 32; -fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Your result">
          <font>
-            <Font size="20.0" />
+            <Font size="40.0" />
          </font>
       </Label>
+      <ImageView fitHeight="154.0" fitWidth="549.0" layoutX="175.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/congra.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

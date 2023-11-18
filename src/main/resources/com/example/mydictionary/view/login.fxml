@@ -15,14 +15,9 @@
          <children>
             <ImageView fitHeight="500.0" fitWidth="389.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/book.png" />
+                  <Image url="@../image/engpro.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="49.0" layoutY="199.0" prefHeight="50.0" prefWidth="236.0" style="-fx-font-family: Cambria; -fx-font-style: italic; -fx-text-fill: #3693C7; -fx-font-weight: bold;" text="Welcome">
-               <font>
-                  <Font size="45.0" />
-               </font>
-            </Label>
             <AnchorPane fx:id="loginAnchorPane" layoutX="333.0" prefHeight="500.0" prefWidth="466.0" style="-fx-background-color: #ffffff;">
                <children>
                   <Label alignment="CENTER" layoutX="88.0" layoutY="125.0" prefHeight="43.0" prefWidth="289.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7; -fx-font-weight: bold;" text="Log In Your Account">
@@ -50,7 +45,7 @@
                         <Font size="20.0" />
                      </font>
                   </PasswordField>
-                  <Label alignment="CENTER" layoutX="118.0" layoutY="401.0" prefHeight="26.0" prefWidth="175.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7;" text="Do not have an account? ">
+                  <Label alignment="CENTER" layoutX="126.0" layoutY="412.0" prefHeight="26.0" prefWidth="175.0" style="-fx-font-family: Cambria; -fx-text-fill: #3693C7;" text="Do not have an account? ">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -60,7 +55,7 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Label fx:id="signupLabel" alignment="CENTER" layoutX="290.0" layoutY="401.0" onMouseClicked="#signupClick" prefHeight="26.0" prefWidth="66.0" style="-fx-font-family: Cambria; -fx-text-fill: #000000; -fx-font-weight: bold; -fx-cursor: hand;" text="Sign Up">
+                  <Label fx:id="signupLabel" alignment="CENTER" layoutX="298.0" layoutY="412.0" onMouseClicked="#signupClick" prefHeight="26.0" prefWidth="66.0" style="-fx-font-family: Cambria; -fx-text-fill: #000000; -fx-font-weight: bold; -fx-cursor: hand;" text="Sign Up">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -80,8 +75,18 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
+                  <Label fx:id="forgotPassLabel" alignment="CENTER" layoutX="167.0" layoutY="386.0" onMouseClicked="#forgotPasswordAction" prefHeight="26.0" prefWidth="175.0" style="-fx-font-family: Cambria; -fx-font-size: 14; -fx-cursor: hand;" text="Forgot password?">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
+            <ImageView fitHeight="291.0" fitWidth="306.0" layoutX="21.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Engbook.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

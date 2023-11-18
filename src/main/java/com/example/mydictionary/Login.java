@@ -1,5 +1,6 @@
 package com.example.mydictionary;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.*;
@@ -34,6 +35,9 @@ public class Login extends AppUtils implements Initializable {
     @FXML
     private Label signupLabel;
 
+    @FXML
+    private Label forgotPassLabel;
+
     /**
      * Sign Up
      */
@@ -54,9 +58,10 @@ public class Login extends AppUtils implements Initializable {
 
 
 
-    private Map<String, String> info_user = new HashMap<>();
+    private List<String> user_info = new ArrayList<>();
     private String user_path = "data/info.txt";
-
+    private String QUES = "";
+    private String ANS = "";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -74,14 +79,9 @@ public class Login extends AppUtils implements Initializable {
         BufferedReader br = new BufferedReader(new FileReader(user_path));
         String line;
         while ((line = br.readLine()) != null) {
-            String[] parts = line.split("\t");
-            if (parts.length >= 2) {
-                info_user.put(parts[0], parts[1]);
-            }
+            user_info.add(line);
         }
-        for (Map.Entry entry : info_user.entrySet()) {
-            System.out.println(entry.getKey() + " | " + entry.getValue());
-        }
+        for (String x : user_info) System.out.println(x);
         System.out.println("read successfully!");
     }
 
@@ -90,27 +90,31 @@ public class Login extends AppUtils implements Initializable {
      */
     @FXML
     public void loginAction(ActionEvent event) throws IOException {
-        String user = userTextField.getText().trim();
-        String pass = passField.getText().trim();
+        if (user_info.isEmpty()) {
+            showAlertInformation("Opps!", "Please sign up your account.");
+        } else {
+            String user = userTextField.getText().trim();
+            String pass = passField.getText().trim();
 
-        // nhập thiếu
-        if (user.isEmpty() || pass.isEmpty()) {
-            showAlertInformation("Oops!", "Please enter full information!");
-        } else if (pass.length() < 6) {
-            // pass quá ngắn
-            showAlertInformation("Oops!", "Password must have more than 6 characters.");
-        } else if (!info_user.containsKey(user) || !info_user.get(user).equals(pass)) {
-            // nhập sai
-            showAlertInformation("Oops!", "Account or password is NOT correct!");
-        } else if (info_user.containsKey(user) && info_user.get(user).equals(pass)) {
-            // nhập đúng
-            USER_NAME = user;
-            showAlertInformation("Congratulation!", "Successful log in!");
-            rootAnchorPane = FXMLLoader.load(getClass().getResource("view/mainScene.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(rootAnchorPane);
-            stage.setScene(scene);
-            stage.show();
+            // nhập thiếu
+            if (user.isEmpty() || pass.isEmpty()) {
+                showAlertInformation("Oops!", "Please enter full information!");
+            } else if (pass.length() < 6) {
+                // pass quá ngắn
+                showAlertInformation("Oops!", "Password must have more than 6 characters.");
+            } else if (!user_info.get(0).equals(user) || !user_info.get(1).equals(pass)) {
+                // nhập sai
+                showAlertInformation("Oops!", "Account or password is NOT correct!");
+            } else if (user_info.get(0).equals(user) && user_info.get(1).equals(pass)) {
+                // nhập đúng
+                USER_NAME = user;
+                showAlertInformation("Congratulation!", "Successful log in!");
+                rootAnchorPane = FXMLLoader.load(getClass().getResource("view/mainScene.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(rootAnchorPane);
+                stage.setScene(scene);
+                stage.show();
+            }
         }
     }
 
@@ -119,8 +123,21 @@ public class Login extends AppUtils implements Initializable {
      */
     @FXML
     public void signupClick(MouseEvent mouseEvent) {
-        showNewScene(rootLogin, signupAnchorPane, "view/signup.fxml", 50.0, 383.0);
-        System.out.println(signupAnchorPane);
+        if (!user_info.isEmpty()){
+            showAlertInformation("Oops!", "You already have an account.");
+        } else
+            showNewScene(rootLogin, signupAnchorPane, "view/signup.fxml", 50.0, 383.0);
+    }
+
+    /**
+     * quên mật khẩu
+     */
+    public void forgotPasswordAction(MouseEvent event){
+        if (user_info.isEmpty()){
+            showAlertInformation("Oops!", "Please sign up your account");
+        } else
+            showConfirmQuestion();
+
     }
 
     /**
@@ -131,18 +148,23 @@ public class Login extends AppUtils implements Initializable {
         String user = signupUserTextField.getText().trim();
         String pass = signupPassField.getText().trim();
 
-        if (info_user.containsKey(user) && info_user.get(user).equals(pass)) {
-            // tài khoản đã tồn tại
-            showAlertInformation("Oops!", "Account already exists!");
-        } else if (pass.length() < 6) {
+        if (pass.length() < 6) {
             // pass quá ngắn
             showAlertInformation("Oops!", "Password must have more than 6 characters");
         } else {
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(user_path, true))){
-                bw.write(user + "\t" + pass);
+            showConfirmQuestionList();
+
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(user_path))) {
+                bw.write(user);
+                bw.newLine();
+                bw.write(pass);
+                bw.newLine();
+                bw.write(QUES);
+                bw.newLine();
+                bw.write(ANS);
                 bw.newLine();
                 bw.close();
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             showAlertInformation("Congratulation!", "You have successfully registered your account!");
@@ -166,5 +188,45 @@ public class Login extends AppUtils implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    /**
+     * hiển thị list các câu hỏi xác nhận
+     */
+    public void showConfirmQuestionList(){
+        List <String> quesList = Arrays.asList("What color do you like?"
+                , "Who is your idol?"
+                , "Where are you from?"
+                , "What food do you like?");
+
+        ListView <String> quesListView = new ListView<>(FXCollections.observableArrayList(quesList));
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("CONFIRM");
+        dialog.setHeaderText("Choose a question");
+        dialog.setGraphic(quesListView);
+
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(item -> {
+            QUES = quesListView.getSelectionModel().getSelectedItem();
+            dialog.getEditor().setPromptText(QUES);
+            ANS = dialog.getEditor().getText();
+        });
+    }
+
+    /**
+     * hien thi cau hoi xac nhan
+     */
+    public void showConfirmQuestion (){
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("CONFIRM");
+        dialog.setHeaderText(QUES);
+
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(item -> {
+            String ans = dialog.getEditor().getText();
+            if (ans.equals(ANS)){
+                showNewScene(rootLogin, signupAnchorPane, "view/signup.fxml", 50.0, 383.0);
+            } else showAlertInformation("Oops!", "Ban khong the dang nhap tren thiet bi nay");
+        });
     }
 }

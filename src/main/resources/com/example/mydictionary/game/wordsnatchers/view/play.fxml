@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" onKeyPressed="#handleKeyPressed" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #863FA8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.Play">
+<AnchorPane fx:id="anchorPane" onKeyPressed="#handleKeyPressed" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #D0B3E3;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.Play">
    <children>
       <FlowPane fx:id="flowPaneResult" alignment="TOP_CENTER" hgap="5.0" layoutX="254.0" layoutY="233.0" prefHeight="100.0" prefWidth="392.0" vgap="5.0" />
       <TextArea fx:id="explainTextArea" layoutX="254.0" layoutY="78.0" prefHeight="141.0" prefWidth="392.0" style="-fx-border-color: transparent; -fx-font-family: cambria; -fx-font-size: 20;" />
@@ -27,12 +27,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label fx:id="wordLabel" layoutX="743.0" layoutY="16.0" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: #EF75D5; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Words  0 of 12">
+      <Label fx:id="wordLabel" layoutX="743.0" layoutY="16.0" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Words  0 of 12">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="pointLabel" layoutX="743.0" layoutY="58.0" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: #EF75D5; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Points">
+      <Label fx:id="pointLabel" layoutX="743.0" layoutY="58.0" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Points">
          <font>
             <Font size="20.0" />
          </font>
@@ -61,5 +61,15 @@
             </ImageView>
          </graphic>
       </Button>
+      <ImageView fitHeight="276.0" fitWidth="253.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/decor2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="180.0" fitWidth="184.0" layoutX="690.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/decor1.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

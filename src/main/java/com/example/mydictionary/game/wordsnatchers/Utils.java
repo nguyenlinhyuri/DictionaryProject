@@ -1,6 +1,7 @@
 package com.example.mydictionary.game.wordsnatchers;
 
 import com.example.mydictionary.*;
+import com.example.mydictionary.basic.Word;
 import javafx.animation.Timeline;
 import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;

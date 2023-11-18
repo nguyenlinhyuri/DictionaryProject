@@ -18,7 +18,7 @@ public class DictionaryCommandline {
     void dictionarySearcher(String word){
         for (Word x : dict_manage.getDictionary().getDict()){
             if (x.check_start(word)) {
-                System.out.println(x.getWord_target() + " | " + x.getWord_explain());
+                System.out.println(x.getTarget() + " | " + x.getExplain());
             }
         }
     }

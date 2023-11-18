@@ -51,7 +51,7 @@ public class MainScene extends AppUtils implements Initializable {
         option.getItems().addAll(setAvtMenuItem, deleteAvtMenuItem);
         if (mouseEvent.getClickCount() == 1) {
             // hiển thị option tại vị trí avt
-            option.show(avtImageView, mouseEvent.getSceneX(), mouseEvent.getSceneY());
+            option.show(avtImageView, mouseEvent.getSceneX() + 200, mouseEvent.getSceneY() + 50);
         }
     }
 

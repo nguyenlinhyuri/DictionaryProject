@@ -32,9 +32,9 @@ public class Dictionary {
     public void updateWord(String word, String update_meaning) {
         boolean check = false;
         for (Word x : dict) {
-            if (x.getWord_target().equals(word)) {
+            if (x.getTarget().equals(word)) {
                 check = true;
-                x.setWord_explain(update_meaning);
+                x.setExplain(update_meaning);
                 System.out.println("Updated successfully!");
                 break;
             }
@@ -48,7 +48,7 @@ public class Dictionary {
      * @param word delete the word
      */
     public void deleteWord(String word) {
-        dict.removeIf(x -> x.getWord_target().equals(word));
+        dict.removeIf(x -> x.getTarget().equals(word));
         System.out.println("Deleted successfully!");
     }
 
@@ -66,11 +66,11 @@ public class Dictionary {
     }
 
     public String getExplain(int i) {
-        return dict.get(i).getWord_explain();
+        return dict.get(i).getExplain();
     }
 
     public String getTarget(int i){
-        return dict.get(i).getWord_target();
+        return dict.get(i).getTarget();
     }
 
 

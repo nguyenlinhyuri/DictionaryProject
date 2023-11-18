@@ -50,7 +50,7 @@ public class DictionaryManagement {
      */
     void dictionaryLookup(String keyword) {
         for (int i=0; i<dictionary.dict_size(); i++){
-            if (dictionary.get_Target(i).getWord_target().equals(keyword)){
+            if (dictionary.get_Target(i).getTarget().equals(keyword)){
                 System.out.println("Meaning: " + dictionary.getExplain(i));
                 return;
             }
@@ -78,7 +78,7 @@ public class DictionaryManagement {
         FileWriter fileWriter = new FileWriter("E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\java\\com\\example\\mydictionary\\basic\\data.txt");
         BufferedWriter bw = new BufferedWriter(fileWriter);
         for (Word x : dictionary.getDict()){
-            bw.write(x.getWord_target() + '\t' + x.getWord_explain() + '\n');
+            bw.write(x.getTarget() + '\t' + x.getExplain() + '\n');
         }
         System.out.println("Exported successfully!");
         bw.close();
