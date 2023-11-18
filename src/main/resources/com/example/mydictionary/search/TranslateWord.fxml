@@ -32,7 +32,7 @@
             <HBox prefHeight="39.0" prefWidth="503.0" GridPane.columnIndex="1">
                <children>
                   <Label prefHeight="42.0" prefWidth="395.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 8; -fx-background-color: #79A0CB; -fx-text-fill: white; -fx-font-weight: bold;" text="    Definition" />
-                  <Button fx:id="add" mnemonicParsing="false" prefHeight="37.0" prefWidth="53.0">
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#addWord" prefHeight="37.0" prefWidth="53.0">
                      <tooltip>
                         <Tooltip text="add" />
                      </tooltip>

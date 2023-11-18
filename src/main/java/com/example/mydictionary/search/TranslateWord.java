@@ -1,6 +1,7 @@
 package com.example.mydictionary.search;
 
 import com.example.mydictionary.basic.DictionaryManagement;
+import com.example.mydictionary.basic.Word;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static com.example.mydictionary.AppUtils.notedWord;
 import static com.example.mydictionary.api.SpeechToTextAPI.SoundEn;
 
 
@@ -111,11 +113,27 @@ public class TranslateWord implements Initializable {
         viewTaget.getEngine().loadContent(diction.get(index).getExplain(), "text/html");
     }
 
+    /**
+     * khi click vô nút phát âm.
+     */
+
     @FXML
     public void pronounce(ActionEvent e) {
         String text = inputWord.getText();
         SoundEn(text);
     }
+    @FXML
+    public void addWord(ActionEvent e)
+    {
+        String word = inputWord.getText();
+        String def = viewTaget.toString();
+        Word w = new Word();
+        w.setTarget(word);
+        w.setExplain(def);
+        notedWord.add(w);
+        System.out.println(w.getTarget());
+    }
+
 
     /**
      * tạo 1 danh sách cho list view

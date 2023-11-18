@@ -1,5 +1,6 @@
 package com.example.mydictionary;
 
+import com.example.mydictionary.basic.Word;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -52,7 +53,7 @@ public class AppUtils {
     public static final double top1 = 0.0;
     public static final double left1 = 0.0;
 
-    public static Map<String, String> notedWord = new HashMap<>();  // từ đã lưu
+    public static ArrayList<Word> notedWord = new ArrayList<>();  // từ đã lưu
     public static final String NOTED_WORD_PATH = "E:\\Java\\intellijJava\\OOPtemp\\MyDictionary\\src\\main\\resources\\com\\example\\mydictionary\\practice\\data.txt";
 
 
