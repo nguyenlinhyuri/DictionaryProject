@@ -20,7 +20,7 @@
             <Image url="@image/decor1.png" />
          </image>
       </ImageView>
-      <Label fx:id="quizIndexLabel" alignment="CENTER" layoutX="329.0" layoutY="14.0" prefHeight="32.0" prefWidth="151.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-text-fill: #438595; -fx-font-weight: bold;" text="Question  /10" />
+      <Label fx:id="quizIndexLabel" alignment="CENTER" layoutX="329.0" layoutY="14.0" prefHeight="32.0" prefWidth="151.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-text-fill: #438595; -fx-font-weight: bold;" text="Quiz" />
       <Label alignment="CENTER" layoutX="197.0" layoutY="57.0" prefHeight="32.0" prefWidth="414.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-font-weight: bold;" text="CHOOSE THE CORRECT ANSWER TO" />
       <Label alignment="CENTER" layoutX="197.0" layoutY="89.0" prefHeight="32.0" prefWidth="414.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-font-weight: bold;" text="THE EXPLANATION GIVEN BELOW" />
       <Label fx:id="scoreLabel" layoutX="651.0" layoutY="9.0" prefHeight="42.0" prefWidth="151.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #05C5CA;" text="  Your scores  0" />

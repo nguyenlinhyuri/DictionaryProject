@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #C3E5FC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.translatetext.TranslateText">
@@ -36,16 +37,6 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="backButton" layoutX="36.0" layoutY="24.0" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: white;" stylesheets="@../css/style.css" text="←">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="59.0" fitWidth="214.0" layoutX="99.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/translator.png" />
-         </image>
-      </ImageView>
       <Button fx:id="soundInput1" alignment="CENTER" layoutX="712.0" layoutY="401.0" mnemonicParsing="false" onAction="#playSoundOutput" prefHeight="35.0" prefWidth="38.0" style="-fx-background-color: rgba(255, 255, 255, 0.0); -fx-font-weight: bold; -fx-font-size: 16;" stylesheets="@../css/style.css">
          <font>
             <Font name="Book Antiqua Bold Italic" size="16.0" />
@@ -61,5 +52,15 @@
             </ImageView>
          </graphic>
       </Button>
+      <HBox layoutX="36.0" layoutY="14.0" prefHeight="42.0" prefWidth="200.0" spacing="10.0">
+         <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: white; -fx-text-fill: #007196;" stylesheets="@../css/style.css" text="←">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label prefHeight="42.0" prefWidth="140.0" style="-fx-text-fill: #007196; -fx-font-family: cambria; -fx-font-size: 28; -fx-font-weight: bold; -fx-font-style: italic;" text="Translator" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

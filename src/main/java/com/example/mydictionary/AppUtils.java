@@ -1,6 +1,5 @@
 package com.example.mydictionary;
 
-import com.example.mydictionary.basic.Word;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -33,8 +32,8 @@ public class AppUtils {
     /**
      * search
      */
-    public static boolean isSearchScene = false;
-    public static AnchorPane searchAnchorPane;
+//    public static boolean isSearchScene = false;
+//    public static AnchorPane searchAnchorPane;
 
     /**
      * translate text
@@ -79,7 +78,7 @@ public class AppUtils {
             AnchorPane.setTopAnchor(newScene, top);
             AnchorPane.setLeftAnchor(newScene, left);
             root.getChildren().add(newScene);
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -87,7 +86,7 @@ public class AppUtils {
     /**
      * load âm thanh cho app
      */
-    public void playSound(String path, int times){
+    public void playSound(String path, int times) {
         URL resource = getClass().getResource(path);
         if (resource != null) {
             media = new Media(resource.toString());
@@ -100,28 +99,28 @@ public class AppUtils {
     /**
      * đọc dữ liệu các từ đã đánh dấu
      */
-    public void readNotedWordData() throws IOException{
+    public void readNotedWordData() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(NOTED_WORD_PATH));
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.split("\t");
-            if (parts.length >= 2){
+            if (parts.length >= 2) {
                 notedWord.put(parts[0], parts[1]);
             }
         }
-        System.out.println("read notedwords successful!");
     }
 
     /**
      * ghi dữ liệu ra file khi thoát chương trình
      */
     public void writeNotedWordData() throws IOException {
-        BufferedWriter bw = new BufferedWriter(new FileWriter(NOTED_WORD_PATH));
-        for (Map.Entry entry : notedWord.entrySet()){
-            String line = entry.getKey() + "\t" + entry.getValue();
-            bw.write(line);
-            bw.newLine();
+        FileWriter fileWriter = new FileWriter(NOTED_WORD_PATH);
+        BufferedWriter bw = new BufferedWriter(fileWriter);
+        for (Map.Entry entry : notedWord.entrySet()) {
+            bw.write(entry.getKey() + "\t" + entry.getValue() + "\n");
         }
         System.out.println("write notedwords successful!");
+        bw.close();
+
     }
 }

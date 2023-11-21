@@ -52,7 +52,10 @@ public class StartController extends GameUtils implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         playSound("sound/start.wav", 1);
         dictionaryFunction.readFromFile(diction, "data/E_V.txt");
-        for (Word x : diction) data.add(x.getTarget());
+        for (Word x : diction) {
+            if (checkWordToData(x.getTarget()))
+                data.add(x.getTarget());
+        }
     }
 
 }

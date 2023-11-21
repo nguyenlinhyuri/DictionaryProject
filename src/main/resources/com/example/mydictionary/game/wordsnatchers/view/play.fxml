@@ -27,12 +27,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label fx:id="wordLabel" layoutX="743.0" layoutY="16.0" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Words  0 of 12">
+      <Label fx:id="wordLabel" layoutX="743.0" layoutY="16.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Words  0 of 12">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="pointLabel" layoutX="743.0" layoutY="58.0" prefHeight="39.0" prefWidth="142.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Points">
+      <Label fx:id="pointLabel" layoutX="743.0" layoutY="58.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Points">
          <font>
             <Font size="20.0" />
          </font>

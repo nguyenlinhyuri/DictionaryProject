@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootLogin" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #90caf9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.Login">
+<AnchorPane fx:id="rootLogin" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #9CD0E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.Login">
    <children>
       <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 2);">
          <children>

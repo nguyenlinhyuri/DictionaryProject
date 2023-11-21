@@ -8,11 +8,9 @@ import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 
 import java.net.URL;
-import java.sql.*;
 import java.util.*;
 
 public class NotedWordList extends Practice implements Initializable {
@@ -42,28 +40,34 @@ public class NotedWordList extends Practice implements Initializable {
     /**
      * tìm từ đã lưu
      */
-    public void searchNotedWord(){
-        String searchKey = searchTextField.getText().toLowerCase().trim();
-        if (!searchKey.isEmpty()){
-            list.clear();
+    public void searchNotedWord() {
+        String s = searchTextField.getText();
+        if (s.isEmpty() || s == null) {
+            updateListView();
+//            return;
+        } else {
+            s = searchTextField.getText().toLowerCase().trim();
+            if (!s.isEmpty()) {
+                list.clear();
 
-            for (Map.Entry entry : notedWord.entrySet()){
-                Word w = new Word((String) entry.getKey(), (String) entry.getValue());
-                if (w.check_start(searchKey)){
-                    list.add(w.getTarget());
+                for (Map.Entry entry : notedWord.entrySet()) {
+                    Word w = new Word((String) entry.getKey(), (String) entry.getValue());
+                    if (w.check_start(s)) {
+                        list.add(w.getTarget());
+                    }
                 }
-            }
-
-            if (!list.isEmpty()) {
-                notedWordListView.setItems(list);
+                if (!list.isEmpty()) {
+                    notedWordListView.setItems(list);
+                } else {
+                    list.addAll(notedWord.keySet());
+                    notedWordListView.setItems(list);
+                }
             } else {
                 list.addAll(notedWord.keySet());
                 notedWordListView.setItems(list);
             }
-        } else {
-            list.addAll(notedWord.keySet());
-            notedWordListView.setItems(list);
         }
+
 
     }
 
@@ -98,7 +102,7 @@ public class NotedWordList extends Practice implements Initializable {
     /**
      * thêm từ
      */
-    public void addItemToListView(String item){
+    public void addItemToListView(String item) {
         list.add(item);
     }
 
@@ -116,8 +120,8 @@ public class NotedWordList extends Practice implements Initializable {
         meaningTextArea.setEditable(true);
         Button okButton = new Button("OK");
 
-        AnchorPane.setTopAnchor(okButton, 425.0);
-        AnchorPane.setLeftAnchor(okButton, 741.0);
+        AnchorPane.setTopAnchor(okButton, 400.0);
+        AnchorPane.setLeftAnchor(okButton, 720.0);
         notedwordAnchorPane.getChildren().add(okButton);
 
         okButton.setOnAction(e -> {
@@ -139,7 +143,7 @@ public class NotedWordList extends Practice implements Initializable {
             showAlert(Alert.AlertType.WARNING, "Warning", "Empty Input", "Please enter a word to delete.");
             return;
         }
-        if (!notedWord.containsKey(wordToDelete)){
+        if (!notedWord.containsKey(wordToDelete)) {
             showAlert(Alert.AlertType.WARNING, "Not Found", null, "Not found this word");
             return;
         }
@@ -161,8 +165,6 @@ public class NotedWordList extends Practice implements Initializable {
      * cập nhât danh sách
      */
     public void updateListView() {
-//        List<String> vocabList = new ArrayList<>();
-//        vocabList.addAll(notedWord.keySet());
         list.addAll(notedWord.keySet());
         notedWordListView.setItems(list);
 

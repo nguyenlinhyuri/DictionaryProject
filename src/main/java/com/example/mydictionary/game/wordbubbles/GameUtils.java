@@ -3,7 +3,6 @@ package com.example.mydictionary.game.wordbubbles;
 import com.example.mydictionary.Game;
 import com.example.mydictionary.basic.DictionaryManagement;
 import com.example.mydictionary.search.Dictionary;
-import com.example.mydictionary.search.TranslateWord;
 import javafx.animation.*;
 import javafx.scene.layout.AnchorPane;
 import java.util.*;

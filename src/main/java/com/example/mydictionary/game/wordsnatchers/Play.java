@@ -47,6 +47,7 @@ public class Play extends Utils implements Initializable {
     private int currentWordIndex;  // chỉ số của từ hiện tại
     private Word currentWord;      // từ hiện tại
     private boolean isHinted = false;
+    private boolean isX = true;
 
 
     /**
@@ -57,7 +58,7 @@ public class Play extends Utils implements Initializable {
         String line;
         while ((line = br.readLine()) != null) {
             String[] parts = line.split("\t");
-            if (parts.length >= 2) {
+            if (parts.length >= 2 && checkWordToData(parts[0])) {
                 data.add(new Word(parts[0], parts[1]));
             }
         }
@@ -284,7 +285,7 @@ public class Play extends Utils implements Initializable {
                             point += 400;
                             if (!isHinted) {
                                 Label speed = new Label("EXPEDITIOUS");
-                                speed.setPrefSize(142, 27);
+                                speed.setPrefSize(154, 27);
                                 speed.setAlignment(Pos.CENTER);
                                 speed.setStyle("-fx-text-fill: black;" +
                                         "-fx-font-size: 18px;" +
@@ -304,7 +305,7 @@ public class Play extends Utils implements Initializable {
                             point += 300;
                             if (!isHinted) {
                                 Label speed = new Label("SPEEDY");
-                                speed.setPrefSize(142, 27);
+                                speed.setPrefSize(154, 27);
                                 speed.setAlignment(Pos.CENTER);
                                 speed.setStyle("-fx-text-fill: black;" +
                                         "-fx-font-size: 18px;" +
@@ -324,7 +325,7 @@ public class Play extends Utils implements Initializable {
                             point += 200;
                             if (!isHinted) {
                                 Label speed = new Label("FAST");
-                                speed.setPrefSize(142, 27);
+                                speed.setPrefSize(154, 27);
                                 speed.setAlignment(Pos.CENTER);
                                 speed.setStyle("-fx-text-fill: black;" +
                                         "-fx-font-size: 18px;" +
@@ -344,9 +345,10 @@ public class Play extends Utils implements Initializable {
 
                         pointLabel.setText(" Points  " + point);
 
-                        if (timeline.getStatus() == Animation.Status.RUNNING && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-                            setIcon("game/wordsnatchers/image/tick_icon.png");
-                            playStatusSound(true);
+                        if (timeline.getStatus() == Animation.Status.RUNNING) {
+                            setIcon("E:\\Java\\BaiTapLonOOP\\DictionaryProject\\src\\main\\resources\\com\\example\\mydictionary\\game\\wordsnatchers\\image\\tick_icon.png");
+                            if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+                                playStatusSound(true);
                         }
 
                         word++;
@@ -375,11 +377,12 @@ public class Play extends Utils implements Initializable {
         if (!checkWord()) {
             showAnswer();
 
-            if (timeline.getStatus() == Animation.Status.RUNNING && mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-                setIcon("game/wordsnatchers/image/x_icon.png");
-                playStatusSound(false);
+            if (isX) {
+                setIcon("E:\\Java\\intellijJava\\OOPtemp\\DictionaryProject\\src\\main\\resources\\com\\example\\mydictionary\\game\\wordsnatchers\\image\\x_icon.png");
+                if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+                    playStatusSound(false);
+                }
             }
-
 
             // dừng 1 giây rồi mới chuyển sang từ tiếp theo
             PauseTransition delay = new PauseTransition(Duration.seconds(1));
@@ -452,6 +455,7 @@ public class Play extends Utils implements Initializable {
      * chuyển tới giao diện kết quả
      */
     public void resultScreen() throws IOException {
+        isX = false;
         if (timeline != null) timeline.stop();
         if (mediaPlayer != null) mediaPlayer.stop();
 
@@ -574,7 +578,7 @@ public class Play extends Utils implements Initializable {
         icon.setFitHeight(40);
         icon.setFitWidth(40);
 
-        setLocation(icon, anchorPane, 350.0, 430.0);
+        setLocation(icon, anchorPane, 353.0, 430.0);
 
         PauseTransition delay = new PauseTransition(Duration.seconds(1));
         delay.setOnFinished(e -> {

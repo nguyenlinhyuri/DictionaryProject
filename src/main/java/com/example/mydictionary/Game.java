@@ -83,8 +83,18 @@ public class Game extends AppUtils {
      */
     @FXML
     public void backAction(ActionEvent event){
-        System.out.println("==========================");
         rootAnchorPane.getChildren().remove(gameAnchorPane);
         isGameScene = false;
+    }
+
+    /**
+     * kiểm tra từ được sao chép vào data
+     */
+    public boolean checkWordToData(String s){
+        s = s.toLowerCase().trim();
+        for (int i=0; i<s.length(); i++){
+            if (s.charAt(i) < 'a' || s.charAt(i) > 'z') return false;
+        }
+        return true;
     }
 }
