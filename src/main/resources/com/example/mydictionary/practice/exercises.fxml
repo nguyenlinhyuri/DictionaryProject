@@ -25,50 +25,22 @@
       <Label alignment="CENTER" layoutX="197.0" layoutY="89.0" prefHeight="32.0" prefWidth="414.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-font-weight: bold;" text="THE EXPLANATION GIVEN BELOW" />
       <Label fx:id="scoreLabel" layoutX="651.0" layoutY="9.0" prefHeight="42.0" prefWidth="151.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #05C5CA;" text="  Your scores  0" />
       <TextArea fx:id="explainTextArea" layoutX="257.0" layoutY="127.0" prefHeight="122.0" prefWidth="294.0" style="-fx-font-family: cambria; -fx-font-size: 20;" />
-      <Button fx:id="button_A" layoutX="138.0" layoutY="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white; -fx-alignment: left;" stylesheets="@../css/style.css" text="Play">
-         <graphic>
-            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/A_answer.png" />
-               </image>
-            </ImageView>
-         </graphic>
+      <Button fx:id="button_A" alignment="CENTER" layoutX="138.0" layoutY="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white; -fx-alignment: left;" stylesheets="@../css/style.css" text="Play">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="button_B" layoutX="432.0" layoutY="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white; -fx-alignment: left;" stylesheets="@../css/style.css" text="Play">
-         <graphic>
-            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/B_answer.png" />
-               </image>
-            </ImageView>
-         </graphic>
+      <Button fx:id="button_B" alignment="CENTER" layoutX="432.0" layoutY="270.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white; -fx-alignment: left;" stylesheets="@../css/style.css" text="Play">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="button_C" layoutX="138.0" layoutY="341.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white; -fx-alignment: left;" stylesheets="@../css/style.css" text="Play">
-         <graphic>
-            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/C_answer.png" />
-               </image>
-            </ImageView>
-         </graphic>
+      <Button fx:id="button_C" alignment="CENTER" layoutX="138.0" layoutY="341.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white; -fx-alignment: left;" stylesheets="@../css/style.css" text="Play">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="button_D" layoutX="432.0" layoutY="342.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white; -fx-alignment: left;" stylesheets="@../css/style.css" text="Play">
-         <graphic>
-            <ImageView fitHeight="33.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/D_answer.png" />
-               </image>
-            </ImageView>
-         </graphic>
+      <Button fx:id="button_D" alignment="CENTER" layoutX="432.0" layoutY="342.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="238.0" style="-fx-background-radius: 15; -fx-font-family: cambria; -fx-font-size: 20; -fx-text-fill: #438595; -fx-background-color: white; -fx-alignment: left;" stylesheets="@../css/style.css" text="Play">
          <font>
             <Font size="20.0" />
          </font>

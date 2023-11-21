@@ -301,7 +301,7 @@ public class MainScene extends AppUtils implements Initializable {
     }
 
     @FXML
-    public void sumit(ActionEvent e) {
+    public void submit(ActionEvent e) {
         String input = inputWord.getText();
         int index = dictionaryFunction.searchWord(diction, input);
         viewTaget.getEngine().loadContent(diction.get(index).getExplain(), "text/html");

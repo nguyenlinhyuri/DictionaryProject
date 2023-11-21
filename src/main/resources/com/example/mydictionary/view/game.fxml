@@ -48,7 +48,7 @@
       </Button>
       <HBox layoutX="70.0" layoutY="36.0" prefHeight="42.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: white; -fx-text-fill: #007196;" stylesheets="@../css/style.css" text="←">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: none; -fx-text-fill: #007196;" stylesheets="@../css/style.css" text="←">
                <font>
                   <Font size="16.0" />
                </font>

@@ -18,7 +18,7 @@
       <Button fx:id="letpracticeButton" layoutX="335.0" layoutY="333.0" mnemonicParsing="false" onAction="#letPracticeAction" prefHeight="50.0" prefWidth="138.0" style="-fx-background-radius: 20; -fx-font-size: 18; -fx-font-family: cambria; -fx-background-color: white;" stylesheets="@../css/style.css" text="Let's practice" />
       <HBox layoutX="80.0" layoutY="46.0" prefHeight="42.0" prefWidth="379.0" spacing="10.0">
          <children>
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: white;" stylesheets="@../css/style.css" text="←">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: none;" stylesheets="@../css/style.css" text="←">
                <font>
                   <Font size="16.0" />
                </font>

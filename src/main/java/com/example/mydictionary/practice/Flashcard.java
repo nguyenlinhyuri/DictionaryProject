@@ -2,12 +2,14 @@ package com.example.mydictionary.practice;
 
 import com.example.mydictionary.*;
 import com.example.mydictionary.basic.Word;
+import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.net.*;
@@ -30,6 +32,12 @@ public class Flashcard extends Practice implements Initializable {
     @FXML
     private Button backButton;
 
+    @FXML
+    private Button editButton;
+
+    @FXML
+    private Button okButton;
+
     //-----------------
     @FXML
     private Label wordLabel;
@@ -39,7 +47,6 @@ public class Flashcard extends Practice implements Initializable {
 
     @FXML
     private TextArea meaningTextArea;
-
 
 
     private List<Word> wordList = new ArrayList<>();
@@ -80,7 +87,7 @@ public class Flashcard extends Practice implements Initializable {
      */
     public int getCurrentIndex() {
         String cur = wordLabel.getText();
-        for (int i=0; i<wordList.size(); i++){
+        for (int i = 0; i < wordList.size(); i++) {
             if (cur.equals(wordList.get(i).getTarget())) return i;
         }
         return -1;
@@ -91,12 +98,26 @@ public class Flashcard extends Practice implements Initializable {
         Word currentWord = wordList.get(currentIndex);
 
         if (statusOfFlashcard) { // en
-            wordLabel.setText(currentWord.getTarget());
-            meaningTextArea.setText(currentWord.getExplain());
-            statusOfFlashcard = false;
+            flashcardBox.setMinSize(50, 330);
+            RotateTransition flip = new RotateTransition(Duration.seconds(0.5), flashcardBox);
+            flip.setByAngle(360);
+            flip.setAxis(Rotate.Y_AXIS);
+            flip.setOnFinished(e -> {
+                wordLabel.setText(currentWord.getTarget());
+                meaningTextArea.setText(currentWord.getExplain());
+                statusOfFlashcard = false;
+            });
+            flip.play();
         } else { // vi
-            meaningTextArea.clear();
-            statusOfFlashcard = true;
+            flashcardBox.setMinSize(50, 330);
+            RotateTransition flip = new RotateTransition(Duration.seconds(0.5), flashcardBox);
+            flip.setByAngle(360);
+            flip.setAxis(Rotate.Y_AXIS);
+            flip.setOnFinished(e -> {
+                meaningTextArea.clear();
+                statusOfFlashcard = true;
+            });
+            flip.play();
         }
     }
 
@@ -154,6 +175,23 @@ public class Flashcard extends Practice implements Initializable {
     }
 
     @FXML
+    public void editFlashcard(ActionEvent event){
+        if (statusOfFlashcard){
+            return;
+        }
+        meaningTextArea.setEditable(true);
+        okButton.setDisable(false);
+        okButton.setOnAction(e -> {
+            meaningTextArea.setEditable(false);
+            notedWord.remove(wordLabel.getText());
+            notedWord.put(wordLabel.getText(), meaningTextArea.getText());
+            wordList.get(getCurrentIndex()).setExplain(meaningTextArea.getText());
+            showAlertInformation("Edit", "Edit successfully!");
+            okButton.setDisable(true);
+        });
+    }
+
+    @FXML
     public void backAction(ActionEvent event) {
         practiceAnchorPane.getChildren().remove(flashcardAnchorPane);
     }
@@ -167,6 +205,7 @@ public class Flashcard extends Practice implements Initializable {
         }
         meaningTextArea.setWrapText(true);
         meaningTextArea.setEditable(false);
+        okButton.setDisable(true);
 
         if (!wordList.isEmpty()) {
             Word firstWord = wordList.get(0);

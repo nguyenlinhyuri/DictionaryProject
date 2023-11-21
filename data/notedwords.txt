@@ -14,4 +14,4 @@ sugent	hút vào
 umbrae	danh từ,  số nhiều umbrae: bóng
 acyclic	(Tech) không tuần hoàn, không có chu kỳ
 panicky	tính từ: (thông tục) hay hoảng sợ, yếu bóng vía, hay hoang mang sợ hãi
-volleyball	bóng chuyền
+volleyball	<thể thao> môn bóng chuyền

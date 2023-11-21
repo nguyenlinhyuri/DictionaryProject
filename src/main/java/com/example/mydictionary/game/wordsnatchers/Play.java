@@ -479,8 +479,8 @@ public class Play extends Utils implements Initializable {
                         "-fx-text-fill: white;" +
                         "-fx-font-size: 28;" +
                         "-fx-font-weight: bold;" +
-                        "-fx-cursor: hand");
-
+                        "-fx-cursor: hand" +
+                        "-fx-background-radius: 10");
                 text.setAlignment(Pos.CENTER);
                 text.setWrapText(true);
                 text.setPrefSize(150, 94);

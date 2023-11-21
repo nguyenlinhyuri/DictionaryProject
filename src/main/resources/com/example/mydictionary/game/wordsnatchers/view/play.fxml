@@ -8,12 +8,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchorPane" onKeyPressed="#handleKeyPressed" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #D0B3E3;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.Play">
    <children>
       <FlowPane fx:id="flowPaneResult" alignment="TOP_CENTER" hgap="5.0" layoutX="254.0" layoutY="233.0" prefHeight="100.0" prefWidth="392.0" vgap="5.0" />
-      <TextArea fx:id="explainTextArea" layoutX="254.0" layoutY="78.0" prefHeight="141.0" prefWidth="392.0" style="-fx-border-color: transparent; -fx-font-family: cambria; -fx-font-size: 20;" />
       <ProgressBar fx:id="timeProgressBar" layoutX="254.0" layoutY="36.0" prefHeight="31.0" prefWidth="392.0" progress="0.0" />
       <Button id="button" fx:id="pauseButton" layoutX="16.0" layoutY="15.0" mnemonicParsing="false" onAction="#pauseGame" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-font-family: cambria; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 20;" stylesheets="@../../../css/style.css" text=" Pause">
          <font>
@@ -61,15 +61,20 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="276.0" fitWidth="253.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="276.0" fitWidth="253.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/decor2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="180.0" fitWidth="184.0" layoutX="700.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="273.0" fitWidth="253.0" layoutX="646.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/decor3.png" />
          </image>
       </ImageView>
+      <Pane layoutX="254.0" layoutY="76.0" prefHeight="140.0" prefWidth="392.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+         <children>
+            <TextArea fx:id="explainTextArea" layoutX="7.0" prefHeight="139.0" prefWidth="379.0" style="-fx-border-color: transparent; -fx-font-family: cambria; -fx-font-size: 20; -fx-border-color: none;" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

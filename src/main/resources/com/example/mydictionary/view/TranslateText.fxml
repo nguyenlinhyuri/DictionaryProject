@@ -8,13 +8,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #C3E5FC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.translatetext.TranslateText">
    <children>
-      <TextArea fx:id="textInput" layoutX="36.0" layoutY="103.0" prefHeight="298.0" prefWidth="314.0" promptText="Type ..." style="-fx-font-family: cambria; -fx-font-size: 18;" />
-      <TextArea fx:id="view" layoutX="458.0" layoutY="103.0" prefHeight="298.0" prefWidth="314.0" style="-fx-font-family: cambria; -fx-font-size: 18;" />
-      <Button fx:id="translate" layoutX="360.0" layoutY="184.0" mnemonicParsing="false" onAction="#Trans" prefHeight="43.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-background-color: #0E47A1; -fx-text-fill: white; -fx-font-size: 14; -fx-font-weight: bold;" stylesheets="@../css/style.css" text="translate" />
+      <Button fx:id="translate" layoutX="360.0" layoutY="184.0" mnemonicParsing="false" onAction="#Trans" prefHeight="43.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-background-color: #007196; -fx-text-fill: white; -fx-font-size: 14; -fx-font-weight: bold;" stylesheets="@../css/style.css" text="translate" />
       <Button fx:id="soundInput" alignment="CENTER" layoutX="36.0" layoutY="401.0" mnemonicParsing="false" onAction="#playSoundInput" prefHeight="35.0" prefWidth="38.0" style="-fx-background-color: rgba(255, 255, 255, 0.0); -fx-font-weight: bold; -fx-font-size: 16;" stylesheets="@../css/style.css">
          <font>
             <Font name="Book Antiqua Bold Italic" size="16.0" />
@@ -30,9 +29,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label fx:id="input" alignment="CENTER" layoutX="79.0" layoutY="69.0" prefHeight="30.0" prefWidth="228.0" style="-fx-font-family: cambria; -fx-font-size: 22; -fx-text-fill: #0E47A1; -fx-font-weight: bold;" text="Label" />
-      <Label fx:id="output" alignment="CENTER" layoutX="501.0" layoutY="69.0" prefHeight="30.0" prefWidth="228.0" style="-fx-font-family: cambria; -fx-font-size: 22; -fx-text-fill: #0E47A1; -fx-font-weight: bold;" text="Label" />
-      <Button fx:id="change" graphicTextGap="0.0" layoutX="370.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeLanguage" prefHeight="59.0" prefWidth="76.0" style="-fx-font-size: 28; -fx-background-radius: 20; -fx-font-weight: bold; -fx-background-color: rgba(255, 255, 255, 0.0); -fx-text-fill: #0E47A1;" stylesheets="@../css/style.css" text="↔">
+      <Label fx:id="input" alignment="CENTER" layoutX="79.0" layoutY="69.0" prefHeight="30.0" prefWidth="228.0" style="-fx-font-family: cambria; -fx-font-size: 22; -fx-text-fill: #007196; -fx-font-weight: bold;" text="Label" />
+      <Label fx:id="output" alignment="CENTER" layoutX="501.0" layoutY="69.0" prefHeight="30.0" prefWidth="228.0" style="-fx-font-family: cambria; -fx-font-size: 22; -fx-text-fill: #007196; -fx-font-weight: bold;" text="Label" />
+      <Button fx:id="change" graphicTextGap="0.0" layoutX="370.0" layoutY="55.0" mnemonicParsing="false" onAction="#changeLanguage" prefHeight="59.0" prefWidth="76.0" style="-fx-font-size: 28; -fx-background-radius: 20; -fx-font-weight: bold; -fx-background-color: rgba(255, 255, 255, 0.0); -fx-text-fill: #007196;" stylesheets="@../css/style.css" text="↔">
          <font>
             <Font size="13.0" />
          </font>
@@ -54,7 +53,7 @@
       </Button>
       <HBox layoutX="36.0" layoutY="14.0" prefHeight="42.0" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: white; -fx-text-fill: #007196;" stylesheets="@../css/style.css" text="←">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backAction" prefHeight="38.0" prefWidth="42.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-font-weight: bold; -fx-background-color: none; -fx-text-fill: #007196;" stylesheets="@../css/style.css" text="←">
                <font>
                   <Font size="16.0" />
                </font>
@@ -62,5 +61,15 @@
             <Label prefHeight="42.0" prefWidth="140.0" style="-fx-text-fill: #007196; -fx-font-family: cambria; -fx-font-size: 28; -fx-font-weight: bold; -fx-font-style: italic;" text="Translator" />
          </children>
       </HBox>
+      <Pane layoutX="36.0" layoutY="103.0" prefHeight="298.0" prefWidth="314.0" style="-fx-background-color: #007196; -fx-background-radius: 10;">
+         <children>
+            <TextArea fx:id="textInput" layoutX="5.0" layoutY="5.0" prefHeight="288.0" prefWidth="304.0" promptText="Type ..." style="-fx-font-family: cambria; -fx-font-size: 18;" />
+         </children>
+      </Pane>
+      <Pane layoutX="458.0" layoutY="103.0" prefHeight="298.0" prefWidth="314.0" style="-fx-background-color: #007196; -fx-background-radius: 10;">
+         <children>
+            <TextArea fx:id="view" layoutX="5.0" layoutY="5.0" prefHeight="288.0" prefWidth="304.0" style="-fx-font-family: cambria; -fx-font-size: 18;" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -33,7 +33,7 @@
                         <RowConstraints maxHeight="389.79999389648435" minHeight="10.0" prefHeight="332.2" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="inputWord" onAction="#sumit" prefHeight="48.0" prefWidth="182.0" promptText="Search" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 8;" />
+                        <TextField fx:id="inputWord" onAction="#submit" prefHeight="48.0" prefWidth="182.0" promptText="Search" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 8;" />
                         <ListView fx:id="listWord" onMouseClicked="#handleMouseClickaWord" prefHeight="357.0" prefWidth="201.0" style="-fx-background-radius: 8;" styleClass="listview" stylesheets="@../css/style.css" GridPane.rowIndex="1" />
                         <HBox prefHeight="86.0" prefWidth="540.0" spacing="5.0" GridPane.columnIndex="1">
                            <children>
