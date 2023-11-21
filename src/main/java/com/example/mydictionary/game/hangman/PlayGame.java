@@ -6,6 +6,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.*;
@@ -23,10 +25,13 @@ public class PlayGame extends UtilsGame implements Initializable {
     private TextField myTextField;
 
 
-
     @FXML
     private Label resultLB;
-
+    @FXML
+     ImageView imageUp,imageDown, imageLeft, imageRight;
+    @FXML Image right = new Image(getClass().getResourceAsStream("/com/example/mydictionary/game/hangman/image/right.png"));
+    @FXML Image up = new Image(getClass().getResourceAsStream("/com/example/mydictionary/game/hangman/image/up.png"));
+    @FXML Image down = new Image(getClass().getResourceAsStream("/com/example/mydictionary/game/hangman/image/down.png"));
     private int hp;
 
 
@@ -43,6 +48,7 @@ public class PlayGame extends UtilsGame implements Initializable {
     public void randomWord() {
         Random random = new Random();
         word = data.get(random.nextInt(data.size()));
+        System.out.println(word);
 
         commentLB.setText("enter your letter here!");
     }
@@ -50,6 +56,8 @@ public class PlayGame extends UtilsGame implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (mediaPlayer != null) mediaPlayer.stop();
+        playSound("sound/music1.mp3", 5);
         try {
             readInput();
         } catch (IOException e) {
@@ -67,28 +75,63 @@ public class PlayGame extends UtilsGame implements Initializable {
 
     }
 
+    int countRepeat = 0;
+    int countTrue = 0;
 
     @FXML
     public void submit(ActionEvent event) throws IOException {
         String letterGuess = myTextField.getText(0, 1);
+        countTrue = 0;
         if (checkIfEntered(letterGuess, enter)) {
             commentLB.setText("you have already used this letter!");
+            countRepeat++;
+            Image myImage1 = new Image(getClass().getResourceAsStream("/com/example/mydictionary/game/hangman/image/kho_hieu.gif"));
+            if (countRepeat == 1) {
+                imageLeft.setImage(myImage1);
+                imageDown.setImage(down);
+                imageRight.setImage(right);
+                imageUp.setImage(up);
+            } else if (countRepeat == 2) {
+
+                imageDown.setImage(myImage1);
+
+            } else if (countRepeat ==3 ) {
+//                imageCMT.setImage(myImage1);
+//                imageCMT2.setImage(myImage1);
+                imageRight.setImage(myImage1);
+            }
+            else if (countRepeat > 3)
+            {
+                imageUp.setImage(myImage1);
+            }
+
         } else {
             enter.add(letterGuess);
+            countRepeat = 0;
             if (isCharInWord(letterGuess, word)) {
                 updateSecretWord(letterGuess, word);
                 resultLB.setText(secretWord);
                 commentLB.setText("nice!!");
-                //addLetter(letterGuess, found);
+                countTrue++;
+                Image myImage2 = new Image(getClass().getResourceAsStream("/com/example/mydictionary/game/hangman/image/look.gif"));
+                if (countTrue == 1)
+                {
+                    imageUp.setImage(myImage2);
+                    imageLeft.setImage(myImage2);
+                    imageRight.setImage(myImage2);
+                    imageDown.setImage(myImage2);
+
+                }
             } else {
                 hp--;
+                Image myImage3 = new Image(getClass().getResourceAsStream("/com/example/mydictionary/game/hangman/image/hehe.gif"));
                 if (hp <= 0) {
                     try {
                         component = FXMLLoader.load(getClass().getResource("view/lose.fxml"));
                         AnchorPane.setTopAnchor(component, top1);
                         AnchorPane.setLeftAnchor(component, left1);
                         hangmanAnchorPane.getChildren().add((Node) component);
-                    } catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
 
@@ -97,6 +140,10 @@ public class PlayGame extends UtilsGame implements Initializable {
                 hpLB.setText("Lives: " + hp);
                 commentLB.setText("oh wrong :<  try again !");
                 //addLetter(letterGuess, wrong);
+                imageUp.setImage(myImage3);
+                imageRight.setImage(myImage3);
+                imageDown.setImage(myImage3);
+                imageLeft.setImage(myImage3);
             }
             if (secretWord.equals(word)) {
 
@@ -105,7 +152,7 @@ public class PlayGame extends UtilsGame implements Initializable {
                     AnchorPane.setTopAnchor(component, top1);
                     AnchorPane.setLeftAnchor(component, left1);
                     hangmanAnchorPane.getChildren().add((Node) component);
-                } catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
 

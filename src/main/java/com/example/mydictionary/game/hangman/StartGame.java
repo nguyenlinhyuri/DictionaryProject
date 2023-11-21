@@ -4,14 +4,16 @@ import com.example.mydictionary.AppUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class StartGame extends UtilsGame{
+public class StartGame extends UtilsGame implements Initializable {
 
     @FXML
     public void playGame(ActionEvent event) throws IOException {
@@ -41,5 +43,10 @@ public class StartGame extends UtilsGame{
         } catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        playSound("sound/music1.mp3", 3);
     }
 }

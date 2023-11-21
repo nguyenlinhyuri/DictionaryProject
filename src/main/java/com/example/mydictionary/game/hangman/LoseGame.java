@@ -30,6 +30,8 @@ public class LoseGame extends UtilsGame implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (mediaPlayer != null) mediaPlayer.stop();
+        playSound("sound/defeat.mp3" , 5);
         tagetLB.setText("This word is : " + word); //+ //playController.getWord());
         ScaleTransition scale = new ScaleTransition();
         scale.setNode(myImage);

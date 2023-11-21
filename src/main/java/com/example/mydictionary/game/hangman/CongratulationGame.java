@@ -56,6 +56,9 @@ public class CongratulationGame extends UtilsGame implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (mediaPlayer != null) mediaPlayer.stop();
+
+        playSound("sound/win.mp3" , 5);
         wordLabel.setText("The word is: " + word);
     }
 }
