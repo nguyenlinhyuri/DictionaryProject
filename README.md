@@ -4,8 +4,8 @@ Object Oriented Programming - INT2204 1
 ---
 ## ***Author***
 Group 13:
-- Nguyễn Khánh Linh - 22021158
-- Lường Thị Hảo - 22021187
+- Nguyen Khanh Linh - 22021158
+- Luong Thi Hao - 22021187
 
 ## ***Description***
 This application is designed to support English learning. It is wwritten in Java programming language and ulitizes the JavaFX graphics library.
@@ -17,6 +17,9 @@ This application is designed to support English learning. It is wwritten in Java
 ## ***UML Diagrams***
 
 ## ***Installation***
+1. Clone the project from the repository
+2. Open project in IDE (recommend intelliJ IDEA)
+3. Run the project
 
 ## ***Usage***
 
@@ -25,7 +28,7 @@ This application is designed to support English learning. It is wwritten in Java
 ## ***Future improvements***
 
 ## ***Contribution***
-If you have any contributions to the game or encounter difficulties while playing the game, please create a Pull request or report a new issue. Thank you very much for your interest in the game, and I wish you have enjoyable moments with this project.
+If you have any contributions to the application or encounter difficulties while using the app, please create a Pull request or report a new issue. Thank you very much for your interest in the app, and I wish you have enjoyable moments with this app.
 
 ## ***Project Status***
 The project is completed.
