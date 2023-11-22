@@ -5,7 +5,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 
-public class UtilsGame extends Game {
+public class UtilsHangman extends Game {
     public static AnchorPane playAnchorPane;
     public static AnchorPane component;
 

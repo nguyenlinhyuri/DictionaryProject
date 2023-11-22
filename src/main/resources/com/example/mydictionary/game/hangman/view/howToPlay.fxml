@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.hangman.HowToPlayGame">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.hangman.HowToPlayHangman">
     <children>
         <ImageView fitHeight="609.0" fitWidth="911.0" layoutX="-8.0" layoutY="-5.0" onDragDetected="#back" pickOnBounds="true" preserveRatio="true">
             <image>

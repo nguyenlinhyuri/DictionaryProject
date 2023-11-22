@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -19,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoseGame extends UtilsGame implements Initializable {
+public class LoseHangman extends UtilsHangman implements Initializable {
 
 
     @FXML

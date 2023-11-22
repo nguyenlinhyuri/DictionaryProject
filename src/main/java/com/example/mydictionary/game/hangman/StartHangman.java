@@ -6,14 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StartGame extends UtilsGame implements Initializable {
+public class StartHangman extends UtilsHangman implements Initializable {
 
     @FXML
     public void playGame(ActionEvent event) throws IOException {

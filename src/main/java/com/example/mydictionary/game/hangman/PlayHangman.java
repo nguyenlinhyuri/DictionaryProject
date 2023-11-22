@@ -3,8 +3,6 @@ package com.example.mydictionary.game.hangman;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,7 +12,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 
-public class PlayGame extends UtilsGame implements Initializable {
+public class PlayHangman extends UtilsHangman implements Initializable {
     @FXML
     private Label commentLB;
 

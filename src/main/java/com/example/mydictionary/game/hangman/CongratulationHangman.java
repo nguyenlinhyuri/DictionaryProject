@@ -3,17 +3,14 @@ package com.example.mydictionary.game.hangman;
 import com.example.mydictionary.AppUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
-import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CongratulationGame extends UtilsGame implements Initializable {
+public class CongratulationHangman extends UtilsHangman implements Initializable {
 
     @FXML
     private Label wordLabel;
