@@ -12,7 +12,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.*;
 
 public class Exercises extends Practice implements Initializable {
@@ -41,7 +40,7 @@ public class Exercises extends Practice implements Initializable {
     private Label scoreLabel;
 
     private List<Word> vocabList = new ArrayList<>();
-//    private List<String> wrongWords = new ArrayList<>();
+    //    private List<String> wrongWords = new ArrayList<>();
     private int currentIndex;
     private int correctAnswerIndex;
     private List<Button> ansButtonList = new ArrayList<>();
@@ -52,18 +51,14 @@ public class Exercises extends Practice implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         quizIndexLabel.setText("Question " + currentIndex);
         explainTextArea.setWrapText(true);
-        try {
-            loadVocabList();
-            startPractice();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        loadVocabList();
+        startPractice();
     }
 
     /**
      * bắt đầu luyện tập
      */
-    public void startPractice() throws SQLException {
+    public void startPractice() {
         Collections.shuffle(vocabList);
         currentIndex = 0;
         ansButtonList.add(button_A);
@@ -76,8 +71,8 @@ public class Exercises extends Practice implements Initializable {
     /**
      * cập nhật List từ vựng
      */
-    public void loadVocabList() throws SQLException {
-        for (Map.Entry entry : notedWord.entrySet()){
+    public void loadVocabList() {
+        for (Map.Entry entry : notedWord.entrySet()) {
             vocabList.add(new Word((String) entry.getKey(), (String) entry.getValue()));
         }
     }
@@ -85,9 +80,9 @@ public class Exercises extends Practice implements Initializable {
     /**
      * xử lý trong mỗi câu hỏi
      */
-    public void askQuestion() throws SQLException {
+    public void askQuestion() {
         ansButtonList.forEach(button -> {
-            button.setDisable(false);
+//            button.setDisable(false);
             button.setStyle("-fx-background-color: white");
         });
 
@@ -132,7 +127,7 @@ public class Exercises extends Practice implements Initializable {
                 e.printStackTrace();
             }
 
-            ansButtonList.forEach(button -> button.setDisable(true));
+//            ansButtonList.forEach(button -> button.setDisable(true));
         }
     }
 
@@ -154,7 +149,7 @@ public class Exercises extends Practice implements Initializable {
     public void handleAnswer(int selectedButtonIndex) {
         Button selectedButton = ansButtonList.get(selectedButtonIndex);
         for (Button button : ansButtonList) {
-            button.setDisable(true);
+//            button.setDisable(true);
         }
 
         String selectedAnswer = selectedButton.getText();
@@ -175,11 +170,7 @@ public class Exercises extends Practice implements Initializable {
         delay.setOnFinished(e -> {
             currentIndex++;
             quizIndexLabel.setText("Quiz " + currentIndex);
-            try {
-                askQuestion();
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
+            askQuestion();
         });
         delay.play();
     }
@@ -187,13 +178,13 @@ public class Exercises extends Practice implements Initializable {
     /**
      * dừng luyện tập
      */
-    public void stopPracticeAction(ActionEvent event){
+    public void stopPracticeAction(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText(null);
         alert.setContentText("You are sure to stop practicing?");
 
-        if (alert.showAndWait().get() == ButtonType.OK){
+        if (alert.showAndWait().get() == ButtonType.OK) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             URL url = AppUtils.class.getResource("practice/congratulation.fxml");
             fxmlLoader.setLocation(url);

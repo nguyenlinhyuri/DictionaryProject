@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #C3E5FC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.translatetext.TranslateText">
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #C3E5FC; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.translatetext.TranslateText">
    <children>
       <Button fx:id="translate" layoutX="360.0" layoutY="184.0" mnemonicParsing="false" onAction="#Trans" prefHeight="43.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-background-color: #007196; -fx-text-fill: white; -fx-font-size: 14; -fx-font-weight: bold;" stylesheets="@../css/style.css" text="translate" />
       <Button fx:id="soundInput" alignment="CENTER" layoutX="36.0" layoutY="401.0" mnemonicParsing="false" onAction="#playSoundInput" prefHeight="35.0" prefWidth="38.0" style="-fx-background-color: rgba(255, 255, 255, 0.0); -fx-font-weight: bold; -fx-font-size: 16;" stylesheets="@../css/style.css">

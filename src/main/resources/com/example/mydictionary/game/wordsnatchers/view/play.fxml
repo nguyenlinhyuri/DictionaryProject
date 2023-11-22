@@ -11,10 +11,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" onKeyPressed="#handleKeyPressed" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #D0B3E3;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.Play">
+<AnchorPane fx:id="anchorPane" onKeyPressed="#handleKeyPressed" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #D0B3E3;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.PlaySnatchers">
    <children>
+      <ImageView fitHeight="686.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/sky.gif" />
+         </image>
+      </ImageView>
       <FlowPane fx:id="flowPaneResult" alignment="TOP_CENTER" hgap="5.0" layoutX="254.0" layoutY="233.0" prefHeight="100.0" prefWidth="392.0" vgap="5.0" />
-      <ProgressBar fx:id="timeProgressBar" layoutX="254.0" layoutY="36.0" prefHeight="31.0" prefWidth="392.0" progress="0.0" />
+      <ProgressBar fx:id="timeProgressBar" layoutX="254.0" layoutY="36.0" prefHeight="22.0" prefWidth="392.0" progress="0.0" />
       <Button id="button" fx:id="pauseButton" layoutX="16.0" layoutY="15.0" mnemonicParsing="false" onAction="#pauseGame" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-font-family: cambria; -fx-font-weight: bold; -fx-background-radius: 20; -fx-font-size: 20;" stylesheets="@../../../css/style.css" text=" Pause">
          <font>
             <Font size="20.0" />
@@ -27,12 +32,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label fx:id="wordLabel" layoutX="743.0" layoutY="16.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Words  0 of 12">
+      <Label fx:id="wordLabel" layoutX="743.0" layoutY="16.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #D0B3E3; -fx-font-family: cambria; -fx-font-weight: bold;" text=" Words  0 of 12">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="pointLabel" layoutX="743.0" layoutY="58.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-font-weight: bold;" text=" Points">
+      <Label fx:id="pointLabel" layoutX="743.0" layoutY="58.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #D0B3E3; -fx-font-family: cambria; -fx-font-weight: bold;" text=" Points">
          <font>
             <Font size="20.0" />
          </font>
@@ -61,7 +66,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="276.0" fitWidth="253.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="276.0" fitWidth="253.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/decor2.png" />
          </image>
@@ -71,9 +76,9 @@
             <Image url="@../image/decor3.png" />
          </image>
       </ImageView>
-      <Pane layoutX="254.0" layoutY="76.0" prefHeight="140.0" prefWidth="392.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+      <Pane layoutX="254.0" layoutY="66.0" prefHeight="150.0" prefWidth="392.0" style="-fx-background-color: white; -fx-background-radius: 10;">
          <children>
-            <TextArea fx:id="explainTextArea" layoutX="7.0" prefHeight="139.0" prefWidth="379.0" style="-fx-border-color: transparent; -fx-font-family: cambria; -fx-font-size: 20; -fx-border-color: none;" />
+            <TextArea fx:id="explainTextArea" layoutX="7.0" prefHeight="150.0" prefWidth="379.0" style="-fx-border-color: transparent; -fx-font-family: cambria; -fx-font-size: 20; -fx-border-color: none;" />
          </children>
       </Pane>
    </children>

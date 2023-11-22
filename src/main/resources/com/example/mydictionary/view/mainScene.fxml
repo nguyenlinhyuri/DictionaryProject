@@ -19,9 +19,9 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #3693C7;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.MainScene">
    <children>
-      <AnchorPane layoutX="63.0" layoutY="8.0" prefHeight="583.0" prefWidth="826.0" style="-fx-background-color: #ffffff;">
+      <AnchorPane layoutX="63.0" layoutY="8.0" prefHeight="583.0" prefWidth="826.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;">
          <children>
-            <AnchorPane layoutX="9.0" layoutY="108.0" prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #B9E3FC;">
+            <AnchorPane layoutX="9.0" layoutY="108.0" prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #B9E3FC; -fx-background-radius: 10;">
                <children>
                   <GridPane hgap="5.0" layoutX="21.0" layoutY="58.0" prefHeight="394.0" prefWidth="766.0" vgap="5.0">
                      <columnConstraints>
@@ -33,12 +33,12 @@
                         <RowConstraints maxHeight="389.79999389648435" minHeight="10.0" prefHeight="332.2" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="inputWord" onAction="#submit" prefHeight="48.0" prefWidth="182.0" promptText="Search" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 8;" />
+                        <TextField fx:id="inputWord" onAction="#submit" prefHeight="48.0" prefWidth="182.0" promptText="Search" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 10;" />
                         <ListView fx:id="listWord" onMouseClicked="#handleMouseClickaWord" prefHeight="357.0" prefWidth="201.0" style="-fx-background-radius: 8;" styleClass="listview" stylesheets="@../css/style.css" GridPane.rowIndex="1" />
                         <HBox prefHeight="86.0" prefWidth="540.0" spacing="5.0" GridPane.columnIndex="1">
                            <children>
-                              <Label prefHeight="46.0" prefWidth="423.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 8; -fx-background-color: #79A0CB; -fx-text-fill: white; -fx-font-weight: bold;" text="    Definition" />
-                              <Button fx:id="add" mnemonicParsing="false" onAction="#addWord" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #79A0CB; -fx-background-radius: 8;" stylesheets="@../css/style.css">
+                              <Label prefHeight="46.0" prefWidth="423.0" style="-fx-font-family: cambria; -fx-font-size: 18; -fx-background-radius: 10; -fx-background-color: #007196; -fx-text-fill: white; -fx-font-weight: bold;" text="    Definition" />
+                              <Button fx:id="add" mnemonicParsing="false" onAction="#addWord" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #007196; -fx-background-radius: 10;" stylesheets="@../css/style.css">
                                  <tooltip>
                                     <Tooltip style="-fx-font-family: cambria; -fx-font-size: 14;" text="Add" />
                                  </tooltip>
@@ -50,7 +50,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#pronounce" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 8; -fx-background-color: #79A0CB;" stylesheets="@../css/style.css">
+                              <Button mnemonicParsing="false" onAction="#pronounce" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 10; -fx-background-color: #007196;" stylesheets="@../css/style.css">
                                  <tooltip>
                                     <Tooltip style="-fx-font-family: cambria; -fx-font-size: 14;" text="Pronounce" />
                                  </tooltip>
@@ -67,7 +67,7 @@
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </GridPane.margin>
                         </HBox>
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 8;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
                               <WebView fx:id="viewTaget" layoutX="7.0" prefHeight="332.0" prefWidth="526.0" stylesheets="@../css/style.css">
                                  <styleClass>
@@ -82,23 +82,25 @@
                   <Label layoutX="21.0" layoutY="14.0" prefHeight="42.0" prefWidth="173.0" style="-fx-background-radius: 8; -fx-font-family: cambria; -fx-font-size: 28; -fx-font-weight: bold; -fx-font-style: italic; -fx-text-fill: #007196;" text="   Dictionary" />
                </children>
             </AnchorPane>
-            <Pane layoutX="9.0" layoutY="7.0" prefHeight="94.0" prefWidth="810.0" style="-fx-background-color: #B9E3FC;" />
+            <Pane layoutX="9.0" layoutY="7.0" prefHeight="94.0" prefWidth="810.0" style="-fx-background-color: #B9E3FC; -fx-background-radius: 10;">
+               <children>
+                  <Label fx:id="usernameLabel" alignment="CENTER" layoutX="656.0" layoutY="47.0" prefHeight="34.0" prefWidth="154.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="Username" />
+               </children></Pane>
             <ImageView fitHeight="86.0" fitWidth="394.0" layoutX="258.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/title.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="avtImageView" fitHeight="46.0" fitWidth="49.0" layoutX="724.0" layoutY="14.0" onMouseClicked="#clickAvt" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fx:id="avtImageView" fitHeight="42.0" fitWidth="46.0" layoutX="724.0" layoutY="14.0" onMouseClicked="#clickAvt" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../image/avtDefault.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="724.0" layoutY="14.0" onMouseClicked="#clickAvt" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="49.0" layoutX="722.0" layoutY="12.0" onMouseClicked="#clickAvt" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/frame.png" />
                </image>
             </ImageView>
-            <Label fx:id="usernameLabel" alignment="CENTER" layoutX="670.0" layoutY="60.0" prefHeight="34.0" prefWidth="154.0" style="-fx-font-family: cambria; -fx-font-size: 18;" text="Username" />
          </children></AnchorPane>
       <Button fx:id="searchButton" layoutX="5.0" layoutY="217.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="54.0" prefWidth="54.0" style="-fx-background-radius: 40; -fx-background-color: #3693C7; -fx-cursor: hand;" stylesheets="@../css/style.css">
          <graphic>

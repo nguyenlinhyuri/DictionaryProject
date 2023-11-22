@@ -7,24 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #6FB6F9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.EndController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #94C7F5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.EndBubbles">
    <children>
-      <Label fx:id="endWordLabel" layoutX="188.0" layoutY="272.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-family: Cambria; -fx-font-size: 24; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Words: ">
+      <Label fx:id="endWordLabel" layoutX="188.0" layoutY="272.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-family: Cambria; -fx-font-size: 24; -fx-text-fill: #16323E;" text="Words: ">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button id="button" fx:id="replayButton" layoutX="175.0" layoutY="443.0" mnemonicParsing="false" onAction="#replayGame" prefHeight="48.0" prefWidth="124.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: rgba(255, 255, 255, 0.8);" stylesheets="@../../../css/style.css" text="Play Again">
+      <Button id="button" fx:id="replayButton" layoutX="175.0" layoutY="443.0" mnemonicParsing="false" onAction="#replayGame" prefHeight="48.0" prefWidth="124.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: #ffffff;" stylesheets="@../../../css/style.css" text="Play Again">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button id="button" fx:id="playMoreGameButton" layoutX="329.0" layoutY="443.0" mnemonicParsing="false" onAction="#playMoreGame" prefHeight="48.0" prefWidth="418.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20;" stylesheets="@../../../css/style.css" text="Play More Games">
+      <Button id="button" fx:id="playMoreGameButton" layoutX="329.0" layoutY="443.0" mnemonicParsing="false" onAction="#playMoreGame" prefHeight="48.0" prefWidth="418.0" style="-fx-background-color: #ffffff; -fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20;" stylesheets="@../../../css/style.css" text="Play More Games">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="endPointLabel" layoutX="188.0" layoutY="311.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-size: 24; -fx-font-family: cambria; -fx-text-fill: #ffffff; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Points: ">
+      <Label fx:id="endPointLabel" layoutX="188.0" layoutY="311.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-size: 24; -fx-font-family: cambria; -fx-text-fill: #16323E;" text="Points: ">
          <font>
             <Font size="20.0" />
          </font>
@@ -34,7 +34,7 @@
             <Image url="@../image/congr.gif" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="188.0" layoutY="229.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-family: Cambria; -fx-font-size: 32; -fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 10, 0, 0, 2);" text="Your result">
+      <Label alignment="CENTER" layoutX="188.0" layoutY="229.0" prefHeight="42.0" prefWidth="167.0" style="-fx-font-family: Cambria; -fx-font-size: 32; -fx-text-fill: #16323E; -fx-font-weight: bold;" text="Your result">
          <font>
             <Font size="40.0" />
          </font>

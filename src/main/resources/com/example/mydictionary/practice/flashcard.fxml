@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" onKeyPressed="#handleKeyPressed" prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #C1D4FC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.Flashcard">
+<AnchorPane fx:id="anchorPane" onKeyPressed="#handleKeyPressed" prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #C1D4FC; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.Flashcard">
    <children>
       <Button fx:id="turnButton" layoutX="372.0" layoutY="408.0" mnemonicParsing="false" onAction="#turnFlashcardOver" prefHeight="37.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-background-color: none; -fx-font-weight: bold;" stylesheets="@../css/style.css">
          <font>
@@ -49,9 +49,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <VBox fx:id="flashcardBox" layoutX="283.0" layoutY="70.0" prefHeight="330.0" prefWidth="240.0" spacing="5.0" style="-fx-background-radius: 10; -fx-background-color: #1C1DAB;">
+      <VBox fx:id="flashcardBox" layoutX="283.0" layoutY="70.0" prefHeight="330.0" prefWidth="240.0" spacing="5.0" style="-fx-background-radius: 10; -fx-background-color: #007196;">
          <children>
-            <Label fx:id="wordLabel" alignment="CENTER" prefHeight="50.0" prefWidth="246.0" style="-fx-font-family: cambria; -fx-font-size: 22; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #6893EF; -fx-background-radius: 10;" text="Word" />
+            <Label fx:id="wordLabel" alignment="CENTER" prefHeight="50.0" prefWidth="246.0" style="-fx-font-family: cambria; -fx-font-size: 22; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: #0299D2; -fx-background-radius: 10;" text="Word" />
             <TextArea fx:id="meaningTextArea" prefHeight="266.0" prefWidth="233.0" style="-fx-background-color: #6893EF; -fx-opacity: 0.9; -fx-font-family: cambria; -fx-font-size: 18;" />
          </children>
          <padding>
@@ -68,12 +68,12 @@
             <Label prefHeight="42.0" prefWidth="315.0" style="-fx-text-fill: #007196; -fx-font-family: cambria; -fx-font-size: 28; -fx-font-weight: bold; -fx-font-style: italic;" text="Flashcards" />
          </children>
       </HBox>
-      <Button fx:id="editButton" layoutX="42.0" layoutY="84.0" mnemonicParsing="false" onAction="#editFlashcard" prefHeight="37.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-background-color: white; -fx-font-weight: bold;" stylesheets="@../css/style.css" text="Edit">
+      <Button fx:id="editButton" layoutX="42.0" layoutY="84.0" mnemonicParsing="false" onAction="#editFlashcard" prefHeight="37.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-background-color: #007196; -fx-font-weight: bold; -fx-text-fill: white;" stylesheets="@../css/style.css" text="Edit">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="okButton" layoutX="42.0" layoutY="130.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-background-color: white; -fx-font-weight: bold;" stylesheets="@../css/style.css" text="OK">
+      <Button fx:id="okButton" layoutX="42.0" layoutY="130.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-font-family: Cambria; -fx-font-size: 18; -fx-background-color: #007196; -fx-font-weight: bold; -fx-text-fill: white;" stylesheets="@../css/style.css" text="OK">
          <font>
             <Font size="16.0" />
          </font>

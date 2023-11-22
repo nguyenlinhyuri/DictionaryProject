@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #D2F9F4;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.StartExercises">
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #D2F9F4; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.practice.StartExercises">
    <children>
       <ImageView fitHeight="211.0" fitWidth="220.0" layoutX="299.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
          <image>

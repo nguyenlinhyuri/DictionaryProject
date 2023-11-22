@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #6FB6F9;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.PauseController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #94C7F5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.PauseBubbles">
    <children>
       <Label alignment="CENTER" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #B9E3FB; -fx-font-family: cambria; -fx-text-fill: #3382A1; -fx-font-weight: bold;" text="PAUSE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button id="button" fx:id="resumeButton" layoutX="336.0" layoutY="204.0" mnemonicParsing="false" onAction="#resumeGame" prefHeight="58.0" prefWidth="268.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: rgba(255, 255, 255, 0.8);" stylesheets="@../../../css/style.css" text="  Resume                           ">
+      <Button id="button" fx:id="resumeButton" layoutX="336.0" layoutY="204.0" mnemonicParsing="false" onAction="#resumeGame" prefHeight="58.0" prefWidth="268.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: white;" stylesheets="@../../../css/style.css" text="  Resume                           ">
          <font>
             <Font size="16.0" />
          </font>
@@ -26,7 +26,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button id="button" fx:id="restartButton" layoutX="336.0" layoutY="271.0" mnemonicParsing="false" onAction="#restartGame" prefHeight="58.0" prefWidth="268.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: rgba(255, 255, 255, 0.8);" stylesheets="@../../../css/style.css" text="  Restart                            ">
+      <Button id="button" fx:id="restartButton" layoutX="336.0" layoutY="271.0" mnemonicParsing="false" onAction="#restartGame" prefHeight="58.0" prefWidth="268.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: white;" stylesheets="@../../../css/style.css" text="  Restart                            ">
          <font>
             <Font size="16.0" />
          </font>
@@ -38,7 +38,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button id="button" fx:id="quitButton" layoutX="336.0" layoutY="337.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="58.0" prefWidth="268.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: rgba(255, 255, 255, 0.8);" stylesheets="@../../../css/style.css" text="  Quit                                ">
+      <Button id="button" fx:id="quitButton" layoutX="336.0" layoutY="337.0" mnemonicParsing="false" onAction="#quitGame" prefHeight="58.0" prefWidth="268.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: white;" stylesheets="@../../../css/style.css" text="  Quit                                ">
          <font>
             <Font size="16.0" />
          </font>

@@ -21,7 +21,7 @@
             <Image url="@../image/username.png" />
          </image>
       </ImageView>
-      <TextField fx:id="signupUserTextField" layoutX="84.0" layoutY="210.0" prefHeight="43.0" prefWidth="341.0" promptText="Enter your username" style="-fx-background-radius: 20; -fx-cursor: hand; -fx-font-family: cambria;">
+      <TextField fx:id="signupUserTextField" layoutX="84.0" layoutY="210.0" prefHeight="43.0" prefWidth="341.0" promptText="Enter your username" style="-fx-background-radius: 20; -fx-cursor: hand;">
          <font>
             <Font size="20.0" />
          </font>
@@ -31,7 +31,7 @@
             <Image url="@../image/password.png" />
          </image>
       </ImageView>
-      <PasswordField fx:id="signupPassField" layoutX="84.0" layoutY="286.0" prefHeight="43.0" prefWidth="342.0" promptText="Enter your password" style="-fx-background-radius: 20; -fx-cursor: hand; -fx-font-family: cambria;">
+      <PasswordField fx:id="signupPassField" layoutX="84.0" layoutY="286.0" prefHeight="43.0" prefWidth="342.0" promptText="Enter your password" style="-fx-background-radius: 20; -fx-cursor: hand;">
          <font>
             <Font size="20.0" />
          </font>

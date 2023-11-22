@@ -2,8 +2,7 @@ package com.example.mydictionary.practice;
 
 import com.example.mydictionary.*;
 import com.example.mydictionary.basic.Word;
-import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.control.*;

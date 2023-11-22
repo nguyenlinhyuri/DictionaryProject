@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #D0B3E3;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.Pause">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to right,#C9B6DF, #7A73C0);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.PauseSnatchers">
    <children>
-      <Label alignment="CENTER" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #D0B3E3; -fx-font-weight: bold;" text="PAUSE">
+      <Label alignment="CENTER" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #863FA8; -fx-font-family: cambria; -fx-text-fill: #C9B6DF; -fx-font-weight: bold;" text="PAUSE">
          <font>
             <Font size="20.0" />
          </font>

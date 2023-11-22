@@ -1,0 +1,329 @@
+<mxfile host="app.diagrams.net" modified="2023-11-22T03:13:37.188Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" version="22.1.3" etag="h_HVF9XtzscZqJUG7YIJ" type="device">
+  <diagram id="RsVIqrvzVmq6JhZ9Cm8l" name="Page-1">
+    <mxGraphModel dx="2236" dy="2256" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="node14" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;AppUtils&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ top1: double&lt;br/&gt;+ left: double&lt;br/&gt;+ scene: Scene&lt;br/&gt;+ numOfWordsPracticed: int&lt;br/&gt;+ root: Parent&lt;br/&gt;+ isPracticeScene: boolean&lt;br/&gt;+ rootAnchorPane: AnchorPane&lt;br/&gt;+ gameAnchorPane: AnchorPane&lt;br/&gt;+ NOTED_WORD_PATH: String&lt;br/&gt;+ isTranslateScene: boolean&lt;br/&gt;+ USER_NAME: String&lt;br/&gt;+ media: Media&lt;br/&gt;+ stage: Stage&lt;br/&gt;+ left1: double&lt;br/&gt;+ notedWord: Map&amp;lt;String, String&amp;gt;&lt;br/&gt;+ translateAnchorPane: AnchorPane&lt;br/&gt;+ isGameScene: boolean&lt;br/&gt;+ practiceAnchorPane: AnchorPane&lt;br/&gt;+ mediaPlayer: MediaPlayer&lt;br/&gt;+ top: double&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ showAlertInformation(String, String): void&lt;br/&gt;+ showNewScene(AnchorPane, String, double, double): void&lt;br/&gt;+ writeNotedWordData(): void&lt;br/&gt;+ readNotedWordData(): void&lt;br/&gt;+ playSound(String, int): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2209" y="-750" width="357" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="node1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CongratulationExercises&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- practiceAgainButton: Button&lt;br/&gt;- congratulationLabel: Label&lt;br/&gt;- backButton: Button&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ backAction(ActionEvent): void&lt;br/&gt;+ practiceAgainAction(ActionEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1601" y="436" width="257" height="166" as="geometry" />
+        </mxCell>
+        <mxCell id="node29" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;CongratulationHangman&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- wordLabel: Label&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ quitAction(ActionEvent): void&lt;br/&gt;+ next(ActionEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1345" y="1122" width="243" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="node4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Dictionary&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="3436" y="1916" width="114" height="31" as="geometry" />
+        </mxCell>
+        <mxCell id="node7" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Dictionary&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- dict: ArrayList&amp;lt;Word&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ updateWord(String, String): void&lt;br/&gt;+ getDict(): ArrayList&amp;lt;Word&amp;gt;&lt;br/&gt;+ getTarget(int): String&lt;br/&gt;+ setDict(ArrayList&amp;lt;Word&amp;gt;): void&lt;br/&gt;+ dict_size(): int&lt;br/&gt;+ getExplain(int): String&lt;br/&gt;+ get_Target(int): Word&lt;br/&gt;+ addWord(String, String): void&lt;br/&gt;+ deleteWord(String): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1902" y="1916" width="222" height="254" as="geometry" />
+        </mxCell>
+        <mxCell id="node15" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;DictionaryCommand_Line&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;~ dict_cli: DictionaryCommandline&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ dictionaryAdvanced(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="914" y="1916" width="218" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="node30" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;DictionaryCommandline&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- dict_manage: DictionaryManagement&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ getDict_manage(): DictionaryManagement&lt;br/&gt;~ dictionarySearcher(String): void&lt;br/&gt;~ showAllWords(): void&lt;br/&gt;+ setDict_manage(DictionaryManagement): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1184" y="1916" width="296" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="node12" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;DictionaryManagement&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- SPLITTING_CHARACTERS: String&lt;br/&gt;- trie: Trie&lt;br/&gt;- dictionary: Dictionary&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;~ updateWord(String, String): void&lt;br/&gt;~ insertFromFile(): void&lt;br/&gt;+ readFromFile(Dictionary, String): void&lt;br/&gt;+ setDictionary(Dictionary): void&lt;br/&gt;+ insertFromCommandline(String, String): void&lt;br/&gt;~ dictionaryLookup(String): void&lt;br/&gt;+ getDictionary(): Dictionary&lt;br/&gt;+ lookUp(Dictionary, String): ObservableList&amp;lt;String&amp;gt;&lt;br/&gt;+ setTrie(Dictionary): void&lt;br/&gt;+ searchWord(Dictionary, String): int&lt;br/&gt;~ dictionaryExportToFile(): void&lt;br/&gt;~ addWord(String, String): void&lt;br/&gt;~ deleteWord(String): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1532" y="1916" width="319" height="386" as="geometry" />
+        </mxCell>
+        <mxCell id="node26" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EndBubbles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- endWordLabel: Label&lt;br/&gt;- endPointLabel: Label&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ playMoreGame(ActionEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ replayGame(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2828" y="1116" width="243" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="node0" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EndSnatchers&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- endScoreLabel: Label&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ replayGame(ActionEvent): void&lt;br/&gt;+ playMoreGame(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="4117" y="1122" width="243" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="node6" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Exercises&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- ansButtonList: List&amp;lt;Button&amp;gt;&lt;br/&gt;- button_D: Button&lt;br/&gt;- explainTextArea: TextArea&lt;br/&gt;- currentIndex: int&lt;br/&gt;- button_B: Button&lt;br/&gt;- stopPracticeButton: Button&lt;br/&gt;- quizIndexLabel: Label&lt;br/&gt;- scoreLabel: Label&lt;br/&gt;- button_C: Button&lt;br/&gt;- button_A: Button&lt;br/&gt;- vocabList: List&amp;lt;Word&amp;gt;&lt;br/&gt;- correctAnswerIndex: int&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ createAnswerOptions(String): List&amp;lt;String&amp;gt;&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ startPractice(): void&lt;br/&gt;+ handleAnswer(int): void&lt;br/&gt;+ askQuestion(): void&lt;br/&gt;+ stopPracticeAction(ActionEvent): void&lt;br/&gt;+ loadVocabList(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1281" y="436" width="273" height="452" as="geometry" />
+        </mxCell>
+        <mxCell id="node8" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Flashcard&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- editButton: Button&lt;br/&gt;- anchorPane: AnchorPane&lt;br/&gt;- flashcardBox: VBox&lt;br/&gt;- wordLabel: Label&lt;br/&gt;- okButton: Button&lt;br/&gt;- backButton: Button&lt;br/&gt;- meaningTextArea: TextArea&lt;br/&gt;- statusOfFlashcard: boolean&lt;br/&gt;- nextButton: Button&lt;br/&gt;- turnButton: Button&lt;br/&gt;- prevButton: Button&lt;br/&gt;- wordList: List&amp;lt;Word&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ turnFlashcardOver(): void&lt;br/&gt;+ nextWord(int): Word&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ handleKeyPressed(KeyEvent): void&lt;br/&gt;+ getCurrentIndex(): int&lt;br/&gt;+ prevFlashcard(): void&lt;br/&gt;+ nextFlashcard(): void&lt;br/&gt;+ readData(): void&lt;br/&gt;+ prevWord(int): Word&lt;br/&gt;+ editFlashcard(ActionEvent): void&lt;br/&gt;+ backAction(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="659" y="436" width="243" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="node22" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Game&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ bubblesAnchorPane: AnchorPane&lt;br/&gt;- wordBubbles: Button&lt;br/&gt;- wordSnatchers: Button&lt;br/&gt;- back: Button&lt;br/&gt;+ hangmanAnchorPane: AnchorPane&lt;br/&gt;+ snatchersAnchorPane: AnchorPane&lt;br/&gt;- hangMan: Button&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ wordbubblesAction(ActionEvent): void&lt;br/&gt;+ backAction(ActionEvent): void&lt;br/&gt;+ checkWordToData(String): boolean&lt;br/&gt;+ wordsnatchersAction(ActionEvent): void&lt;br/&gt;+ hangManAction(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2957" y="-29" width="260" height="298" as="geometry" />
+        </mxCell>
+        <mxCell id="node28" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;HowToPlayHangman&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ back(ActionEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="449" y="1122" width="243" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="node3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Login&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- loginAnchorPane: AnchorPane&lt;br/&gt;- loginButton: Button&lt;br/&gt;- loginLabel: Label&lt;br/&gt;- signupAnchorPane: AnchorPane&lt;br/&gt;- userTextField: TextField&lt;br/&gt;- rootLogin: AnchorPane&lt;br/&gt;- signupUserTextField: TextField&lt;br/&gt;- user_path: String&lt;br/&gt;- signupLabel: Label&lt;br/&gt;- signupButton: Button&lt;br/&gt;- signupPassField: PasswordField&lt;br/&gt;- passField: PasswordField&lt;br/&gt;- info_user: Map&amp;lt;String, String&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ loginAction(ActionEvent): void&lt;br/&gt;+ signupClick(MouseEvent): void&lt;br/&gt;+ loginClick(MouseEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ readData(): void&lt;br/&gt;+ signupAction(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1933" y="-29" width="243" height="452" as="geometry" />
+        </mxCell>
+        <mxCell id="node23" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;LoseHangman&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- tagetLB: Label&lt;br/&gt;- myImage: ImageView&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;~ replay(ActionEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;~ quitgame(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1071" y="1122" width="243" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="node20" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Main&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ utils: AppUtils&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ main(String[]): void&lt;br/&gt;+ start(Stage): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="3848" y="1916" width="153" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="node10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainCMD&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ main(String[]): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2176" y="1916" width="153" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="node38" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;MainScene&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- searchButton: Button&lt;br/&gt;- translateButton: Button&lt;br/&gt;- DATA_FILE_PATH: String&lt;br/&gt;- gameButton: Button&lt;br/&gt;- listWord: ListView&amp;lt;String&amp;gt;&lt;br/&gt;~ list: ObservableList&amp;lt;String&amp;gt;&lt;br/&gt;- avtImageView: ImageView&lt;br/&gt;- indexOfSelectedWord: int&lt;br/&gt;- exitButton: Button&lt;br/&gt;- dictionaryFunction: DictionaryManagement&lt;br/&gt;- firstIndexOfListFound: int&lt;br/&gt;- viewTaget: WebView&lt;br/&gt;- practiceButton: Button&lt;br/&gt;- inputWord: TextField&lt;br/&gt;- usernameLabel: Label&lt;br/&gt;- diction: Dictionary&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ clickAvt(MouseEvent): void&lt;br/&gt;+ chooseAvatar(): void&lt;br/&gt;+ exitAction(ActionEvent): void&lt;br/&gt;- handleMouseClickaWord(MouseEvent): void&lt;br/&gt;+ searchAction(ActionEvent): void&lt;br/&gt;+ practiceAction(ActionEvent): void&lt;br/&gt;+ submit(ActionEvent): void&lt;br/&gt;+ deleteAvatar(): void&lt;br/&gt;+ setDefaultAvatar(): void&lt;br/&gt;- setListDefault(int): void&lt;br/&gt;+ getDiction(): Dictionary&lt;br/&gt;+ translateAction(ActionEvent): void&lt;br/&gt;+ gameAction(ActionEvent): void&lt;br/&gt;- handleInputText(): void&lt;br/&gt;+ pronounce(ActionEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ addWord(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2253" y="-29" width="282" height="789" as="geometry" />
+        </mxCell>
+        <mxCell id="node19" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;NotedWordList&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- list: ObservableList&amp;lt;String&amp;gt;&lt;br/&gt;- notedWordListView: ListView&amp;lt;String&amp;gt;&lt;br/&gt;- meaningTextArea: TextArea&lt;br/&gt;- deleteButton: Button&lt;br/&gt;- backButton: Button&lt;br/&gt;- addButton: Button&lt;br/&gt;- editButton: Button&lt;br/&gt;- searchTextField: TextField&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ editWord(ActionEvent): void&lt;br/&gt;+ deleteWord(ActionEvent): void&lt;br/&gt;+ showAlert(AlertType, String, String, String): void&lt;br/&gt;+ updateListView(): void&lt;br/&gt;+ addWord(ActionEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ searchNotedWord(): void&lt;br/&gt;+ addItemToListView(String): void&lt;br/&gt;+ backAction(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="262" y="436" width="303" height="408" as="geometry" />
+        </mxCell>
+        <mxCell id="node25" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PauseBubbles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ restartGame(ActionEvent): void&lt;br/&gt;+ quitGame(ActionEvent): void&lt;br/&gt;+ resumeGame(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2577" y="1117" width="219" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="node17" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PauseSnatchers&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ quitGame(ActionEvent): void&lt;br/&gt;+ resumeGame(ActionEvent): void&lt;br/&gt;+ restartGame(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="3857" y="1122" width="219" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="node21" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PlayBubbles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- fromTop: int&lt;br/&gt;- timeLabel: Label&lt;br/&gt;- fromLeft: int&lt;br/&gt;- mutedSoundButton: Button&lt;br/&gt;- enteredWordTextArea: TextArea&lt;br/&gt;- wordLabel: Label&lt;br/&gt;- prefixLabel: Label&lt;br/&gt;- anchorPane: AnchorPane&lt;br/&gt;- enterdWordTextField: TextField&lt;br/&gt;- pointLabel: Label&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ check_start(String, String): boolean&lt;br/&gt;+ stop(): void&lt;br/&gt;+ showTimeOut(): void&lt;br/&gt;+ pauseGame(ActionEvent): void&lt;br/&gt;+ showInfomation(String, int): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ showPrefixLabel(String, AnchorPane, double, double, int): void&lt;br/&gt;+ randomPrefix(): void&lt;br/&gt;+ updateTimeLabel(): void&lt;br/&gt;+ mutedSound(ActionEvent): void&lt;br/&gt;+ userEnterWord(ActionEvent): void&lt;br/&gt;+ playBubblesSound(): void&lt;br/&gt;+ endGame(): void&lt;br/&gt;+ updateResultWord(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2179" y="1117" width="380" height="562" as="geometry" />
+        </mxCell>
+        <mxCell id="node9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PlayHangman&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;~ countRepeat: int&lt;br/&gt;~ up: Image&lt;br/&gt;~ imageLeft: ImageView&lt;br/&gt;~ down: Image&lt;br/&gt;~ imageDown: ImageView&lt;br/&gt;~ imageUp: ImageView&lt;br/&gt;- commentLB: Label&lt;br/&gt;~ right: Image&lt;br/&gt;- resultLB: Label&lt;br/&gt;~ imageRight: ImageView&lt;br/&gt;~ countTrue: int&lt;br/&gt;- enter: ArrayList&amp;lt;String&amp;gt;&lt;br/&gt;- hpLB: Label&lt;br/&gt;- hp: int&lt;br/&gt;- secretWord: String&lt;br/&gt;- myTextField: TextField&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ readInput(): void&lt;br/&gt;+ submit(ActionEvent): void&lt;br/&gt;+ isCharInWord(String, String): boolean&lt;br/&gt;+ createSecretWord(): void&lt;br/&gt;+ quit(ActionEvent): void&lt;br/&gt;+ checkIfEntered(String, ArrayList&amp;lt;String&amp;gt;): boolean&lt;br/&gt;+ addLetter(String, ArrayList&amp;lt;String&amp;gt;): void&lt;br/&gt;+ updateSecretWord(String, String): void&lt;br/&gt;+ randomWord(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="724" y="1122" width="316" height="606" as="geometry" />
+        </mxCell>
+        <mxCell id="node13" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;PlaySnatchers&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- explainTextArea: TextArea&lt;br/&gt;- gridPaneButton: GridPane&lt;br/&gt;- anchorPane: AnchorPane&lt;br/&gt;- currentWord: Word&lt;br/&gt;- wordLabel: Label&lt;br/&gt;- pointLabel: Label&lt;br/&gt;- timeProgressBar: ProgressBar&lt;br/&gt;- mutedSoundButton: Button&lt;br/&gt;- currentWordIndex: int&lt;br/&gt;- flowPaneResult: FlowPane&lt;br/&gt;- isHinted: boolean&lt;br/&gt;- isX: boolean&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ showWordInformation(int): void&lt;br/&gt;+ setIcon(String): void&lt;br/&gt;+ checkWord(): boolean&lt;br/&gt;+ setLocation(Node, AnchorPane, double, double): void&lt;br/&gt;+ handleKeyPressed(KeyEvent): void&lt;br/&gt;+ runGame(): void&lt;br/&gt;+ hintWord(): void&lt;br/&gt;+ readData(): void&lt;br/&gt;+ randomWord(): void&lt;br/&gt;+ handleTimeout(): void&lt;br/&gt;+ nextWord(): void&lt;br/&gt;+ showAnswer(): void&lt;br/&gt;+ showWord(): void&lt;br/&gt;+ updateProgressbar(): void&lt;br/&gt;+ pauseGame(ActionEvent): void&lt;br/&gt;+ mutedSound(ActionEvent): void&lt;br/&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ findButton(char, GridPane): Button&lt;br/&gt;+ playStatusSound(boolean): void&lt;br/&gt;+ resultScreen(): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="3463" y="1116" width="334" height="774" as="geometry" />
+        </mxCell>
+        <mxCell id="node5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Practice&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- backButton: Button&lt;br/&gt;- exercisesButton: Button&lt;br/&gt;+ exercisesAnchorPane: AnchorPane&lt;br/&gt;- notedWordsButton: Button&lt;br/&gt;+ notedwordAnchorPane: AnchorPane&lt;br/&gt;- flashcardsButton: Button&lt;br/&gt;+ flashcardAnchorPane: AnchorPane&lt;br/&gt;+ endexercisesAnchorPane: AnchorPane&lt;br/&gt;+ startexercisesAnchorPane: AnchorPane&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ exercisesAction(ActionEvent): void&lt;br/&gt;+ notedWordsAction(ActionEvent): void&lt;br/&gt;+ flashcardsAction(ActionEvent): void&lt;br/&gt;+ backAction(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1542" y="21" width="249" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="node11" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SortByWord&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ compare(Word, Word): int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="3195" y="1916" width="189" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="node16" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;SpeechToTextAPI&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ playsoundVi(String): void&lt;br/&gt;+ SoundVi(String, String): void&lt;br/&gt;+ SoundEn(String): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2679" y="1916" width="199" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="node33" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;StartBubbles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ howToPlayGame(ActionEvent): void&lt;br/&gt;+ playGame(ActionEvent): void&lt;br/&gt;+ backGame(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1889" y="1123" width="243" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="node27" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;StartExercises&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- letpracticeButton: Button&lt;br/&gt;- backButton: Button&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ backAction(ActionEvent): void&lt;br/&gt;+ letPracticeAction(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="970" y="436" width="239" height="144" as="geometry" />
+        </mxCell>
+        <mxCell id="node24" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;StartHangman&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ howToPlay(ActionEvent): void&lt;br/&gt;+ playGame(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="169" y="1122" width="243" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="node32" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;StartSnatchers&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ backGame(ActionEvent): void&lt;br/&gt;+ howToPlayGame(ActionEvent): void&lt;br/&gt;+ playGame(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="3180" y="1116" width="243" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="node37" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;TranslateText&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- input: Label&lt;br/&gt;- view: TextArea&lt;br/&gt;+ text: String&lt;br/&gt;- output: Label&lt;br/&gt;- textInput: TextArea&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ initialize(URL, ResourceBundle): void&lt;br/&gt;+ Trans(ActionEvent): void&lt;br/&gt;+ changeLanguage(ActionEvent): void&lt;br/&gt;+ backAction(ActionEvent): void&lt;br/&gt;+ playSoundInput(ActionEvent): void&lt;br/&gt;+ playSoundOutput(ActionEvent): void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2606" y="-29" width="243" height="276" as="geometry" />
+        </mxCell>
+        <mxCell id="node31" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Trie&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- children: Map&amp;lt;Character, Trie&amp;gt;&lt;br/&gt;- content: String&lt;br/&gt;- endOfWord: boolean&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ allPrefixes(): List&amp;lt;String&amp;gt;&lt;br/&gt;+ insert(String): void&lt;br/&gt;+ add(char): void&lt;br/&gt;+ Complete(String): List&amp;lt;String&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2929" y="1916" width="214" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="node2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;UtilsBubbles&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ point: int&lt;br/&gt;+ timeLeft: int&lt;br/&gt;+ DATA_PATH: String&lt;br/&gt;+ endAnchorPane: AnchorPane&lt;br/&gt;+ data: ArrayList&amp;lt;String&amp;gt;&lt;br/&gt;+ numOfWord: int&lt;br/&gt;+ component: AnchorPane&lt;br/&gt;+ result: ArrayList&amp;lt;String&amp;gt;&lt;br/&gt;+ prefix: String&lt;br/&gt;+ diction: Dictionary&lt;br/&gt;+ enteredWord: ArrayList&amp;lt;String&amp;gt;&lt;br/&gt;+ timeline: Timeline&lt;br/&gt;+ playAnchorPane: AnchorPane&lt;br/&gt;+ time: int&lt;br/&gt;+ dictionaryFunction: DictionaryManagement&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2950" y="560" width="273" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="node34" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;UtilsHangman&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ playAnchorPane: AnchorPane&lt;br/&gt;+ word: String&lt;br/&gt;+ component: AnchorPane&lt;br/&gt;+ path: String&lt;br/&gt;+ data: ArrayList&amp;lt;String&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2606" y="560" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="node35" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;UtilsSnatchers&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ endAnchorPane: AnchorPane&lt;br/&gt;+ randomWord: ArrayList&amp;lt;Word&amp;gt;&lt;br/&gt;+ currentTime: int&lt;br/&gt;+ timeline: Timeline&lt;br/&gt;+ DATA_PATH: String&lt;br/&gt;+ data: ArrayList&amp;lt;Word&amp;gt;&lt;br/&gt;+ playAnchorPane: AnchorPane&lt;br/&gt;+ point: int&lt;br/&gt;+ time: int&lt;br/&gt;+ component: AnchorPane&lt;br/&gt;+ word: int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="3437" y="575" width="217" height="285" as="geometry" />
+        </mxCell>
+        <mxCell id="node36" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Word&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- explain: String&lt;br/&gt;- target: String&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;+ setTarget(String): void&lt;br/&gt;+ setExplain(String): void&lt;br/&gt;+ getExplain(): String&lt;br/&gt;+ getTarget(): String&lt;br/&gt;+ check_start(String): boolean&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="3602" y="1916" width="195" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="node18" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;googleAPI&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt;- translate(String, String, String): String&lt;br/&gt;+ translateToEn(String): String&lt;br/&gt;+ translateToVi(String): String&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="2381" y="1916" width="246" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.214;exitY=0.000;exitDx=0;exitDy=0;entryX=0.456;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node1" target="node5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge9" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.994;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node29" target="node34" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1587" y="1005" />
+              <mxPoint x="2706" y="1005" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.174;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node26" target="node2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2870" y="1044" />
+              <mxPoint x="3087" y="1044" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge8" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.004;entryDx=0;entryDy=0;" parent="1" source="node0" target="node35" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="4239" y="1044" />
+              <mxPoint x="3546" y="1044" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge22" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.384;exitY=0.000;exitDx=0;exitDy=0;entryX=0.456;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node6" target="node5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1386" y="399" />
+              <mxPoint x="1656" y="399" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge11" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.466;entryY=1.006;entryDx=0;entryDy=0;" parent="1" source="node8" target="node5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="781" y="399" />
+              <mxPoint x="1656" y="399" />
+              <mxPoint x="1656" y="343" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge0" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.481;exitY=0.000;exitDx=0;exitDy=0;entryX=0.512;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node22" target="node14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3082" y="-94" />
+              <mxPoint x="2392" y="-94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge14" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.495;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node28" target="node34" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="1004" />
+              <mxPoint x="2706" y="1004" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge23" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.512;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node3" target="node14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2054" y="-94" />
+              <mxPoint x="2392" y="-94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge16" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node23" target="node34" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1192" y="1005" />
+              <mxPoint x="2706" y="1005" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge7" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.488;exitY=0.000;exitDx=0;exitDy=0;entryX=0.512;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node38" target="node14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2391" y="-94" />
+              <mxPoint x="2392" y="-94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge10" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.460;entryY=1.007;entryDx=0;entryDy=0;" parent="1" source="node19" target="node5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="413" y="399" />
+              <mxPoint x="1657" y="399" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge12" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node25" target="node2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2686" y="1044" />
+              <mxPoint x="3087" y="1044" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge1" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node17" target="node35" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3967" y="1044" />
+              <mxPoint x="3546" y="1044" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge25" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.462;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node21" target="node2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2354" y="1044" />
+              <mxPoint x="3087" y="1044" />
+              <mxPoint x="3087" y="1040" />
+              <mxPoint x="3087" y="1040" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge18" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node9" target="node34" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="882" y="1004" />
+              <mxPoint x="2706" y="1004" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge19" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.248;exitY=0.000;exitDx=0;exitDy=0;entryX=0.498;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node13" target="node35" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.512;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node5" target="node14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1667" y="-94" />
+              <mxPoint x="2392" y="-94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node33" target="node2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2011" y="1044" />
+              <mxPoint x="3087" y="1044" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge13" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.511;exitY=0.000;exitDx=0;exitDy=0;entryX=0.455;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node27" target="node5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1092" y="399" />
+              <mxPoint x="1656" y="399" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge24" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node24" target="node34" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="291" y="1007" />
+              <mxPoint x="2706" y="1007" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.452;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node32" target="node35" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3289" y="1040" />
+              <mxPoint x="3546" y="1040" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge17" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.509;exitY=0.000;exitDx=0;exitDy=0;entryX=0.512;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node37" target="node14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2730" y="-94" />
+              <mxPoint x="2392" y="-94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge21" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node2" target="node22" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge15" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node34" target="node22" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2706" y="476" />
+              <mxPoint x="3087" y="476" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge20" value="" style="html=1;rounded=1;edgeStyle=orthogonalEdgeStyle;dashed=0;startArrow=none;endArrow=block;endSize=12;strokeColor=#000082;exitX=0.500;exitY=0.000;exitDx=0;exitDy=0;entryX=0.500;entryY=1.000;entryDx=0;entryDy=0;" parent="1" source="node35" target="node22" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="3546" y="476" />
+              <mxPoint x="3087" y="476" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #D0B3E3;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.End">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #C9B6DF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.EndSnatchers">
    <children>
       <ImageView fitHeight="226.0" fitWidth="259.0" layoutX="509.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,17 +24,17 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button id="button" fx:id="replayButton" layoutX="203.0" layoutY="441.0" mnemonicParsing="false" onAction="#replayGame" prefHeight="48.0" prefWidth="124.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: rgba(255, 255, 255, 0.8);" stylesheets="@../../../css/style.css" text="Play Again">
+      <Button id="button" fx:id="replayButton" layoutX="203.0" layoutY="441.0" mnemonicParsing="false" onAction="#replayGame" prefHeight="48.0" prefWidth="124.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: white;" stylesheets="@../../../css/style.css" text="Play Again">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button id="button" fx:id="playMoreGameButton" layoutX="335.0" layoutY="441.0" mnemonicParsing="false" onAction="#playMoreGame" prefHeight="48.0" prefWidth="418.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: rgba(255, 255, 255, 0.8);" stylesheets="@../../../css/style.css" text="Play More Games">
+      <Button id="button" fx:id="playMoreGameButton" layoutX="335.0" layoutY="441.0" mnemonicParsing="false" onAction="#playMoreGame" prefHeight="48.0" prefWidth="418.0" style="-fx-font-family: cambria; -fx-font-size: 20; -fx-background-radius: 20; -fx-background-color: white;" stylesheets="@../../../css/style.css" text="Play More Games">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <ImageView fitHeight="159.0" fitWidth="528.0" layoutX="186.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="159.0" fitWidth="528.0" layoutX="186.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/congra.png" />
          </image>

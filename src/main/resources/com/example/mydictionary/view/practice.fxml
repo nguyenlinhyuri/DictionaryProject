@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #B9E3FC;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.Practice">
+<AnchorPane prefHeight="466.0" prefWidth="809.0" style="-fx-background-color: #B9E3FC; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.Practice">
    <children>
-      <Button fx:id="notedWordsButton" layoutX="70.0" layoutY="100.0" mnemonicParsing="false" onAction="#notedWordsAction" prefHeight="100.0" prefWidth="670.0" style="-fx-font-family: Cambria; -fx-background-radius: 20; -fx-font-size: 20; -fx-background-color: #86ABF9; -fx-font-weight: bold; -fx-cursor: hand;" stylesheets="@../css/style.css" text="  Noted Words                                                                                                 ">
+      <Button fx:id="notedWordsButton" layoutX="70.0" layoutY="100.0" mnemonicParsing="false" onAction="#notedWordsAction" prefHeight="100.0" prefWidth="670.0" style="-fx-font-family: Cambria; -fx-background-radius: 20; -fx-font-size: 20; -fx-background-color: #60BADD; -fx-font-weight: bold; -fx-cursor: hand;" stylesheets="@../css/style.css" text="  Noted Words                                                                                                 ">
          <font>
             <Font size="18.0" />
          </font>

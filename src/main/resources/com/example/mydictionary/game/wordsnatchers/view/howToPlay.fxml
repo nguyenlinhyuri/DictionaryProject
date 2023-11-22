@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #863FA8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.Start">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #863FA8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordsnatchers.StartSnatchers">
    <children>
       <Button id="button" fx:id="backButton" layoutX="77.0" layoutY="125.0" mnemonicParsing="false" onAction="#backGame" prefHeight="46.0" prefWidth="98.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 2); -fx-font-size: 20px; -fx-background-color: rgba(255, 255, 255, 0.8);" stylesheets="@../../../css/style.css" text="Back">
          <font>

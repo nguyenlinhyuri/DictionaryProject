@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #3C88AA;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.StartController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #94C7F5;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mydictionary.game.wordbubbles.StartBubbles">
    <children>
-      <Button id="button" fx:id="backButton" layoutX="68.0" layoutY="106.0" mnemonicParsing="false" onAction="#backGame" prefHeight="46.0" prefWidth="98.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-font-weight: bold; -fx-font-size: 20px; -fx-background-color: rgba(255, 255, 255, 0.8);" stylesheets="@../../../css/style.css" text="Back">
+      <Button id="button" fx:id="backButton" layoutX="68.0" layoutY="106.0" mnemonicParsing="false" onAction="#backGame" prefHeight="46.0" prefWidth="98.0" style="-fx-background-radius: 20; -fx-font-family: cambria; -fx-font-weight: bold; -fx-font-size: 20px; -fx-background-color: #27576E; -fx-text-fill: white;" stylesheets="@../../../css/style.css" text="Back">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="76.0" layoutY="208.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="This game uses your KEYBOARD. ">
+      <Label layoutX="76.0" layoutY="208.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-family: cambria; -fx-text-fill: #16323E;" text="This game uses your KEYBOARD. ">
          <font>
             <Font size="20.0" />
          </font>
@@ -24,30 +24,25 @@
             <Image url="@../image/keyboard.png" />
          </image>
       </ImageView>
-      <Label layoutX="76.0" layoutY="259.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="Complele a word that starts with the letters above and press ENTER.">
+      <Label layoutX="76.0" layoutY="259.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #16323E;" text="Complele a word that starts with the letters above and press ENTER.">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="76.0" layoutY="306.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="Longer words are worth more points than shorter words.">
+      <Label layoutX="76.0" layoutY="306.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #16323E;" text="Longer words are worth more points than shorter words.">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="76.0" layoutY="354.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="As the timer counts down, we'll remove starting letters.">
+      <Label layoutX="76.0" layoutY="354.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #16323E;" text="As the timer counts down, we'll remove starting letters.">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="76.0" layoutY="401.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #ffffff;" text="Click BACK and start the game. Have fun!">
+      <Label layoutX="76.0" layoutY="401.0" prefHeight="46.0" prefWidth="592.0" style="-fx-font-family: cambria; -fx-text-fill: #16323E;" text="Click BACK and start the game. Have fun!">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="691.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/bb.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
