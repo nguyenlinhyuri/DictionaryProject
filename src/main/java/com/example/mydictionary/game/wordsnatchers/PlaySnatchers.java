@@ -545,7 +545,7 @@ public class PlaySnatchers extends UtilsSnatchers implements Initializable {
         alert.setHeaderText(randomWord.get(index).getTarget());
         alert.setContentText(randomWord.get(index).getExplain());
 
-        ButtonType addToListButton = new ButtonType("Add this word to Noted Words");
+        ButtonType addToListButton = new ButtonType("Add");
         ButtonType okButton = new ButtonType("OK");
 
         alert.getButtonTypes().setAll(addToListButton, okButton);

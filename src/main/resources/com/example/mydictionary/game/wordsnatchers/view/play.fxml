@@ -32,12 +32,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label fx:id="wordLabel" layoutX="743.0" layoutY="16.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #D0B3E3; -fx-font-family: cambria; -fx-font-weight: bold;" text=" Words  0 of 12">
+      <Label fx:id="wordLabel" layoutX="743.0" layoutY="16.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #D0B3E3; -fx-font-family: cambria; -fx-font-weight: bold; -fx-text-fill: #746EB7;" text=" Words  0 of 12">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="pointLabel" layoutX="743.0" layoutY="58.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #D0B3E3; -fx-font-family: cambria; -fx-font-weight: bold;" text=" Points">
+      <Label fx:id="pointLabel" layoutX="743.0" layoutY="58.0" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: #D0B3E3; -fx-font-family: cambria; -fx-font-weight: bold; -fx-text-fill: #746EB7;" text=" Points">
          <font>
             <Font size="20.0" />
          </font>
@@ -66,16 +66,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="276.0" fitWidth="253.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/decor2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="273.0" fitWidth="253.0" layoutX="646.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/decor3.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="254.0" layoutY="66.0" prefHeight="150.0" prefWidth="392.0" style="-fx-background-color: white; -fx-background-radius: 10;">
          <children>
             <TextArea fx:id="explainTextArea" layoutX="7.0" prefHeight="150.0" prefWidth="379.0" style="-fx-border-color: transparent; -fx-font-family: cambria; -fx-font-size: 20; -fx-border-color: none;" />

@@ -90,9 +90,14 @@ public class NotedWordList extends Practice implements Initializable {
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(item -> {
-            notedWord.put(targetTextField.getText(), dialog.getEditor().getText());
-            addItemToListView(targetTextField.getText());
+            if (notedWord.containsKey(targetTextField.getText())) {
+                showAlert(Alert.AlertType.INFORMATION, "Oops!", null, "This word has existed in the list.");
+            } else {
+                notedWord.put(targetTextField.getText(), dialog.getEditor().getText());
+                addItemToListView(targetTextField.getText());
+            }
         });
+
         if (!targetTextField.getText().isEmpty() && !dialog.getEditor().getText().isEmpty()) {
             showAlert(Alert.AlertType.INFORMATION, "Add a word", null, "Add successful!");
         }
@@ -111,25 +116,29 @@ public class NotedWordList extends Practice implements Initializable {
     public void editWord(ActionEvent event) {
         String wordToEdit = searchTextField.getText();
 
-        if (wordToEdit.isEmpty()) {
+        if (wordToEdit != null && !wordToEdit.isEmpty()) {
+            System.out.println(wordToEdit);
+            meaningTextArea.setEditable(true);
+            Button okButton = new Button("OK");
+            okButton.setStyle("-fx-font-family: Cambria;" +
+                    "-fx-background-color:  #007196;" +
+                    "-fx-font-weight: bold;" +
+                    "-fx-text-fill: white;");
+
+            AnchorPane.setTopAnchor(okButton, 412.0);
+            AnchorPane.setLeftAnchor(okButton, 740.0);
+            notedwordAnchorPane.getChildren().add(okButton);
+
+            okButton.setOnAction(e -> {
+                notedWord.remove(wordToEdit);
+                notedWord.put(wordToEdit, meaningTextArea.getText());
+                showAlert(Alert.AlertType.INFORMATION, "Information", null, "Edit successfully!");
+                meaningTextArea.setEditable(false);
+                notedwordAnchorPane.getChildren().remove(okButton);
+            });
+        } else {
             showAlert(Alert.AlertType.WARNING, "Warning", "Empty Input", "Please enter a word to edit.");
-            return;
         }
-
-        meaningTextArea.setEditable(true);
-        Button okButton = new Button("OK");
-
-        AnchorPane.setTopAnchor(okButton, 400.0);
-        AnchorPane.setLeftAnchor(okButton, 720.0);
-        notedwordAnchorPane.getChildren().add(okButton);
-
-        okButton.setOnAction(e -> {
-            notedWord.remove(wordToEdit);
-            notedWord.put(wordToEdit, meaningTextArea.getText());
-            showAlert(Alert.AlertType.INFORMATION, "Information", null, "Edit successfully!");
-            meaningTextArea.setEditable(false);
-            notedwordAnchorPane.getChildren().remove(okButton);
-        });
     }
 
     /**
@@ -138,18 +147,17 @@ public class NotedWordList extends Practice implements Initializable {
     public void deleteWord(ActionEvent event) {
         String wordToDelete = searchTextField.getText();
 
-        if (wordToDelete.isEmpty()) {
+        if (wordToDelete != null) {
+            if (!notedWord.containsKey(wordToDelete)) {
+                showAlert(Alert.AlertType.WARNING, "Not Found", null, "Not found this word");
+                return;
+            }
+            notedWord.remove(searchTextField.getText(), meaningTextArea.getText());
+            ObservableList<String> item = notedWordListView.getItems();
+            item.remove(wordToDelete);
+        } else {
             showAlert(Alert.AlertType.WARNING, "Warning", "Empty Input", "Please enter a word to delete.");
-            return;
         }
-        if (!notedWord.containsKey(wordToDelete)) {
-            showAlert(Alert.AlertType.WARNING, "Not Found", null, "Not found this word");
-            return;
-        }
-        notedWord.remove(searchTextField.getText(), meaningTextArea.getText());
-        ObservableList<String> item = notedWordListView.getItems();
-        item.remove(wordToDelete);
-
     }
 
     public void showAlert(Alert.AlertType alertType, String title, String headerText, String contentText) {
@@ -192,13 +200,11 @@ public class NotedWordList extends Practice implements Initializable {
         meaningTextArea.setWrapText(true);
         meaningTextArea.setEditable(false);
         updateListView();
-
         searchTextField.setOnKeyTyped(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 searchNotedWord();
             }
         });
-
     }
 }

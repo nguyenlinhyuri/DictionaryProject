@@ -1,5 +1,3 @@
 a	aaaaaa
-q	qqqqqq
 luonghao	28102004
-Chamla	112800
-khánh linh	02112004
+khanhlinh	02112004

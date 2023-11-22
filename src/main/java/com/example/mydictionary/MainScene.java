@@ -78,7 +78,7 @@ public class MainScene extends AppUtils implements Initializable {
 
 
     /**
-     * click vào avt
+     * click avt
      */
     public void clickAvt(MouseEvent mouseEvent) {
         ContextMenu option = new ContextMenu();

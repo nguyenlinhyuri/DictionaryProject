@@ -14,8 +14,12 @@ This application is designed to support English learning. It is wwritten in Java
 - In addtion to language translation, the application includes a flashcard review and self-practice exercises.
 - It also integrates various vocabulary games that both fun and educational.
 
+![demo](imgREADME/demo1.png)
+
+![demo](imgREADME/demo2.png)
+
 ## ***UML Diagrams***
-You can download the diagram at the following path ![diagrams-file](imgREADME/UMLdiagram.drawio).
+You can download the diagram at the following path ![diagrams.drawio](imgREADME/UMLdiagram.drawio).
 
 ![Diagrams](imgREADME/UMLdiagram.png)
 
@@ -41,6 +45,7 @@ You can download the diagram at the following path ![diagrams-file](imgREADME/UM
 - In Word Snatchers game, you will arrange the letters into English words with given explanations. Then completed the game, you can add these words of the game to noted words list if you want to review after.
 
 ## ***Demo***
+Link demo https://drive.google.com/file/d/12AyYxLo1GQ6Ztd1sVu9aKyr2Y96h4jdx/view?usp=sharing
 
 ## ***Future improvements***
 - Add multi-user mode

@@ -117,10 +117,10 @@ public class AppUtils {
         FileWriter fileWriter = new FileWriter(NOTED_WORD_PATH);
         BufferedWriter bw = new BufferedWriter(fileWriter);
         for (Map.Entry entry : notedWord.entrySet()) {
-            bw.write(entry.getKey() + "\t" + entry.getValue() + "\n");
+            String line = entry.getKey() + "\t" + entry.getValue() + "\n";
+            bw.write(line);
         }
         System.out.println("write notedwords successful!");
         bw.close();
-
     }
 }
