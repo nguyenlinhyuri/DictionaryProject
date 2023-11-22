@@ -42,10 +42,7 @@ public class NotedWordList extends Practice implements Initializable {
      */
     public void searchNotedWord() {
         String s = searchTextField.getText();
-        if (s.isEmpty() || s == null) {
-            updateListView();
-//            return;
-        } else {
+        if (s != null) {
             s = searchTextField.getText().toLowerCase().trim();
             if (!s.isEmpty()) {
                 list.clear();
@@ -66,6 +63,8 @@ public class NotedWordList extends Practice implements Initializable {
                 list.addAll(notedWord.keySet());
                 notedWordListView.setItems(list);
             }
+        } else {
+            updateListView();
         }
 
 
