@@ -346,7 +346,7 @@ public class PlaySnatchers extends UtilsSnatchers implements Initializable {
                         pointLabel.setText(" Points  " + point);
 
                         if (timeline.getStatus() == Animation.Status.RUNNING) {
-                            setIcon("E:\\Java\\BaiTapLonOOP\\DictionaryProject\\src\\main\\resources\\com\\example\\mydictionary\\game\\wordsnatchers\\image\\tick_icon.png");
+                            setIcon("/com/example/mydictionary/game/wordsnatchers/image/tick_icon.png");
                             if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
                                 playStatusSound(true);
                         }
@@ -378,7 +378,7 @@ public class PlaySnatchers extends UtilsSnatchers implements Initializable {
             showAnswer();
 
             if (isX) {
-                setIcon("E:\\Java\\intellijJava\\OOPtemp\\DictionaryProject\\src\\main\\resources\\com\\example\\mydictionary\\game\\wordsnatchers\\image\\x_icon.png");
+                setIcon("/com/example/mydictionary/game/wordsnatchers/image/x_icon.png");
                 if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
                     playStatusSound(false);
                 }
@@ -574,7 +574,7 @@ public class PlaySnatchers extends UtilsSnatchers implements Initializable {
      */
     public void setIcon(String path) {
         ImageView icon = new ImageView();
-        icon.setImage(new Image(path));
+        icon.setImage(new Image(getClass().getResourceAsStream(path)));
         icon.setFitHeight(40);
         icon.setFitWidth(40);
 

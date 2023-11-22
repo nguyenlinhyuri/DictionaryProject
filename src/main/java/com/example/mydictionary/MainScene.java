@@ -129,7 +129,7 @@ public class MainScene extends AppUtils implements Initializable {
      */
     public void setDefaultAvatar() {
         try {
-            Image defaultAvatar = new Image("E:\\Java\\BaiTapLonOOP\\DictionaryProject\\data\\avtDefault.png");
+            Image defaultAvatar = new Image(getClass().getResourceAsStream("/com/example/mydictionary/image/avtDefault.png"));
             avtImageView.setImage(defaultAvatar);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
